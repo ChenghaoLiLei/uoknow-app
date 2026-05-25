@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "İsteğe bağlı olarak konum bilginizi acil kişilerinizle paylaşın. Arka planda takip yapılmaz.",
+  "NSUserNotificationUsageDescription": "UOKnow, acil kişilerinizin güvende olduğunuzu bilmesi için günlük check-in hatırlatıcıları gönderir."
+}

@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "При желании поделитесь своим местоположением с экстренными контактами при регистрации. Без отслеживания в фоне.",
+  "NSUserNotificationUsageDescription": "UOKnow отправляет ежедневные напоминания, чтобы ваши экстренные контакты знали, что вы в безопасности."
+}

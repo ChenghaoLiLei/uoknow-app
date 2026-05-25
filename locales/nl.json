@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "Deel optioneel je locatie met noodcontacten bij het inchecken. Geen tracking op de achtergrond.",
+  "NSUserNotificationUsageDescription": "UOKnow stuurt dagelijkse incheckherinneringen zodat je noodcontacten weten dat je veilig bent."
+}

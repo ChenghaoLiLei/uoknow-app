@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "簽到時可選擇與緊急聯絡人分享您的位置，不會在背景持續取得。",
+  "NSUserNotificationUsageDescription": "UOKnow 每日發送簽到提醒，讓您的緊急聯絡人知道您平安。"
+}

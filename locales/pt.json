@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "Compartilhe opcionalmente sua localização com contatos de emergência ao fazer check-in. Sem rastreamento em segundo plano.",
+  "NSUserNotificationUsageDescription": "UOKnow envia lembretes diários para que seus contatos de emergência saibam que você está bem."
+}

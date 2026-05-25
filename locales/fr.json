@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "Partagez optionnellement votre position avec vos contacts d'urgence lors de votre enregistrement. Aucune collecte en arrière-plan.",
+  "NSUserNotificationUsageDescription": "UOKnow envoie des rappels quotidiens pour que vos contacts d'urgence sachent que vous êtes en sécurité."
+}

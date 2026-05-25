@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "แชร์ตำแหน่งของคุณกับผู้ติดต่อฉุกเฉินเมื่อเช็คอิน (ไม่บังคับ) ไม่มีการติดตามในพื้นหลัง",
+  "NSUserNotificationUsageDescription": "UOKnow ส่งการแจ้งเตือนเช็คอินรายวันเพื่อให้ผู้ติดต่อฉุกเฉินของคุณทราบว่าคุณปลอดภัย"
+}

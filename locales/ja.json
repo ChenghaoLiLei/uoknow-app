@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "チェックイン時に緊急連絡先へ位置情報を共有できます（任意）。バックグラウンドでは取得しません。",
+  "NSUserNotificationUsageDescription": "UOKnow は毎日チェックインのリマインダーを送り、緊急連絡先があなたの安否を確認できるようにします。"
+}

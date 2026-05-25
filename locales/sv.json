@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "Dela valfritt din plats med nödkontakter vid incheckning. Ingen bakgrundsspårning.",
+  "NSUserNotificationUsageDescription": "UOKnow skickar dagliga påminnelser så att dina nödkontakter vet att du är säker."
+}

@@ -1,1 +1,5 @@
-{"CFBundleDisplayName": "UOK"}
+{
+  "CFBundleDisplayName": "UOKnow",
+  "NSLocationWhenInUseUsageDescription": "Opcjonalnie udostępnij swoją lokalizację kontaktom alarmowym podczas meldowania. Brak śledzenia w tle.",
+  "NSUserNotificationUsageDescription": "UOKnow wysyła codzienne przypomnienia, aby Twoje kontakty alarmowe wiedziały, że jesteś bezpieczny."
+}
