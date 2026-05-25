@@ -1,0 +1,93 @@
+{
+  "expo": {
+    "name": "UOKnow",
+    "slug": "uoknow",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "locales": {
+      "zh": "./locales/zh.json",
+      "zh-TW": "./locales/zh-TW.json",
+      "en": "./locales/en.json",
+      "ja": "./locales/ja.json",
+      "ko": "./locales/ko.json",
+      "es": "./locales/es.json",
+      "fr": "./locales/fr.json",
+      "de": "./locales/de.json",
+      "pt": "./locales/pt.json",
+      "it": "./locales/it.json",
+      "ru": "./locales/ru.json",
+      "ar": "./locales/ar.json",
+      "hi": "./locales/hi.json",
+      "th": "./locales/th.json",
+      "vi": "./locales/vi.json",
+      "id": "./locales/id.json",
+      "ms": "./locales/ms.json",
+      "nl": "./locales/nl.json",
+      "pl": "./locales/pl.json",
+      "tr": "./locales/tr.json",
+      "uk": "./locales/uk.json",
+      "sv": "./locales/sv.json",
+      "no": "./locales/no.json",
+      "da": "./locales/da.json",
+      "fi": "./locales/fi.json"
+    },
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2E7D32"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.uoknow.app",
+      "buildNumber": "1",
+      "minimumOsVersion": "16.0",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Optionally share your location with emergency contacts when checking in.",
+        "NSUserNotificationUsageDescription": "UOKnow sends daily check-in reminders to help your emergency contacts know you are safe.",
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2E7D32"
+      },
+      "package": "com.uoknow.app",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#2E7D32",
+          "defaultChannel": "default",
+          "sounds": []
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Optionally share your location with emergency contacts when checking in."
+        }
+      ]
+    ],
+    "scheme": "uoknow",
+    "extra": {
+      "serverUrl": "https://uok-server-production.up.railway.app",
+      "eas": {
+        "projectId": "c8266ceb-1f0b-43f0-8fec-bde103d6b676"
+      }
+    },
+    "owner": "chli"
+  }
+}
