@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: '괜찮으세요?',
+  appSubtitle: '지금 괜찮으세요?',
   checkedInAlertTitle: '오늘 체크인 완료',
   checkedInAlertMsg: '마지막 체크인: %{time}',
   btnCheckIn: '체크인',

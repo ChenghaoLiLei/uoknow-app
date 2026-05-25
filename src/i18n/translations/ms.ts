@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Awak OK?',
+  appSubtitle: 'Awak OK sekarang?',
   checkedInAlertTitle: 'Sudah daftar masuk hari ini',
   checkedInAlertMsg: 'Daftar masuk terakhir: %{time}',
   btnCheckIn: 'Daftar Masuk',

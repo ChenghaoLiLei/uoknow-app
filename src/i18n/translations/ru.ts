@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Всё в порядке?',
+  appSubtitle: 'Всё в порядке сейчас?',
   checkedInAlertTitle: 'Сегодня уже отмечено',
   checkedInAlertMsg: 'Последняя отметка: %{time}',
   btnCheckIn: 'Отметиться',

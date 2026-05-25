@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Wszystko w porządku?',
+  appSubtitle: 'Wszystko w porządku teraz?',
   checkedInAlertTitle: 'Już zameldowano dziś',
   checkedInAlertMsg: 'Ostatnie zameldowanie: %{time}',
   btnCheckIn: 'Zamelduj się',

@@ -130,7 +130,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.appTitle}>UOK</Text>
+        <Text style={styles.appTitle}>UOKnow</Text>
         <Text style={styles.appSubtitle}>{t('appSubtitle')}</Text>
       </View>
 

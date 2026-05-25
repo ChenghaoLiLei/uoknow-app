@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Alles in Ordnung?',
+  appSubtitle: 'Alles in Ordnung jetzt?',
   checkedInAlertTitle: 'Heute bereits eingecheckt',
   checkedInAlertMsg: 'Letzter Check-in: %{time}',
   btnCheckIn: 'Einchecken',

@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Gaat het goed?',
+  appSubtitle: 'Gaat het nu goed?',
   checkedInAlertTitle: 'Al ingecheckt vandaag',
   checkedInAlertMsg: 'Laatste check-in: %{time}',
   btnCheckIn: 'Inchecken',

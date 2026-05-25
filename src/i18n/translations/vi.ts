@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Bạn có ổn không?',
+  appSubtitle: 'Bạn có ổn không bây giờ?',
   checkedInAlertTitle: 'Đã điểm danh hôm nay',
   checkedInAlertMsg: 'Lần cuối điểm danh: %{time}',
   btnCheckIn: 'Điểm danh',

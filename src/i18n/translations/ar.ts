@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'هل أنت بخير؟',
+  appSubtitle: 'هل أنت بخير الآن؟',
   checkedInAlertTitle: 'تم تسجيل الحضور اليوم',
   checkedInAlertMsg: 'آخر تسجيل: %{time}',
   btnCheckIn: 'تسجيل الحضور',

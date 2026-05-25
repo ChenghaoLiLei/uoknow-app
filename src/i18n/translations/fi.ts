@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Onko kaikki hyvin?',
+  appSubtitle: 'Onko kaikki hyvin nyt?',
   checkedInAlertTitle: 'Jo kirjautunut tänään',
   checkedInAlertMsg: 'Viime kirjautuminen: %{time}',
   btnCheckIn: 'Kirjaudu',

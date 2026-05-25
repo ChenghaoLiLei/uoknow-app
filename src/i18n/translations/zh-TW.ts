@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: '還好嗎？',
+  appSubtitle: '你現在還好嗎？',
   checkedInAlertTitle: '今天已簽到',
   checkedInAlertMsg: '上次簽到：%{time}',
   btnCheckIn: '點我簽到',

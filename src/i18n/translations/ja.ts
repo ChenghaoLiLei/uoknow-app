@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: '大丈夫ですか？',
+  appSubtitle: '今、大丈夫ですか？',
   checkedInAlertTitle: '本日のチェックイン済み',
   checkedInAlertMsg: '最後のチェックイン：%{time}',
   btnCheckIn: 'チェックイン',

@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'क्या आप ठीक हैं?',
+  appSubtitle: 'क्या आप अभी ठीक हैं?',
   checkedInAlertTitle: 'आज चेक-इन हो चुका है',
   checkedInAlertMsg: 'अंतिम चेक-इन: %{time}',
   btnCheckIn: 'चेक-इन करें',

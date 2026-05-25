@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: '还好吗？',
+  appSubtitle: '你现在还好吗？',
   checkedInAlertTitle: '今天已签到',
   checkedInAlertMsg: '上次签到：%{time}',
   btnCheckIn: '点我签到',
@@ -57,7 +57,7 @@ export default {
   locationDeniedTitle: '权限被拒绝',
   locationDeniedMsg: '请在系统设置中开启位置权限，然后再次开启此选项。',
 
-  reminderNotifTitle: '🐱 你还好吗？— 记得签到！',
+  reminderNotifTitle: '🐱 你现在还好吗？— 记得签到！',
   reminderNotifBody: '你今天还没有签到，点击确认你还好。',
   checkInSuccessTitle: '✅ 签到成功',
   checkInSuccessBody: '很好！你今天的签到已记录。明天记得再来。',

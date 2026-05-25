@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'คุณสบายดีไหม?',
+  appSubtitle: 'คุณสบายดีตอนนี้ไหม?',
   checkedInAlertTitle: 'เช็คอินวันนี้แล้ว',
   checkedInAlertMsg: 'เช็คอินล่าสุด: %{time}',
   btnCheckIn: 'เช็คอิน',

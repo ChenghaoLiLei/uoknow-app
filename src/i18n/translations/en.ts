@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Are you OK?',
+  appSubtitle: 'Are you OK now?',
   checkedInAlertTitle: "Already checked in today",
   checkedInAlertMsg: 'Last check-in: %{time}',
   btnCheckIn: 'Check In',
@@ -57,7 +57,7 @@ export default {
   locationDeniedTitle: 'Permission Denied',
   locationDeniedMsg: 'Please enable location access in System Settings, then try again.',
 
-  reminderNotifTitle: '🐱 Are you OK? — Time to check in!',
+  reminderNotifTitle: '🐱 Are you OK now? — Time to check in!',
   reminderNotifBody: "You haven't checked in today. Tap to confirm you're OK.",
   checkInSuccessTitle: '✅ Check-in recorded',
   checkInSuccessBody: "Great! Today's check-in is saved. See you tomorrow.",

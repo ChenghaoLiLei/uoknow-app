@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'İyi misin?',
+  appSubtitle: 'Şu an iyi misin?',
   checkedInAlertTitle: 'Bugün giriş yapıldı',
   checkedInAlertMsg: 'Son giriş: %{time}',
   btnCheckIn: 'Giriş Yap',

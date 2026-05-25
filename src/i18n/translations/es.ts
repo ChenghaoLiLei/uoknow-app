@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: '¿Estás bien?',
+  appSubtitle: '¿Estás bien ahora?',
   checkedInAlertTitle: 'Ya registrado hoy',
   checkedInAlertMsg: 'Último registro: %{time}',
   btnCheckIn: 'Registrarme',

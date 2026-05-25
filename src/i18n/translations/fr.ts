@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Tu vas bien ?',
+  appSubtitle: 'Tu vas bien maintenant ?',
   checkedInAlertTitle: 'Déjà pointé aujourd\'hui',
   checkedInAlertMsg: 'Dernier pointage : %{time}',
   btnCheckIn: 'Pointer',

@@ -1,5 +1,5 @@
 export default {
-  appSubtitle: 'Mår du bra?',
+  appSubtitle: 'Mår du bra nu?',
   checkedInAlertTitle: 'Redan incheckad idag',
   checkedInAlertMsg: 'Senaste incheckning: %{time}',
   btnCheckIn: 'Checka in',
