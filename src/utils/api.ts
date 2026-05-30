@@ -47,9 +47,10 @@ export async function apiSyncSettings(
   language?: string,
   isPremium?: boolean
 ): Promise<void> {
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   await post('/api/settings', {
     deviceId,
-    settings: { ...settings, language: language ?? 'en', isPremium: isPremium ?? false },
+    settings: { ...settings, language: language ?? 'en', isPremium: isPremium ?? false, timezone },
   });
 }
 
