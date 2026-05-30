@@ -25,7 +25,9 @@ import {
 } from '../utils/storage';
 import { requestPermissions, scheduleDailyReminder, sendLocalCheckInConfirmation } from '../utils/notifications';
 import { getCurrentLocation, requestLocationPermission } from '../utils/location';
-import { apiCheckIn } from '../utils/api';
+import { apiCheckIn, apiSyncContacts, apiSyncSettings } from '../utils/api';
+import { LanguageContext } from '../LanguageContext';
+import { useContext } from 'react';
 import { t } from '../i18n';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'Home'>;
@@ -33,6 +35,7 @@ type Nav = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 export default function HomeScreen() {
   const navigation = useNavigation<Nav>();
   const colors = useColors();
+  const { language } = useContext(LanguageContext);
 
   const [checkedIn, setCheckedIn] = useState(false);
   const [lastCheckInTime, setLastCheckInTime] = useState<Date | null>(null);
@@ -80,8 +83,12 @@ export default function HomeScreen() {
     if (!initialized) {
       await scheduleDailyReminder(settings.reminderHour, settings.reminderMinute);
       setInitialized(true);
+      // Silently re-sync contacts and settings to server on first load
+      const deviceId = await getDeviceId();
+      apiSyncContacts(deviceId, contacts).catch(() => {});
+      apiSyncSettings(deviceId, settings, language).catch(() => {});
     }
-  }, [initialized]);
+  }, [initialized, language]);
 
   useFocusEffect(useCallback(() => { loadState(); }, [loadState]));
 
