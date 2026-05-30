@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useState } from 'react';
 import { PremiumContext } from '../PremiumContext';
 import {
   Alert,
+  Modal,
   ScrollView,
   StyleSheet,
   Switch,
@@ -9,6 +10,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  FlatList,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -16,7 +18,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
 
 import { Settings } from '../types';
-import { colors, fontSizes, radius, spacing } from '../theme';
+import { spacing, fontSizes, radius } from '../theme';
+import { useColors } from '../ThemeContext';
 import { clearAllData, getDeviceId, getSettings, saveSettings } from '../utils/storage';
 import { requestLocationPermission } from '../utils/location';
 import { scheduleDailyReminder } from '../utils/notifications';
@@ -24,7 +27,7 @@ import { apiSyncSettings } from '../utils/api';
 import { t } from '../i18n';
 import { LanguageContext } from '../LanguageContext';
 
-const LANGUAGE_OPTIONS: { code: string; label: string }[] = [
+const LANGUAGE_OPTIONS = [
   { code: 'en', label: 'English' },
   { code: 'zh', label: '中文' },
   { code: 'zh-TW', label: '繁體中文' },
@@ -52,19 +55,19 @@ const LANGUAGE_OPTIONS: { code: string; label: string }[] = [
   { code: 'ms', label: 'Bahasa Melayu' },
 ];
 
-const TRIGGER_OPTIONS = [4, 8, 12, 24, 48, 72];
+const TRIGGER_OPTIONS = [5 / 60, 4, 8, 12, 24, 48, 72];
 
-const REMINDER_OPTIONS = [
-  { label: '6:00 AM', hour: 6, minute: 0 },
-  { label: '7:00 AM', hour: 7, minute: 0 },
-  { label: '8:00 AM', hour: 8, minute: 0 },
-  { label: '9:00 AM', hour: 9, minute: 0 },
-  { label: '10:00 AM', hour: 10, minute: 0 },
-  { label: '12:00 PM', hour: 12, minute: 0 },
-  { label: '3:00 PM', hour: 15, minute: 0 },
-  { label: '6:00 PM', hour: 18, minute: 0 },
-  { label: '9:00 PM', hour: 21, minute: 0 },
+// Pause duration presets in milliseconds
+const PAUSE_OPTIONS = [
+  { key: '1d', label: () => t('vacationDuration1d'), ms: 24 * 3600_000 },
+  { key: '3d', label: () => t('vacationDuration3d'), ms: 3 * 24 * 3600_000 },
+  { key: '1w', label: () => t('vacationDuration1w'), ms: 7 * 24 * 3600_000 },
+  { key: '2w', label: () => t('vacationDuration2w'), ms: 14 * 24 * 3600_000 },
+  { key: 'indefinite', label: () => t('vacationDurationIndefinite'), ms: 0 },
 ];
+
+const HOURS = Array.from({ length: 24 }, (_, i) => i);
+const MINUTES = Array.from({ length: 60 }, (_, i) => i);
 
 function triggerLabel(h: number): string {
   if (h < 1) return t('timeMinutes', { n: Math.round(h * 60) });
@@ -72,10 +75,16 @@ function triggerLabel(h: number): string {
   return t('triggerDay', { n: h / 24 });
 }
 
+function pad(n: number) { return String(n).padStart(2, '0'); }
+
 export default function SettingsScreen() {
   const { language, changeLanguage } = useContext(LanguageContext);
   const { isPremium } = useContext(PremiumContext);
+  const colors = useColors();
   const [settings, setSettings] = useState<Settings | null>(null);
+  const [timePickerVisible, setTimePickerVisible] = useState(false);
+  const [tempHour, setTempHour] = useState(9);
+  const [tempMinute, setTempMinute] = useState(0);
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const loadSettings = useCallback(async () => {
@@ -110,79 +119,113 @@ export default function SettingsScreen() {
     await save({ shareLocation: value });
   };
 
-  const handleReset = () => {
+  const handleVacationToggle = async (value: boolean) => {
+    if (!value) {
+      await save({ isPaused: false, pauseUntil: undefined });
+      return;
+    }
+    // Show duration picker when enabling
     Alert.alert(
-      t('resetTitle'),
-      t('resetMsg'),
-      [
-        { text: t('cancel'), style: 'cancel' },
-        {
-          text: t('resetConfirm'),
-          style: 'destructive',
-          onPress: async () => {
-            await clearAllData();
-            await loadSettings();
-            Alert.alert(t('resetDoneTitle'), t('resetDoneMsg'));
-          },
+      t('vacationDuration'),
+      '',
+      PAUSE_OPTIONS.map((opt) => ({
+        text: opt.label(),
+        onPress: async () => {
+          const pauseUntil = opt.ms > 0 ? Date.now() + opt.ms : undefined;
+          await save({ isPaused: true, pauseUntil });
         },
-      ]
+      }))
     );
   };
 
-  const selectedReminderIdx = REMINDER_OPTIONS.findIndex(
-    (o) => o.hour === settings.reminderHour && o.minute === settings.reminderMinute
-  );
+  const handleReset = () => {
+    Alert.alert(t('resetTitle'), t('resetMsg'), [
+      { text: t('cancel'), style: 'cancel' },
+      {
+        text: t('resetConfirm'),
+        style: 'destructive',
+        onPress: async () => {
+          await clearAllData();
+          await loadSettings();
+          Alert.alert(t('resetDoneTitle'), t('resetDoneMsg'));
+        },
+      },
+    ]);
+  };
+
+  const openTimePicker = () => {
+    setTempHour(settings.reminderHour);
+    setTempMinute(settings.reminderMinute);
+    setTimePickerVisible(true);
+  };
+
+  const confirmTimePicker = async () => {
+    setTimePickerVisible(false);
+    await handleReminderChange(tempHour, tempMinute);
+  };
+
+  const vacationStatus = () => {
+    if (!settings.isPaused) return null;
+    if (settings.pauseUntil) {
+      const date = new Date(settings.pauseUntil).toLocaleDateString();
+      return t('vacationResumesAt', { date });
+    }
+    return t('vacationIndefinite');
+  };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={['bottom']}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
 
-        <SectionHeader title={t('triggerSectionTitle')} hint={t('triggerSectionHint')} />
+        {/* Trigger window */}
+        <SectionHeader title={t('triggerSectionTitle')} hint={t('triggerSectionHint')} colors={colors} />
         <View style={styles.chipRow}>
           {TRIGGER_OPTIONS.map((h) => (
             <TouchableOpacity
               key={h}
-              style={[styles.chip, settings.triggerHours === h && styles.chipSelected]}
+              style={[styles.chip, { borderColor: colors.border, backgroundColor: colors.surface },
+                settings.triggerHours === h && { borderColor: colors.primary, backgroundColor: colors.primary }]}
               onPress={() => save({ triggerHours: h })}
             >
-              <Text style={[styles.chipText, settings.triggerHours === h && styles.chipTextSelected]}>
+              <Text style={[styles.chipText, { color: colors.textSecondary },
+                settings.triggerHours === h && { color: '#fff' }]}>
                 {triggerLabel(h)}
               </Text>
             </TouchableOpacity>
           ))}
         </View>
 
-        <SectionHeader title={t('reminderSectionTitle')} hint={t('reminderSectionHint')} />
-        <View style={styles.chipRow}>
-          {REMINDER_OPTIONS.map((o, idx) => (
-            <TouchableOpacity
-              key={o.label}
-              style={[styles.chip, selectedReminderIdx === idx && styles.chipSelected]}
-              onPress={() => handleReminderChange(o.hour, o.minute)}
-            >
-              <Text style={[styles.chipText, selectedReminderIdx === idx && styles.chipTextSelected]}>
-                {o.label}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+        {/* Reminder time — custom picker */}
+        <SectionHeader title={t('reminderSectionTitle')} hint={t('reminderSectionHint')} colors={colors} />
+        <TouchableOpacity
+          style={[styles.timeButton, { backgroundColor: colors.surface, borderColor: colors.primary }]}
+          onPress={openTimePicker}
+        >
+          <Text style={[styles.timeButtonText, { color: colors.primaryDark }]}>
+            🕐 {pad(settings.reminderHour)}:{pad(settings.reminderMinute)}
+          </Text>
+          <Text style={[styles.timeButtonHint, { color: colors.textMuted }]}>{t('tapToChange')}</Text>
+        </TouchableOpacity>
 
-        <SectionHeader title={t('messageSectionTitle')} hint={t('messageSectionHint')} />
+        {/* Personal message */}
+        <SectionHeader title={t('messageSectionTitle')} hint={t('messageSectionHint')} colors={colors} />
         <TextInput
-          style={styles.textarea}
+          style={[styles.textarea, { backgroundColor: colors.surface, borderColor: colors.border, color: colors.textPrimary }]}
           value={settings.personalMessage}
           onChangeText={(v) => save({ personalMessage: v, personalMessageIsCustom: true })}
           multiline
           numberOfLines={4}
           placeholder={t('messagePlaceholder')}
+          placeholderTextColor={colors.textMuted}
           textAlignVertical="top"
         />
 
-        <SectionHeader title={t('locationSectionTitle')} hint={t('locationSectionHint')} />
-        <View style={styles.toggleRow}>
+        {/* Location */}
+        <SectionHeader title={t('locationSectionTitle')} hint={t('locationSectionHint')} colors={colors} />
+        <View style={[styles.toggleRow, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <View style={styles.toggleInfo}>
-            <Text style={styles.toggleTitle}>{t('locationToggleLabel')}</Text>
-            <Text style={styles.toggleHint}>{t('locationToggleHint')}</Text>
+            <Text style={[styles.toggleTitle, { color: colors.textPrimary }]}>{t('locationToggleLabel')}</Text>
+            <Text style={[styles.toggleHint, { color: colors.textMuted }]}>{t('locationToggleHint')}</Text>
           </View>
           <Switch
             value={settings.shareLocation}
@@ -192,29 +235,50 @@ export default function SettingsScreen() {
           />
         </View>
 
-        <SectionHeader title={t('languageSectionTitle')} />
+        {/* Vacation mode */}
+        <SectionHeader title={t('vacationSectionTitle')} hint={t('vacationSectionHint')} colors={colors} />
+        <View style={[styles.toggleRow, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <View style={styles.toggleInfo}>
+            <Text style={[styles.toggleTitle, { color: colors.textPrimary }]}>{t('vacationToggleLabel')}</Text>
+            <Text style={[styles.toggleHint, { color: settings.isPaused ? colors.warning : colors.textMuted }]}>
+              {vacationStatus() ?? t('vacationToggleHint')}
+            </Text>
+          </View>
+          <Switch
+            value={settings.isPaused}
+            onValueChange={handleVacationToggle}
+            trackColor={{ false: colors.border, true: '#FFB74D' }}
+            thumbColor={settings.isPaused ? colors.warning : '#fff'}
+          />
+        </View>
+
+        {/* Language */}
+        <SectionHeader title={t('languageSectionTitle')} colors={colors} />
         <View style={styles.chipRow}>
           {LANGUAGE_OPTIONS.map((lang) => (
             <TouchableOpacity
               key={lang.code}
-              style={[styles.chip, language === lang.code && styles.chipSelected]}
+              style={[styles.chip, { borderColor: colors.border, backgroundColor: colors.surface },
+                language === lang.code && { borderColor: colors.primary, backgroundColor: colors.primary }]}
               onPress={() => changeLanguage(lang.code)}
             >
-              <Text style={[styles.chipText, language === lang.code && styles.chipTextSelected]}>
+              <Text style={[styles.chipText, { color: colors.textSecondary },
+                language === lang.code && { color: '#fff' }]}>
                 {lang.label}
               </Text>
             </TouchableOpacity>
           ))}
         </View>
 
-        <SectionHeader title={t('planSectionTitle')} />
-        <View style={styles.planRow}>
-          <Text style={styles.planText}>
+        {/* Plan */}
+        <SectionHeader title={t('planSectionTitle')} colors={colors} />
+        <View style={[styles.planRow, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <Text style={[styles.planText, { color: colors.textSecondary }]}>
             {isPremium ? t('planPremium') : t('planFree')}
           </Text>
           {!isPremium && (
             <TouchableOpacity
-              style={styles.upgradeBtn}
+              style={[styles.upgradeBtn, { backgroundColor: colors.primary }]}
               onPress={() => navigation.navigate('Paywall')}
             >
               <Text style={styles.upgradeBtnText}>{t('upgradeBtn')}</Text>
@@ -222,112 +286,158 @@ export default function SettingsScreen() {
           )}
         </View>
 
-        <SectionHeader title={t('aboutSectionTitle')} />
+        {/* About */}
+        <SectionHeader title={t('aboutSectionTitle')} colors={colors} />
         <TouchableOpacity
-          style={styles.linkRow}
+          style={[styles.linkRow, { backgroundColor: colors.surface, borderColor: colors.border }]}
           onPress={() => navigation.navigate('PrivacyPolicy')}
         >
-          <Text style={styles.linkText}>{t('privacyPolicyBtn')}</Text>
-          <Text style={styles.linkArrow}>›</Text>
+          <Text style={[styles.linkText, { color: colors.textPrimary }]}>{t('privacyPolicyBtn')}</Text>
+          <Text style={[styles.linkArrow, { color: colors.textMuted }]}>›</Text>
         </TouchableOpacity>
-        <Text style={styles.versionText}>{t('appVersion', { version: '1.0.0' })}</Text>
+        <TouchableOpacity
+          style={[styles.linkRow, { backgroundColor: colors.surface, borderColor: colors.border, marginTop: spacing.sm }]}
+          onPress={() => navigation.navigate('History')}
+        >
+          <Text style={[styles.linkText, { color: colors.textPrimary }]}>📅 {t('historyScreenTitle')}</Text>
+          <Text style={[styles.linkArrow, { color: colors.textMuted }]}>›</Text>
+        </TouchableOpacity>
+        <Text style={[styles.versionText, { color: colors.textMuted }]}>{t('appVersion', { version: '1.0.0' })}</Text>
 
-        <SectionHeader title={t('dangerZone')} />
-        <TouchableOpacity style={styles.dangerButton} onPress={handleReset}>
-          <Text style={styles.dangerButtonText}>{t('resetBtn')}</Text>
+        {/* Danger zone */}
+        <SectionHeader title={t('dangerZone')} colors={colors} />
+        <TouchableOpacity
+          style={[styles.dangerButton, { backgroundColor: '#FFEBEE', borderColor: '#FFCDD2' }]}
+          onPress={handleReset}
+        >
+          <Text style={[styles.dangerButtonText, { color: colors.danger }]}>{t('resetBtn')}</Text>
         </TouchableOpacity>
       </ScrollView>
+
+      {/* Custom time picker modal */}
+      <Modal visible={timePickerVisible} animationType="slide" presentationStyle="pageSheet" transparent>
+        <View style={styles.pickerOverlay}>
+          <View style={[styles.pickerSheet, { backgroundColor: colors.surface }]}>
+            <View style={[styles.pickerHeader, { borderBottomColor: colors.border }]}>
+              <TouchableOpacity onPress={() => setTimePickerVisible(false)}>
+                <Text style={[styles.pickerCancel, { color: colors.textSecondary }]}>{t('cancel')}</Text>
+              </TouchableOpacity>
+              <Text style={[styles.pickerTitle, { color: colors.textPrimary }]}>{t('reminderSectionTitle')}</Text>
+              <TouchableOpacity onPress={confirmTimePicker}>
+                <Text style={[styles.pickerDone, { color: colors.primary }]}>{t('save')}</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.pickerColumns}>
+              {/* Hour column */}
+              <View style={styles.pickerCol}>
+                <Text style={[styles.pickerColLabel, { color: colors.textMuted }]}>HH</Text>
+                <FlatList
+                  data={HOURS}
+                  keyExtractor={(item) => String(item)}
+                  style={styles.pickerList}
+                  showsVerticalScrollIndicator={false}
+                  renderItem={({ item }) => (
+                    <TouchableOpacity
+                      style={[styles.pickerItem, item === tempHour && { backgroundColor: colors.primaryLight }]}
+                      onPress={() => setTempHour(item)}
+                    >
+                      <Text style={[styles.pickerItemText, { color: item === tempHour ? colors.primaryDark : colors.textPrimary },
+                        item === tempHour && { fontWeight: '700' }]}>
+                        {pad(item)}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                />
+              </View>
+
+              <Text style={[styles.pickerColon, { color: colors.textPrimary }]}>:</Text>
+
+              {/* Minute column */}
+              <View style={styles.pickerCol}>
+                <Text style={[styles.pickerColLabel, { color: colors.textMuted }]}>MM</Text>
+                <FlatList
+                  data={MINUTES}
+                  keyExtractor={(item) => String(item)}
+                  style={styles.pickerList}
+                  showsVerticalScrollIndicator={false}
+                  renderItem={({ item }) => (
+                    <TouchableOpacity
+                      style={[styles.pickerItem, item === tempMinute && { backgroundColor: colors.primaryLight }]}
+                      onPress={() => setTempMinute(item)}
+                    >
+                      <Text style={[styles.pickerItemText, { color: item === tempMinute ? colors.primaryDark : colors.textPrimary },
+                        item === tempMinute && { fontWeight: '700' }]}>
+                        {pad(item)}
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                />
+              </View>
+            </View>
+
+            <View style={styles.pickerPreview}>
+              <Text style={[styles.pickerPreviewText, { color: colors.primaryDark }]}>
+                {t('reminderPreview', { time: `${pad(tempHour)}:${pad(tempMinute)}` })}
+              </Text>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
 
-function SectionHeader({ title, hint }: { title: string; hint?: string }) {
+function SectionHeader({ title, hint, colors }: { title: string; hint?: string; colors: ReturnType<typeof useColors> }) {
   return (
     <View style={styles.sectionHeader}>
-      <Text style={styles.sectionTitle}>{title}</Text>
-      {hint && <Text style={styles.sectionHint}>{hint}</Text>}
+      <Text style={[styles.sectionTitle, { color: colors.textPrimary }]}>{title}</Text>
+      {hint && <Text style={[styles.sectionHint, { color: colors.textMuted }]}>{hint}</Text>}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: { flex: 1 },
   scrollContent: { padding: spacing.md, paddingBottom: spacing.xxl, gap: spacing.sm },
   sectionHeader: { marginTop: spacing.lg, marginBottom: spacing.xs },
-  sectionTitle: { fontSize: fontSizes.md, fontWeight: '700', color: colors.textPrimary },
-  sectionHint: { fontSize: fontSizes.xs, color: colors.textMuted, marginTop: 2 },
+  sectionTitle: { fontSize: fontSizes.md, fontWeight: '700' },
+  sectionHint: { fontSize: fontSizes.xs, marginTop: 2 },
   chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
-  chip: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderRadius: radius.full,
-    borderWidth: 1.5,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-  },
-  chipSelected: { borderColor: colors.primary, backgroundColor: colors.primary },
-  chipText: { fontSize: fontSizes.sm, color: colors.textSecondary, fontWeight: '600' },
-  chipTextSelected: { color: '#fff' },
-  textarea: {
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    fontSize: fontSizes.md,
-    color: colors.textPrimary,
-    minHeight: 100,
-    lineHeight: 22,
-  },
-  toggleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
+  chip: { paddingHorizontal: spacing.md, paddingVertical: spacing.sm, borderRadius: radius.full, borderWidth: 1.5 },
+  chipText: { fontSize: fontSizes.sm, fontWeight: '600' },
+  timeButton: { borderRadius: radius.md, borderWidth: 1.5, padding: spacing.md, alignItems: 'center' },
+  timeButtonText: { fontSize: fontSizes.xl, fontWeight: '700' },
+  timeButtonHint: { fontSize: fontSizes.xs, marginTop: 4 },
+  textarea: { borderWidth: 1, borderRadius: radius.md, padding: spacing.md, fontSize: fontSizes.md, minHeight: 100, lineHeight: 22 },
+  toggleRow: { flexDirection: 'row', alignItems: 'center', borderRadius: radius.md, padding: spacing.md, borderWidth: 1 },
   toggleInfo: { flex: 1 },
-  toggleTitle: { fontSize: fontSizes.md, fontWeight: '600', color: colors.textPrimary },
-  toggleHint: { fontSize: fontSizes.xs, color: colors.textMuted, marginTop: 2 },
-  dangerButton: {
-    backgroundColor: '#FFEBEE',
-    borderRadius: radius.md,
-    paddingVertical: spacing.md,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#FFCDD2',
-    marginTop: spacing.sm,
-  },
-  dangerButtonText: { fontSize: fontSizes.md, fontWeight: '700', color: colors.danger },
-  linkRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  linkText: { flex: 1, fontSize: fontSizes.md, color: colors.textPrimary, fontWeight: '500' },
-  linkArrow: { fontSize: 20, color: colors.textMuted },
-  versionText: { fontSize: fontSizes.xs, color: colors.textMuted, textAlign: 'center', marginTop: spacing.sm },
-  planRow: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    gap: spacing.sm,
-  },
-  planText: { fontSize: fontSizes.sm, color: colors.textSecondary },
-  upgradeBtn: {
-    backgroundColor: colors.primary,
-    borderRadius: radius.md,
-    paddingVertical: spacing.sm,
-    alignItems: 'center',
-  },
+  toggleTitle: { fontSize: fontSizes.md, fontWeight: '600' },
+  toggleHint: { fontSize: fontSizes.xs, marginTop: 2 },
+  dangerButton: { borderRadius: radius.md, paddingVertical: spacing.md, alignItems: 'center', borderWidth: 1, marginTop: spacing.sm },
+  dangerButtonText: { fontSize: fontSizes.md, fontWeight: '700' },
+  linkRow: { flexDirection: 'row', alignItems: 'center', borderRadius: radius.md, paddingHorizontal: spacing.md, paddingVertical: spacing.md, borderWidth: 1 },
+  linkText: { flex: 1, fontSize: fontSizes.md, fontWeight: '500' },
+  linkArrow: { fontSize: 20 },
+  versionText: { fontSize: fontSizes.xs, textAlign: 'center', marginTop: spacing.sm },
+  planRow: { borderRadius: radius.md, padding: spacing.md, borderWidth: 1, gap: spacing.sm },
+  planText: { fontSize: fontSizes.sm },
+  upgradeBtn: { borderRadius: radius.md, paddingVertical: spacing.sm, alignItems: 'center' },
   upgradeBtnText: { fontSize: fontSizes.sm, fontWeight: '700', color: '#fff' },
+  // Time picker modal
+  pickerOverlay: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.4)' },
+  pickerSheet: { borderTopLeftRadius: radius.lg, borderTopRightRadius: radius.lg, paddingBottom: spacing.xxl },
+  pickerHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: spacing.md, borderBottomWidth: 1 },
+  pickerTitle: { fontSize: fontSizes.md, fontWeight: '600' },
+  pickerCancel: { fontSize: fontSizes.md },
+  pickerDone: { fontSize: fontSizes.md, fontWeight: '700' },
+  pickerColumns: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: spacing.xl, paddingTop: spacing.md },
+  pickerCol: { flex: 1 },
+  pickerColLabel: { textAlign: 'center', fontSize: fontSizes.xs, marginBottom: spacing.xs },
+  pickerList: { height: 200 },
+  pickerItem: { paddingVertical: spacing.sm, alignItems: 'center', borderRadius: radius.sm },
+  pickerItemText: { fontSize: fontSizes.lg },
+  pickerColon: { fontSize: 32, fontWeight: '700', paddingHorizontal: spacing.sm, marginTop: spacing.lg },
+  pickerPreview: { alignItems: 'center', paddingVertical: spacing.md },
+  pickerPreviewText: { fontSize: fontSizes.md, fontWeight: '700' },
 });

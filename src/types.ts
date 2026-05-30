@@ -12,6 +12,8 @@ export interface Settings {
   personalMessage: string;
   personalMessageIsCustom: boolean;
   shareLocation: boolean;
+  isPaused: boolean;
+  pauseUntil?: number;
 }
 
 export interface CheckInRecord {
@@ -28,4 +30,5 @@ export type RootStackParamList = {
   Settings: undefined;
   PrivacyPolicy: undefined;
   Paywall: undefined;
+  History: undefined;
 };

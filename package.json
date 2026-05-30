@@ -7,8 +7,10 @@
     "ios": "expo run:ios",
     "android": "expo run:android",
     "build:ios": "eas build --platform ios --profile production",
+    "build:android": "eas build --platform android --profile production",
     "build:preview": "eas build --platform ios --profile preview",
     "submit:ios": "eas submit --platform ios --profile production",
+    "submit:android": "eas submit --platform android --profile production",
     "update": "eas update"
   },
   "dependencies": {
@@ -25,6 +27,7 @@
     "i18n-js": "^4.5.3",
     "react": "19.1.0",
     "react-native": "0.81.5",
+    "react-native-purchases": "^8.4.0",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0"
   },

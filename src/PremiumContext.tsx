@@ -1,18 +1,30 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { initPurchases, getIsPremium } from './utils/purchases';
 
 interface PremiumContextValue {
   isPremium: boolean;
-  // Will be wired to RevenueCat when Apple Developer account is activated
+  refreshPremium: () => Promise<void>;
 }
 
-export const PremiumContext = createContext<PremiumContextValue>({ isPremium: false });
+export const PremiumContext = createContext<PremiumContextValue>({
+  isPremium: false,
+  refreshPremium: async () => {},
+});
 
 export function PremiumProvider({ children }: { children: React.ReactNode }) {
-  // Hardcoded false until RevenueCat is integrated (pending Apple Developer account)
-  const [isPremium] = useState(false);
+  const [isPremium, setIsPremium] = useState(false);
+
+  const refreshPremium = useCallback(async () => {
+    const status = await getIsPremium();
+    setIsPremium(status);
+  }, []);
+
+  useEffect(() => {
+    initPurchases().then(refreshPremium);
+  }, [refreshPremium]);
 
   return (
-    <PremiumContext.Provider value={{ isPremium }}>
+    <PremiumContext.Provider value={{ isPremium, refreshPremium }}>
       {children}
     </PremiumContext.Provider>
   );

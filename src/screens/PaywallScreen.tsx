@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
+  ActivityIndicator,
   Alert,
   ScrollView,
   StyleSheet,
@@ -8,184 +9,195 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, fontSizes, radius, spacing } from '../theme';
+import { useNavigation } from '@react-navigation/native';
+import { spacing, fontSizes, radius } from '../theme';
+import { useColors } from '../ThemeContext';
+import {
+  purchasePremium,
+  restorePurchasesRC,
+  isPurchasesConfigured,
+  getLifetimePackage,
+} from '../utils/purchases';
+import { PremiumContext } from '../PremiumContext';
 import { t } from '../i18n';
 
-function CheckIcon({ checked }: { checked: boolean }) {
+// Fallback prices shown before RevenueCat loads (or when not configured)
+const FALLBACK_PRICE: Record<string, string> = {
+  zh:    '¥17.99',
+  'zh-TW': 'NT$89',
+  ja:    '¥480',
+  ko:    '₩3,900',
+};
+const DEFAULT_FALLBACK = '$2.99';
+
+function CheckIcon({ checked, colors }: { checked: boolean; colors: ReturnType<typeof useColors> }) {
   return (
-    <Text style={checked ? styles.checkYes : styles.checkNo}>
+    <Text style={checked
+      ? { color: colors.primary, fontWeight: '700', fontSize: fontSizes.md }
+      : { color: colors.textMuted, fontSize: fontSizes.md }}>
       {checked ? '✓' : '✗'}
     </Text>
   );
 }
 
 export default function PaywallScreen() {
-  const handleSubscribe = () => {
-    Alert.alert('Coming Soon', t('paywallComingSoon'));
+  const colors = useColors();
+  const navigation = useNavigation();
+  const { refreshPremium } = useContext(PremiumContext);
+  const [loading, setLoading] = useState(false);
+  const [localizedPrice, setLocalizedPrice] = useState<string | null>(null);
+
+  // Fetch the real localized price from RevenueCat on mount
+  useEffect(() => {
+    getLifetimePackage().then((pkg) => {
+      if (pkg?.product?.localizedPriceString) {
+        setLocalizedPrice(pkg.product.localizedPriceString);
+      }
+    });
+  }, []);
+
+  const displayPrice = localizedPrice ?? DEFAULT_FALLBACK;
+
+  const handleBuy = async () => {
+    if (!isPurchasesConfigured()) {
+      Alert.alert(t('paywallError'), t('paywallComingSoon'));
+      return;
+    }
+    setLoading(true);
+    try {
+      const success = await purchasePremium();
+      if (success) {
+        await refreshPremium();
+        Alert.alert(t('paywallSuccess'), t('paywallSuccessMsg'), [
+          { text: 'OK', onPress: () => navigation.goBack() },
+        ]);
+      }
+    } catch (err: any) {
+      if (err?.userCancelled) return;
+      Alert.alert(t('paywallError'), t('paywallErrorMsg'));
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleRestore = () => {
-    Alert.alert('Coming Soon', t('paywallComingSoon'));
+  const handleRestore = async () => {
+    if (!isPurchasesConfigured()) {
+      Alert.alert(t('paywallError'), t('paywallComingSoon'));
+      return;
+    }
+    setLoading(true);
+    try {
+      const restored = await restorePurchasesRC();
+      await refreshPremium();
+      Alert.alert(
+        restored ? t('paywallRestoreSuccess') : t('paywallRestoreNone'),
+        '',
+        [{ text: 'OK', onPress: restored ? () => navigation.goBack() : undefined }]
+      );
+    } catch {
+      Alert.alert(t('paywallError'), t('paywallErrorMsg'));
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['bottom']}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={['bottom']}>
       <ScrollView contentContainerStyle={styles.scroll}>
-        <Text style={styles.headline}>{t('paywallHeadline')}</Text>
-        <Text style={styles.subtitle}>{t('paywallSubtitle')}</Text>
 
-        <View style={styles.table}>
-          {/* Header */}
-          <View style={styles.tableHeader}>
+        <Text style={[styles.headline, { color: colors.textPrimary }]}>{t('paywallHeadline')}</Text>
+        <Text style={[styles.subtitle, { color: colors.textSecondary }]}>{t('paywallSubtitle')}</Text>
+
+        {/* Feature comparison table */}
+        <View style={[styles.table, { borderColor: colors.border, backgroundColor: colors.surface }]}>
+          <View style={[styles.tableHeader, { backgroundColor: colors.border }]}>
             <View style={styles.featureCol} />
             <View style={styles.tierCol}>
-              <Text style={styles.tierLabelFree}>{t('paywallColFree')}</Text>
+              <Text style={[styles.tierLabel, { color: colors.textSecondary }]}>{t('paywallColFree')}</Text>
             </View>
             <View style={styles.tierCol}>
-              <Text style={styles.tierLabelPremium}>{t('paywallColPremium')} ⭐</Text>
+              <Text style={[styles.tierLabel, { color: colors.primaryDark }]}>{t('paywallColPremium')} ⭐</Text>
             </View>
           </View>
 
-          {/* Row: Contacts */}
-          <View style={styles.tableRow}>
-            <View style={styles.featureCol}>
-              <Text style={styles.featureText}>{t('paywallRowContacts')}</Text>
+          {[
+            { label: t('paywallRowContacts'), free: t('paywallFreeContacts'), premium: t('paywallPremiumContacts'), isText: true },
+            { label: t('paywallRowEmail'), freeCheck: true, premiumCheck: true },
+            { label: t('paywallRowSms'), freeCheck: false, premiumCheck: true },
+            { label: t('paywallRowEscalation'), freeCheck: false, premiumCheck: true },
+          ].map((row, i, arr) => (
+            <View
+              key={row.label}
+              style={[styles.tableRow, { borderBottomColor: colors.border },
+                i === arr.length - 1 && styles.tableRowLast]}
+            >
+              <View style={styles.featureCol}>
+                <Text style={[styles.featureText, { color: colors.textPrimary }]}>{row.label}</Text>
+              </View>
+              <View style={styles.tierCol}>
+                {row.isText
+                  ? <Text style={[styles.cellText, { color: colors.textSecondary }]}>{row.free}</Text>
+                  : <CheckIcon checked={row.freeCheck!} colors={colors} />}
+              </View>
+              <View style={styles.tierCol}>
+                {row.isText
+                  ? <Text style={[styles.cellText, { color: colors.primaryDark, fontWeight: '700' }]}>{row.premium}</Text>
+                  : <CheckIcon checked={row.premiumCheck!} colors={colors} />}
+              </View>
             </View>
-            <View style={styles.tierCol}>
-              <Text style={styles.cellText}>{t('paywallFreeContacts')}</Text>
-            </View>
-            <View style={styles.tierCol}>
-              <Text style={[styles.cellText, styles.cellTextPremium]}>{t('paywallPremiumContacts')}</Text>
-            </View>
-          </View>
-
-          {/* Row: Email */}
-          <View style={styles.tableRow}>
-            <View style={styles.featureCol}>
-              <Text style={styles.featureText}>{t('paywallRowEmail')}</Text>
-            </View>
-            <View style={styles.tierCol}><CheckIcon checked /></View>
-            <View style={styles.tierCol}><CheckIcon checked /></View>
-          </View>
-
-          {/* Row: SMS */}
-          <View style={[styles.tableRow, styles.tableRowLast]}>
-            <View style={styles.featureCol}>
-              <Text style={styles.featureText}>{t('paywallRowSms')}</Text>
-            </View>
-            <View style={styles.tierCol}><CheckIcon checked={false} /></View>
-            <View style={styles.tierCol}><CheckIcon checked /></View>
-          </View>
+          ))}
         </View>
 
-        <Text style={styles.price}>{t('paywallPrice')}</Text>
+        {/* Price badge */}
+        <View style={[styles.priceBadge, { backgroundColor: colors.primaryLight }]}>
+          <Text style={[styles.priceAmount, { color: colors.primaryDark }]}>{displayPrice}</Text>
+          <Text style={[styles.priceLabel, { color: colors.primaryDark }]}>{t('paywallOneTime')}</Text>
+        </View>
 
-        <TouchableOpacity style={styles.subscribeBtn} onPress={handleSubscribe} activeOpacity={0.85}>
-          <Text style={styles.subscribeBtnText}>{t('paywallSubscribeBtn')}</Text>
+        {/* Buy button */}
+        <TouchableOpacity
+          style={[styles.buyBtn, { backgroundColor: colors.primary }, loading && styles.btnDisabled]}
+          onPress={handleBuy}
+          activeOpacity={0.85}
+          disabled={loading}
+        >
+          {loading
+            ? <ActivityIndicator color="#fff" />
+            : <Text style={styles.buyBtnText}>{t('paywallBuyBtn', { price: displayPrice })}</Text>
+          }
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.restoreBtn} onPress={handleRestore}>
-          <Text style={styles.restoreBtnText}>{t('paywallRestoreBtn')}</Text>
+        <TouchableOpacity style={styles.restoreBtn} onPress={handleRestore} disabled={loading}>
+          <Text style={[styles.restoreBtnText, { color: colors.textSecondary }]}>{t('paywallRestoreBtn')}</Text>
         </TouchableOpacity>
 
-        <Text style={styles.legal}>{t('paywallLegal')}</Text>
+        <Text style={[styles.legal, { color: colors.textMuted }]}>{t('paywallLegal')}</Text>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: { flex: 1 },
   scroll: { padding: spacing.lg, paddingBottom: spacing.xxl, alignItems: 'center' },
-  headline: {
-    fontSize: fontSizes.xl,
-    fontWeight: '800',
-    color: colors.textPrimary,
-    textAlign: 'center',
-    marginBottom: spacing.xs,
-  },
-  subtitle: {
-    fontSize: fontSizes.md,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginBottom: spacing.xl,
-    lineHeight: 22,
-  },
-  table: {
-    width: '100%',
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    overflow: 'hidden',
-    marginBottom: spacing.xl,
-    backgroundColor: colors.surface,
-  },
-  tableHeader: {
-    flexDirection: 'row',
-    backgroundColor: '#F0F4F0',
-    paddingVertical: spacing.sm + 2,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  tableRow: {
-    flexDirection: 'row',
-    paddingVertical: spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
+  headline: { fontSize: fontSizes.xl, fontWeight: '800', textAlign: 'center', marginBottom: spacing.xs },
+  subtitle: { fontSize: fontSizes.md, textAlign: 'center', marginBottom: spacing.xl, lineHeight: 22 },
+  table: { width: '100%', borderRadius: radius.lg, borderWidth: 1, overflow: 'hidden', marginBottom: spacing.xl },
+  tableHeader: { flexDirection: 'row', paddingVertical: spacing.sm + 2, borderBottomWidth: 1 },
+  tableRow: { flexDirection: 'row', paddingVertical: spacing.md, borderBottomWidth: 1 },
   tableRowLast: { borderBottomWidth: 0 },
   featureCol: { flex: 2, paddingHorizontal: spacing.md, justifyContent: 'center' },
   tierCol: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  tierLabelFree: {
-    fontSize: fontSizes.sm,
-    fontWeight: '700',
-    color: colors.textSecondary,
-    textAlign: 'center',
-  },
-  tierLabelPremium: {
-    fontSize: fontSizes.sm,
-    fontWeight: '700',
-    color: colors.primaryDark,
-    textAlign: 'center',
-  },
-  featureText: { fontSize: fontSizes.sm, color: colors.textPrimary, fontWeight: '500' },
-  cellText: { fontSize: fontSizes.sm, color: colors.textSecondary, textAlign: 'center' },
-  cellTextPremium: { color: colors.primaryDark, fontWeight: '700' },
-  checkYes: { fontSize: fontSizes.md, color: colors.primary, fontWeight: '700' },
-  checkNo: { fontSize: fontSizes.md, color: colors.textMuted },
-  price: {
-    fontSize: fontSizes.xl,
-    fontWeight: '800',
-    color: colors.primaryDark,
-    marginBottom: spacing.md,
-  },
-  subscribeBtn: {
-    width: '100%',
-    backgroundColor: colors.primary,
-    borderRadius: radius.lg,
-    paddingVertical: spacing.md + 2,
-    alignItems: 'center',
-    marginBottom: spacing.md,
-  },
-  subscribeBtnText: {
-    fontSize: fontSizes.md,
-    fontWeight: '700',
-    color: '#fff',
-  },
-  restoreBtn: {
-    paddingVertical: spacing.sm,
-    marginBottom: spacing.lg,
-  },
-  restoreBtnText: {
-    fontSize: fontSizes.sm,
-    color: colors.textSecondary,
-    textDecorationLine: 'underline',
-  },
-  legal: {
-    fontSize: fontSizes.xs,
-    color: colors.textMuted,
-    textAlign: 'center',
-    lineHeight: 16,
-    paddingHorizontal: spacing.md,
-  },
+  tierLabel: { fontSize: fontSizes.sm, fontWeight: '700', textAlign: 'center' },
+  featureText: { fontSize: fontSizes.sm, fontWeight: '500' },
+  cellText: { fontSize: fontSizes.sm, textAlign: 'center' },
+  priceBadge: { borderRadius: radius.lg, paddingHorizontal: spacing.xl, paddingVertical: spacing.md, alignItems: 'center', marginBottom: spacing.lg },
+  priceAmount: { fontSize: fontSizes.xxl, fontWeight: '900' },
+  priceLabel: { fontSize: fontSizes.xs, fontWeight: '600', marginTop: 2, letterSpacing: 1, textTransform: 'uppercase' },
+  buyBtn: { width: '100%', borderRadius: radius.lg, paddingVertical: spacing.md + 2, alignItems: 'center', marginBottom: spacing.md },
+  buyBtnText: { fontSize: fontSizes.md, fontWeight: '700', color: '#fff' },
+  btnDisabled: { opacity: 0.6 },
+  restoreBtn: { paddingVertical: spacing.sm, marginBottom: spacing.lg },
+  restoreBtnText: { fontSize: fontSizes.sm, textDecorationLine: 'underline' },
+  legal: { fontSize: fontSizes.xs, textAlign: 'center', lineHeight: 16, paddingHorizontal: spacing.md },
 });

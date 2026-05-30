@@ -1,10 +1,10 @@
 {
   "expo": {
     "name": "UOKnow",
-    "slug": "uoknow",
+    "slug": "uok",
     "version": "1.0.0",
     "orientation": "portrait",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "icon": "./assets/icon.png",
     "locales": {
@@ -58,6 +58,7 @@
         "backgroundColor": "#2E7D32"
       },
       "package": "com.uoknow.app",
+      "versionCode": 1,
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
@@ -83,6 +84,7 @@
     ],
     "scheme": "uoknow",
     "extra": {
+      "rcApiKey": "",
       "serverUrl": "https://uok-server-production.up.railway.app",
       "eas": {
         "projectId": "c8266ceb-1f0b-43f0-8fec-bde103d6b676"

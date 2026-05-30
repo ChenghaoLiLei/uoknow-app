@@ -7,6 +7,7 @@ const DEVICE_ID_KEY = 'device_id';
 const CONTACTS_KEY = 'contacts';
 const SETTINGS_KEY = 'settings';
 const CHECKIN_KEY = 'last_checkin';
+const HISTORY_KEY = 'checkin_history';
 const LANGUAGE_KEY = 'app_language';
 
 function generateId(): string {
@@ -22,7 +23,6 @@ export async function getDeviceId(): Promise<string> {
   return id;
 }
 
-// Contacts stored in SecureStore (encrypted on device)
 export async function getContacts(): Promise<Contact[]> {
   const raw = await SecureStore.getItemAsync(CONTACTS_KEY);
   return raw ? JSON.parse(raw) : [];
@@ -50,7 +50,6 @@ export async function deleteContact(id: string): Promise<void> {
   await saveContacts(contacts.filter((c) => c.id !== id));
 }
 
-// Settings stored in AsyncStorage (non-sensitive)
 function getDefaultSettings(): Settings {
   return {
     triggerHours: 24,
@@ -59,6 +58,8 @@ function getDefaultSettings(): Settings {
     personalMessage: '',
     personalMessageIsCustom: false,
     shareLocation: false,
+    isPaused: false,
+    pauseUntil: undefined,
   };
 }
 
@@ -76,7 +77,6 @@ export async function saveSettings(partial: Partial<Settings>): Promise<void> {
   await AsyncStorage.setItem(SETTINGS_KEY, JSON.stringify({ ...current, ...partial }));
 }
 
-// Check-in record
 export async function getLastCheckIn(): Promise<CheckInRecord | null> {
   const raw = await AsyncStorage.getItem(CHECKIN_KEY);
   return raw ? JSON.parse(raw) : null;
@@ -84,6 +84,7 @@ export async function getLastCheckIn(): Promise<CheckInRecord | null> {
 
 export async function saveCheckIn(record: CheckInRecord): Promise<void> {
   await AsyncStorage.setItem(CHECKIN_KEY, JSON.stringify(record));
+  await addCheckInToHistory(record);
 }
 
 export function isCheckedInToday(record: CheckInRecord | null): boolean {
@@ -91,6 +92,18 @@ export function isCheckedInToday(record: CheckInRecord | null): boolean {
   const today = new Date().toDateString();
   const checkinDate = new Date(record.timestamp).toDateString();
   return today === checkinDate;
+}
+
+// Check-in history — keeps last 90 entries
+export async function getCheckInHistory(): Promise<CheckInRecord[]> {
+  const raw = await AsyncStorage.getItem(HISTORY_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+async function addCheckInToHistory(record: CheckInRecord): Promise<void> {
+  const history = await getCheckInHistory();
+  const updated = [record, ...history].slice(0, 90);
+  await AsyncStorage.setItem(HISTORY_KEY, JSON.stringify(updated));
 }
 
 export async function getLanguage(): Promise<string | null> {
@@ -102,7 +115,7 @@ export async function saveLanguage(code: string): Promise<void> {
 }
 
 export async function clearAllData(): Promise<void> {
-  await AsyncStorage.multiRemove([SETTINGS_KEY, CHECKIN_KEY]);
+  await AsyncStorage.multiRemove([SETTINGS_KEY, CHECKIN_KEY, HISTORY_KEY]);
   await SecureStore.deleteItemAsync(CONTACTS_KEY);
   await SecureStore.deleteItemAsync(DEVICE_ID_KEY);
 }

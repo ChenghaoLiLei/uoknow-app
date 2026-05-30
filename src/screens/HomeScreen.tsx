@@ -13,7 +13,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as Haptics from 'expo-haptics';
 
 import { RootStackParamList } from '../types';
-import { colors, spacing, fontSizes, radius } from '../theme';
+import { spacing, fontSizes, radius } from '../theme';
+import { useColors } from '../ThemeContext';
 import {
   getLastCheckIn,
   saveCheckIn,
@@ -31,11 +32,13 @@ type Nav = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 export default function HomeScreen() {
   const navigation = useNavigation<Nav>();
+  const colors = useColors();
 
   const [checkedIn, setCheckedIn] = useState(false);
   const [lastCheckInTime, setLastCheckInTime] = useState<Date | null>(null);
   const [nextAlertIn, setNextAlertIn] = useState<string>('');
   const [contactCount, setContactCount] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [initialized, setInitialized] = useState(false);
 
   const scaleAnim = useRef(new Animated.Value(1)).current;
@@ -65,6 +68,7 @@ export default function HomeScreen() {
     const alreadyChecked = isCheckedInToday(record);
     setCheckedIn(alreadyChecked);
     setContactCount(contacts.length);
+    setIsPaused(settings.isPaused);
 
     if (record) {
       setLastCheckInTime(new Date(record.timestamp));
@@ -79,11 +83,7 @@ export default function HomeScreen() {
     }
   }, [initialized]);
 
-  useFocusEffect(
-    useCallback(() => {
-      loadState();
-    }, [loadState])
-  );
+  useFocusEffect(useCallback(() => { loadState(); }, [loadState]));
 
   const handleCheckIn = async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
@@ -119,25 +119,27 @@ export default function HomeScreen() {
     await sendLocalCheckInConfirmation();
   };
 
-  const buttonScale = glowAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 1.03],
-  });
-
+  const buttonScale = glowAnim.interpolate({ inputRange: [0, 1], outputRange: [1, 1.03] });
   const buttonColor = checkedIn ? colors.success : colors.primary;
   const catEmoji = checkedIn ? '😸' : '🐱';
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={styles.header}>
-        <Text style={styles.appTitle}>UOKnow</Text>
-        <Text style={styles.appSubtitle}>{t('appSubtitle')}</Text>
+        <Text style={[styles.appTitle, { color: colors.primaryDark }]}>UOKnow</Text>
+        <Text style={[styles.appSubtitle, { color: colors.textSecondary }]}>{t('appSubtitle')}</Text>
+        {isPaused && (
+          <Text style={[styles.pausedBadge, { backgroundColor: '#FFF3E0', color: colors.warning }]}>
+            🏖 Vacation mode — alerts paused
+          </Text>
+        )}
       </View>
 
       <View style={styles.centerArea}>
         <Animated.View
           style={[
             styles.buttonWrapper,
+            { shadowColor: colors.primaryDark },
             { transform: [{ scale: checkedIn ? scaleAnim : buttonScale }] },
           ]}
         >
@@ -156,14 +158,15 @@ export default function HomeScreen() {
         <View style={styles.statusArea}>
           {lastCheckInTime ? (
             <>
-              <Text style={styles.statusText}>
+              <Text style={[styles.statusText, { color: colors.textSecondary }]}>
                 {t('lastCheckIn', { time: formatTime(lastCheckInTime) })}
               </Text>
               {nextAlertIn ? (
                 <Text
                   style={[
                     styles.alertText,
-                    nextAlertIn === 'overdue' && styles.alertDanger,
+                    { color: colors.textSecondary },
+                    nextAlertIn === 'overdue' && { color: colors.danger, fontWeight: '600' },
                   ]}
                 >
                   {nextAlertIn === 'overdue'
@@ -173,37 +176,36 @@ export default function HomeScreen() {
               ) : null}
             </>
           ) : (
-            <Text style={styles.statusTextMuted}>{t('noCheckInYet')}</Text>
+            <Text style={[styles.statusTextMuted, { color: colors.textMuted }]}>{t('noCheckInYet')}</Text>
           )}
         </View>
 
         {contactCount === 0 && (
           <TouchableOpacity
-            style={styles.warningBanner}
+            style={[styles.warningBanner, { backgroundColor: '#FFF3E0', borderColor: '#FFB74D' }]}
             onPress={() => navigation.navigate('Contacts')}
           >
-            <Text style={styles.warningText}>{t('noContactsWarning')}</Text>
+            <Text style={[styles.warningText, { color: colors.warning }]}>{t('noContactsWarning')}</Text>
           </TouchableOpacity>
         )}
       </View>
 
-      <View style={styles.bottomNav}>
-        <TouchableOpacity
-          style={styles.navButton}
-          onPress={() => navigation.navigate('Contacts')}
-        >
+      <View style={[styles.bottomNav, { borderTopColor: colors.border, backgroundColor: colors.surface }]}>
+        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Contacts')}>
           <Text style={styles.navIcon}>👥</Text>
-          <Text style={styles.navLabel}>
+          <Text style={[styles.navLabel, { color: colors.textSecondary }]}>
             {t('navContacts')}{contactCount > 0 ? ` (${contactCount})` : ''}
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.navButton}
-          onPress={() => navigation.navigate('Settings')}
-        >
+        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('History')}>
+          <Text style={styles.navIcon}>📅</Text>
+          <Text style={[styles.navLabel, { color: colors.textSecondary }]}>{t('navHistory')}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Settings')}>
           <Text style={styles.navIcon}>⚙️</Text>
-          <Text style={styles.navLabel}>{t('navSettings')}</Text>
+          <Text style={[styles.navLabel, { color: colors.textSecondary }]}>{t('navSettings')}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -231,80 +233,24 @@ function formatHours(hours: number): string {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
-  header: {
-    alignItems: 'center',
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.md,
-  },
-  appTitle: {
-    fontSize: fontSizes.xxl,
-    fontWeight: '800',
-    color: colors.primaryDark,
-    letterSpacing: 4,
-  },
-  appSubtitle: {
-    fontSize: fontSizes.md,
-    color: colors.textSecondary,
-    marginTop: spacing.xs,
-    letterSpacing: 2,
-  },
-  centerArea: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: spacing.xl,
-  },
-  buttonWrapper: {
-    shadowColor: colors.primaryDark,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.35,
-    shadowRadius: 20,
-    elevation: 12,
-  },
-  checkInButton: {
-    width: 260,
-    height: 260,
-    borderRadius: 130,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  container: { flex: 1 },
+  header: { alignItems: 'center', paddingTop: spacing.lg, paddingBottom: spacing.md },
+  appTitle: { fontSize: fontSizes.xxl, fontWeight: '800', letterSpacing: 4 },
+  appSubtitle: { fontSize: fontSizes.md, marginTop: spacing.xs, letterSpacing: 2 },
+  pausedBadge: { marginTop: spacing.sm, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: radius.full, fontSize: fontSizes.xs, fontWeight: '600', overflow: 'hidden' },
+  centerArea: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: spacing.xl },
+  buttonWrapper: { shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.35, shadowRadius: 20, elevation: 12 },
+  checkInButton: { width: 260, height: 260, borderRadius: 130, alignItems: 'center', justifyContent: 'center' },
   catEmoji: { fontSize: 88, lineHeight: 100 },
-  buttonLabel: {
-    fontSize: fontSizes.md,
-    fontWeight: '700',
-    color: '#FFFFFF',
-    marginTop: spacing.xs,
-    letterSpacing: 1,
-  },
+  buttonLabel: { fontSize: fontSizes.md, fontWeight: '700', color: '#FFFFFF', marginTop: spacing.xs, letterSpacing: 1 },
   statusArea: { marginTop: spacing.xl, alignItems: 'center', gap: spacing.sm },
-  statusText: { fontSize: fontSizes.md, color: colors.textSecondary },
-  statusTextMuted: { fontSize: fontSizes.md, color: colors.textMuted, fontStyle: 'italic' },
-  alertText: { fontSize: fontSizes.sm, color: colors.textSecondary },
-  alertDanger: { color: colors.danger, fontWeight: '600' },
-  warningBanner: {
-    marginTop: spacing.lg,
-    backgroundColor: '#FFF3E0',
-    borderRadius: radius.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderWidth: 1,
-    borderColor: '#FFB74D',
-  },
-  warningText: { fontSize: fontSizes.sm, color: colors.warning, fontWeight: '600' },
-  bottomNav: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: spacing.md,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
-    backgroundColor: colors.surface,
-  },
-  navButton: {
-    alignItems: 'center',
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.xl,
-  },
-  navIcon: { fontSize: 24 },
-  navLabel: { fontSize: fontSizes.xs, color: colors.textSecondary, marginTop: spacing.xs },
+  statusText: { fontSize: fontSizes.md },
+  statusTextMuted: { fontSize: fontSizes.md, fontStyle: 'italic' },
+  alertText: { fontSize: fontSizes.sm },
+  warningBanner: { marginTop: spacing.lg, borderRadius: radius.md, paddingHorizontal: spacing.md, paddingVertical: spacing.sm, borderWidth: 1 },
+  warningText: { fontSize: fontSizes.sm, fontWeight: '600' },
+  bottomNav: { flexDirection: 'row', justifyContent: 'space-around', paddingVertical: spacing.md, borderTopWidth: 1 },
+  navButton: { alignItems: 'center', paddingVertical: spacing.sm, paddingHorizontal: spacing.lg },
+  navIcon: { fontSize: 22 },
+  navLabel: { fontSize: fontSizes.xs, marginTop: spacing.xs },
 });

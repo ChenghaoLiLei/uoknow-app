@@ -1,4 +1,4 @@
-export const colors = {
+export const lightColors = {
   primary: '#4CAF50',
   primaryDark: '#2E7D32',
   primaryLight: '#A5D6A7',
@@ -12,6 +12,24 @@ export const colors = {
   danger: '#D32F2F',
   warning: '#F57C00',
 };
+
+export const darkColors = {
+  primary: '#66BB6A',
+  primaryDark: '#A5D6A7',
+  primaryLight: '#1B5E20',
+  success: '#81C784',
+  background: '#121212',
+  surface: '#1E1E1E',
+  textPrimary: '#F5F5F5',
+  textSecondary: '#BDBDBD',
+  textMuted: '#757575',
+  border: '#333333',
+  danger: '#EF5350',
+  warning: '#FFA726',
+};
+
+// Kept for any file that still imports colors directly (backward compat)
+export const colors = lightColors;
 
 export const spacing = {
   xs: 4,
