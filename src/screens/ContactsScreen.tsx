@@ -100,7 +100,11 @@ export default function ContactsScreen() {
   const savingRef = useRef(false);
 
   const reload = useCallback(async () => {
-    setContacts(await getContacts());
+    const loaded = await getContacts();
+    setContacts(loaded);
+    // Silently re-sync to server every time this screen is opened
+    const deviceId = await getDeviceId();
+    apiSyncContacts(deviceId, loaded).catch(() => {});
   }, []);
 
   useFocusEffect(useCallback(() => { reload(); }, [reload]));
