@@ -55,7 +55,7 @@ const LANGUAGE_OPTIONS = [
   { code: 'ms', label: 'Bahasa Melayu' },
 ];
 
-const TRIGGER_OPTIONS = [5 / 60, 4, 8, 12, 24, 48, 72];
+const TRIGGER_OPTIONS = [4, 8, 12, 24, 48, 72];
 
 // Pause duration presets in milliseconds
 const PAUSE_OPTIONS = [
