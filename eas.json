@@ -24,20 +24,17 @@
         "buildType": "app-bundle"
       },
       "env": {
-        "EXPO_PUBLIC_SERVER_URL": "https://uok-server-production.up.railway.app"
+        "EXPO_PUBLIC_SERVER_URL": "https://uok-server-production.up.railway.app",
+        "EXPO_PUBLIC_RC_API_KEY": "appl_EyGJbJGghdlzsmWrZRdlqmlqTKA"
       }
     }
   },
   "submit": {
     "production": {
       "ios": {
-        "appleId": "YOUR_APPLE_ID@example.com",
-        "ascAppId": "YOUR_APP_STORE_CONNECT_APP_ID",
-        "appleTeamId": "YOUR_APPLE_TEAM_ID"
-      },
-      "android": {
-        "serviceAccountKeyPath": "./google-service-account.json",
-        "track": "internal"
+        "appleId": "chenghao.li@gmx.de",
+        "ascAppId": "6775208008",
+        "appleTeamId": "3U43DH4339"
       }
     }
   }
