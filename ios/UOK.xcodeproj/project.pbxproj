@@ -372,7 +372,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = org.name.UOK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uoknow.app;
 				PRODUCT_NAME = UOK;
 				SWIFT_OBJC_BRIDGING_HEADER = "UOK/UOK-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -404,7 +404,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = org.name.UOK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uoknow.app;
 				PRODUCT_NAME = UOK;
 				SWIFT_OBJC_BRIDGING_HEADER = "UOK/UOK-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
