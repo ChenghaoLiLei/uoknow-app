@@ -41,10 +41,11 @@ export async function scheduleDailyReminder(hour: number, minute: number): Promi
       sound: true,
     },
     trigger: {
+      type: Notifications.SchedulableTriggerInputTypes.CALENDAR,
       hour,
       minute,
       repeats: true,
-    } as Notifications.CalendarTriggerInput,
+    },
   });
 }
 
