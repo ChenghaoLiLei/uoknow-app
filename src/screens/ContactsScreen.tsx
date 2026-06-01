@@ -30,8 +30,8 @@ import { apiSyncContacts } from '../utils/api';
 import { t } from '../i18n';
 import { PremiumContext } from '../PremiumContext';
 
-const FREE_MAX = 5;
-const PREMIUM_MAX = 10;
+const FREE_MAX = 3;
+const PREMIUM_MAX = 5;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[\d\s\-().]{5,18}$/;
