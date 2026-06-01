@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'Verwerken...',
   paywallRestoreNone: 'Geen eerdere aankoop gevonden voor dit Apple ID.',
   paywallRestoreSuccess: 'Aankoop hersteld!',
-  paywallRowEscalation: 'Escalerende meldingen',
+  paywallRowEscalation: 'Herhaalde meldingen (dringend na +4u, kritiek na +24u)',
   paywallSuccess: 'Welkom bij Premium! 🎉',
   paywallSuccessMsg: 'SMS-meldingen en maximaal 10 contacten zijn ontgrendeld. Geniet van UOKnow!',
 };

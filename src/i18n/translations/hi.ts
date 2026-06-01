@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'प्रसंस्करण...',
   paywallRestoreNone: 'इस Apple ID के लिए कोई पिछली खरीद नहीं मिली।',
   paywallRestoreSuccess: 'खरीद बहाल हो गई!',
-  paywallRowEscalation: 'बढ़ते अलर्ट',
+  paywallRowEscalation: 'बार-बार सूचनाएं (+4 घंटे बाद अत्यावश्यक, +24 घंटे बाद संकट)',
   paywallSuccess: 'प्रीमियम में आपका स्वागत है! 🎉',
   paywallSuccessMsg: 'SMS अलर्ट और 10 तक संपर्क अनलॉक हो गए हैं। UOKnow का आनंद लें!',
 };

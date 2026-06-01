@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'جارٍ المعالجة...',
   paywallRestoreNone: 'لم يُعثر على عمليات شراء سابقة لمعرّف Apple ID هذا.',
   paywallRestoreSuccess: 'تمت استعادة الشراء!',
-  paywallRowEscalation: 'تنبيهات متصاعدة',
+  paywallRowEscalation: 'تنبيهات متكررة (عاجل بعد +4س، حرج بعد +24س)',
   paywallSuccess: 'مرحباً بك في الاشتراك المميز! 🎉',
   paywallSuccessMsg: 'تم إلغاء قفل تنبيهات SMS وما يصل إلى 10 جهات اتصال. استمتع بـ UOKnow!',
 };

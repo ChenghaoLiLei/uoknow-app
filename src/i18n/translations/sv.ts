@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'Bearbetar...',
   paywallRestoreNone: 'Inget tidigare köp hittades för detta Apple ID.',
   paywallRestoreSuccess: 'Köp återställt!',
-  paywallRowEscalation: 'Eskalerande aviseringar',
+  paywallRowEscalation: 'Upprepade aviseringar (brådskande +4h, kritisk +24h)',
   paywallSuccess: 'Välkommen till Premium! 🎉',
   paywallSuccessMsg: 'SMS-aviseringar och upp till 10 kontakter är nu upplåsta. Njut av UOKnow!',
 };

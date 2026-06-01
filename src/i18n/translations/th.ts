@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'กำลังดำเนินการ...',
   paywallRestoreNone: 'ไม่พบการซื้อก่อนหน้าสำหรับ Apple ID นี้',
   paywallRestoreSuccess: 'คืนค่าการซื้อสำเร็จ!',
-  paywallRowEscalation: 'การแจ้งเตือนแบบเพิ่มขั้น',
+  paywallRowEscalation: 'การแจ้งเตือนซ้ำ (ด่วนหลัง +4ชม., วิกฤตหลัง +24ชม.)',
   paywallSuccess: 'ยินดีต้อนรับสู่พรีเมียม! 🎉',
   paywallSuccessMsg: 'แจ้งเตือน SMS และผู้ติดต่อสูงสุด 10 คนถูกปลดล็อคแล้ว เพลิดเพลินกับ UOKnow!',
 };

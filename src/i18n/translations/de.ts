@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'Wird verarbeitet...',
   paywallRestoreNone: 'Kein vorheriger Kauf für diese Apple-ID gefunden.',
   paywallRestoreSuccess: 'Kauf wiederhergestellt!',
-  paywallRowEscalation: 'Eskalierte Benachrichtigungen',
+  paywallRowEscalation: 'Wiederholte Alarme (dringend nach +4h, kritisch nach +24h)',
   paywallSuccess: 'Willkommen bei Premium! 🎉',
   paywallSuccessMsg: 'SMS-Benachrichtigungen und bis zu 10 Kontakte sind jetzt freigeschaltet. Viel Spaß mit UOKnow!',
 };

@@ -99,8 +99,8 @@ export default {
   appVersion: 'Version %{version}',
 
   planSectionTitle: '⭐ My Plan',
-  planFree: 'Free — up to 5 contacts, email alerts',
-  planPremium: 'Premium ⭐ — up to 10 contacts, email + SMS',
+  planFree: 'Free — up to 3 contacts, email alerts',
+  planPremium: 'Premium ⭐ — up to 5 contacts, email + SMS',
   upgradeBtn: 'Unlock Premium — one-time purchase',
 
   contactsHintFree: 'Free plan: up to %{max} emergency contacts. Alerts sent by email.',
@@ -115,7 +115,7 @@ export default {
   paywallRowContacts: 'Emergency contacts',
   paywallRowEmail: 'Email alerts',
   paywallRowSms: 'SMS alerts',
-  paywallRowEscalation: 'Escalating alerts',
+  paywallRowEscalation: 'Repeat alerts (urgent reminder at +4h, critical at +24h)',
   paywallFreeContacts: 'Up to 3',
   paywallPremiumContacts: 'Up to 5',
   paywallOneTime: 'One-time purchase',
@@ -125,7 +125,7 @@ export default {
   paywallComingSoon: 'In-app purchase coming soon. RevenueCat API key not yet configured.',
   paywallPurchasing: 'Processing...',
   paywallSuccess: 'Welcome to Premium! 🎉',
-  paywallSuccessMsg: 'SMS alerts and up to 10 contacts are now unlocked. Enjoy UOKnow!',
+  paywallSuccessMsg: 'SMS alerts and up to 5 contacts are now unlocked. Enjoy UOKnow!',
   paywallError: 'Purchase failed',
   paywallErrorMsg: 'Something went wrong. Please try again or use Restore Purchase.',
   paywallRestoreSuccess: 'Purchase restored!',

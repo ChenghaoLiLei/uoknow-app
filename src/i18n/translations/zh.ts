@@ -99,8 +99,8 @@ export default {
   appVersion: '版本 %{version}',
 
   planSectionTitle: '⭐ 我的套餐',
-  planFree: '免费版 — 最多 5 位联系人，邮件通知',
-  planPremium: '付费版 ⭐ — 最多 10 位联系人，邮件 + 短信',
+  planFree: '免费版 — 最多 3 位联系人，邮件通知',
+  planPremium: '付费版 ⭐ — 最多 5 位联系人，邮件 + 短信',
   upgradeBtn: '解锁付费版 — 一次性买断',
 
   contactsHintFree: '免费版：最多添加 %{max} 位紧急联系人，通过邮件通知。',
@@ -124,12 +124,12 @@ export default {
   paywallComingSoon: '应用内购买功能即将上线（RevenueCat 尚未配置）。',
   paywallPurchasing: '处理中...',
   paywallSuccess: '欢迎加入付费版 🎉',
-  paywallSuccessMsg: '短信通知和最多 10 位联系人已解锁，感谢支持！',
+  paywallSuccessMsg: '短信通知和最多 5 位联系人已解锁，感谢支持！',
   paywallError: '购买失败',
   paywallErrorMsg: '出现了一些问题，请稍后再试，或使用"恢复购买"。',
   paywallRestoreSuccess: '购买已恢复！',
   paywallRestoreNone: '该 Apple ID 下未找到购买记录。',
-  paywallRowEscalation: '升级通知',
+  paywallRowEscalation: '重复提醒（4小时后再次发送紧急提醒，24小时后发危急警报）',
 
   historyEmpty: '暂无签到记录',
   historyEmptyHint: '你的签到历史将显示在这里。',

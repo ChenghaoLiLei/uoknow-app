@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'Memproses...',
   paywallRestoreNone: 'Tiada pembelian sebelumnya ditemui untuk Apple ID ini.',
   paywallRestoreSuccess: 'Pembelian dipulihkan!',
-  paywallRowEscalation: 'Amaran peningkatan',
+  paywallRowEscalation: 'Pemberitahuan berulang (mendesak +4j, kritikal +24j)',
   paywallSuccess: 'Selamat datang ke Premium! 🎉',
   paywallSuccessMsg: 'Amaran SMS dan sehingga 10 kenalan telah dibuka. Nikmati UOKnow!',
 };

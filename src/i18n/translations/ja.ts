@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: '処理中...',
   paywallRestoreNone: 'このApple IDの購入履歴が見つかりません。',
   paywallRestoreSuccess: '購入が復元されました！',
-  paywallRowEscalation: '段階的アラート',
+  paywallRowEscalation: '繰り返し通知（+4時間で緊急、+24時間で危険レベル）',
   paywallSuccess: 'プレミアムへようこそ！🎉',
   paywallSuccessMsg: 'SMS通知と最大10件の連絡先がアンロックされました。UOKnowをお楽しみください！',
 };

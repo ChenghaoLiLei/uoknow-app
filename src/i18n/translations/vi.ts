@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'Đang xử lý...',
   paywallRestoreNone: 'Không tìm thấy giao dịch mua trước đó cho Apple ID này.',
   paywallRestoreSuccess: 'Khôi phục giao dịch mua thành công!',
-  paywallRowEscalation: 'Cảnh báo leo thang',
+  paywallRowEscalation: 'Thông báo lặp lại (khẩn cấp sau +4h, nguy cấp sau +24h)',
   paywallSuccess: 'Chào mừng bạn đến với Premium! 🎉',
   paywallSuccessMsg: 'Cảnh báo SMS và tối đa 10 liên hệ đã được mở khóa. Hưởng thụ UOKnow!',
 };

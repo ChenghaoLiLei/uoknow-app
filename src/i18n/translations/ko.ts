@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: '처리 중...',
   paywallRestoreNone: '이 Apple ID에서 이전 구매 내역을 찾을 수 없습니다.',
   paywallRestoreSuccess: '구매가 복원되었습니다!',
-  paywallRowEscalation: '에스컬레이팅 알림',
+  paywallRowEscalation: '반복 알림 (4시간 후 긴급, 24시간 후 위급)',
   paywallSuccess: '프리미엄에 오신 걸 환영합니다! 🎉',
   paywallSuccessMsg: 'SMS 알림 및 최대 10명의 연락처가 잠금 해제되었습니다. UOKnow를 즐기세요!',
 };

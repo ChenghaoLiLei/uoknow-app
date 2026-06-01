@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'Обработка...',
   paywallRestoreNone: 'Для этого Apple ID предыдущих покупок не найдено.',
   paywallRestoreSuccess: 'Покупка восстановлена!',
-  paywallRowEscalation: 'Нарастающие уведомления',
+  paywallRowEscalation: 'Повторные уведомления (срочно через +4ч, критично через +24ч)',
   paywallSuccess: 'Добро пожаловать в Premium! 🎉',
   paywallSuccessMsg: 'SMS-уведомления и до 10 контактов теперь разблокированы. Наслаждайтесь UOKnow!',
 };

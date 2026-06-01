@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'Käsitellään...',
   paywallRestoreNone: 'Aiempia ostoksia ei löytynyt tälle Apple ID:lle.',
   paywallRestoreSuccess: 'Ostos palautettu!',
-  paywallRowEscalation: 'Kasvavat hälytykset',
+  paywallRowEscalation: 'Toistuvat ilmoitukset (kiireellinen +4h, kriittinen +24h)',
   paywallSuccess: 'Tervetuloa Premium-versioon! 🎉',
   paywallSuccessMsg: 'SMS-hälytykset ja enintään 10 yhteystietoa on avattu. Nauti UOKnow:sta!',
 };

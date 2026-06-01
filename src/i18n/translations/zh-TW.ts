@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: '處理中...',
   paywallRestoreNone: '此 Apple ID 下未找到購買記錄。',
   paywallRestoreSuccess: '購買已恢復！',
-  paywallRowEscalation: '升級通知',
+  paywallRowEscalation: '重複提醒（4小時後再次發送緊急提醒，24小時後發危急警報）',
   paywallSuccess: '歡迎加入付費版 🎉',
   paywallSuccessMsg: '短信通知和最多 10 位聯絡人已解鎖，感謝支持！',
 };

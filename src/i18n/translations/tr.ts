@@ -154,7 +154,7 @@ export default {
   paywallPurchasing: 'İşleniyor...',
   paywallRestoreNone: 'Bu Apple ID için önceki satın alma bulunamadı.',
   paywallRestoreSuccess: 'Satın alma geri yüklendi!',
-  paywallRowEscalation: 'Artan uyarılar',
+  paywallRowEscalation: 'Tekrar bildirimler (acil +4s, kritik +24s)',
   paywallSuccess: 'Premium\'a hoş geldiniz! 🎉',
   paywallSuccessMsg: 'SMS uyarıları ve 10\'a kadar kişi kilidi açıldı. UOKnow\'un tadını çıkarın!',
 };
