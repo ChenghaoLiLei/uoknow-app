@@ -1,0 +1,3 @@
+CFBundleDisplayName = "UOKnow";
+NSLocationWhenInUseUsageDescription = "चेक-इन करते समय अपना स्थान आपातकालीन संपर्कों के साथ साझा करें (वैकल्पिक)। पृष्ठभूमि में ट्रैकिंग नहीं।";
+NSUserNotificationUsageDescription = "UOKnow रोज़ाना रिमाइंडर भेजता है ताकि आपके आपातकालीन संपर्कों को पता हो कि आप सुरक्षित हैं।";

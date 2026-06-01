@@ -1,0 +1,3 @@
+CFBundleDisplayName = "UOKnow";
+NSLocationWhenInUseUsageDescription = "يمكنك اختياريًا مشاركة موقعك مع جهات الاتصال الطارئة عند تسجيل الوصول. لا يتم التتبع في الخلفية.";
+NSUserNotificationUsageDescription = "يرسل UOKnow تذكيرات يومية لإعلام جهات الاتصال الطارئة بأنك بخير.";

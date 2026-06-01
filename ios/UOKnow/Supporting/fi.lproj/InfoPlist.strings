@@ -1,0 +1,3 @@
+CFBundleDisplayName = "UOKnow";
+NSLocationWhenInUseUsageDescription = "Jaa sijaintisi hätäyhteystiedoille halutessasi sisäänkirjautumisen yhteydessä. Ei taustaseurantaa.";
+NSUserNotificationUsageDescription = "UOKnow lähettää päivittäiset muistutukset, jotta hätäyhteystietosi tietävät sinun olevan turvassa.";

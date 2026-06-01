@@ -1,0 +1,3 @@
+CFBundleDisplayName = "UOKnow";
+NSLocationWhenInUseUsageDescription = "Condividi opzionalmente la tua posizione con i contatti di emergenza al momento del check-in. Nessun tracciamento in background.";
+NSUserNotificationUsageDescription = "UOKnow invia promemoria giornalieri affinché i tuoi contatti di emergenza sappiano che stai bene.";

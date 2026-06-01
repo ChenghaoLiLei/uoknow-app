@@ -1,0 +1,3 @@
+CFBundleDisplayName = "UOKnow";
+NSLocationWhenInUseUsageDescription = "签到时可选择与紧急联系人分享您的位置，不会在后台持续获取。";
+NSUserNotificationUsageDescription = "UOKnow 每日发送签到提醒，让您的紧急联系人知道您平安。";

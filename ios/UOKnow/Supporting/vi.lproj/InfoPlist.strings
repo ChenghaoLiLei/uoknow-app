@@ -1,0 +1,3 @@
+CFBundleDisplayName = "UOKnow";
+NSLocationWhenInUseUsageDescription = "Tùy chọn chia sẻ vị trí của bạn với các liên hệ khẩn cấp khi check-in. Không theo dõi nền.";
+NSUserNotificationUsageDescription = "UOKnow gửi nhắc nhở check-in hàng ngày để liên hệ khẩn cấp của bạn biết bạn an toàn.";

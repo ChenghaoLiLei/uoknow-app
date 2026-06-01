@@ -1,0 +1,3 @@
+CFBundleDisplayName = "UOKnow";
+NSLocationWhenInUseUsageDescription = "Bagikan lokasi Anda secara opsional kepada kontak darurat saat check-in. Tidak ada pelacakan di latar belakang.";
+NSUserNotificationUsageDescription = "UOKnow mengirim pengingat check-in harian agar kontak darurat Anda tahu Anda aman.";

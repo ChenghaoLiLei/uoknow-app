@@ -20,7 +20,7 @@ platform :ios, podfile_properties['ios.deploymentTarget'] || '15.1'
 
 prepare_react_native_project!
 
-target 'UOK' do
+target 'UOKnow' do
   use_expo_modules!
 
   if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
@@ -59,18 +59,5 @@ target 'UOK' do
       :mac_catalyst_enabled => false,
       :ccache_enabled => ccache_enabled?(podfile_properties),
     )
-    # fmt 11.0.2 consteval is broken on Clang 21 (Xcode 26); disable it for all Apple clang
-    fmt_base = File.join(installer.sandbox.root, 'fmt', 'include', 'fmt', 'base.h')
-    if File.exist?(fmt_base)
-      content = File.read(fmt_base)
-      unless content.include?('// xcode26-patch')
-        File.chmod(0644, fmt_base)
-        patched = content.sub(
-          "#elif defined(__apple_build_version__) && __apple_build_version__ < 14000029L\n#  define FMT_USE_CONSTEVAL 0  // consteval is broken in Apple clang < 14.",
-          "#elif defined(__apple_build_version__)\n#  define FMT_USE_CONSTEVAL 0  // xcode26-patch: disable consteval for all Apple clang"
-        )
-        File.write(fmt_base, patched)
-      end
-    end
   end
 end

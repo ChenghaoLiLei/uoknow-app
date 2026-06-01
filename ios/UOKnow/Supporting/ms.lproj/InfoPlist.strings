@@ -1,0 +1,3 @@
+CFBundleDisplayName = "UOKnow";
+NSLocationWhenInUseUsageDescription = "Kongsi lokasi anda secara pilihan dengan kenalan kecemasan semasa daftar masuk. Tiada penjejakan latar belakang.";
+NSUserNotificationUsageDescription = "UOKnow menghantar peringatan daftar masuk harian supaya kenalan kecemasan anda tahu anda selamat.";
