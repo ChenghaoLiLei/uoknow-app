@@ -1,26 +1,6 @@
-/**
- * RevenueCat in-app purchase wrapper — one-time buy (Non-Consumable).
- *
- * Setup steps:
- *  1. cd app && npm install react-native-purchases
- *  2. cd app/ios && pod install  (then rebuild)
- *  3. Create a RevenueCat project at https://app.revenuecat.com
- *  4. Set EXPO_PUBLIC_RC_API_KEY=appl_xxxx in app/.env
- *  5. In App Store Connect: create a Non-Consumable IAP product
- *       Product ID: com.uoknow.app.premium_lifetime
- *       Pricing (set manually per storefront):
- *         US/Europe:  $2.99  (Tier 3)
- *         China:      ¥17.99 CNY
- *         Japan:      ¥480   JPY
- *         Korea:      ₩3,900 KRW
- *         All others: auto-calculated from $2.99 base
- *  6. In RevenueCat dashboard:
- *       - Products → Add → paste Product ID above
- *       - Entitlements → "premium" → attach the product
- *       - Offerings → Default → add a "Lifetime" package → pick the product
- */
-
 import Purchases, { LOG_LEVEL, PACKAGE_TYPE, PurchasesPackage } from 'react-native-purchases';
+
+export type PlanType = 'monthly' | 'yearly' | 'lifetime';
 
 const RC_API_KEY = process.env.EXPO_PUBLIC_RC_API_KEY ?? '';
 
@@ -47,24 +27,31 @@ export async function getIsPremium(): Promise<boolean> {
   }
 }
 
-// Returns the one-time purchase package with its localized price info.
-// RevenueCat automatically surfaces the correct price for the user's App Store region.
-export async function getLifetimePackage(): Promise<PurchasesPackage | null> {
-  if (!isPurchasesConfigured()) return null;
+export interface PremiumPackages {
+  monthly: PurchasesPackage | null;
+  yearly: PurchasesPackage | null;
+  lifetime: PurchasesPackage | null;
+}
+
+export async function getPremiumPackages(): Promise<PremiumPackages> {
+  if (!isPurchasesConfigured()) return { monthly: null, yearly: null, lifetime: null };
   try {
     const offerings = await Purchases.getOfferings();
-    const pkg = offerings.current?.availablePackages.find(
-      (p) => p.packageType === PACKAGE_TYPE.LIFETIME
-    ) ?? offerings.current?.availablePackages[0] ?? null;
-    return pkg;
+    const pkgs = offerings.current?.availablePackages ?? [];
+    return {
+      monthly: pkgs.find((p) => p.packageType === PACKAGE_TYPE.MONTHLY) ?? null,
+      yearly: pkgs.find((p) => p.packageType === PACKAGE_TYPE.ANNUAL) ?? null,
+      lifetime: pkgs.find((p) => p.packageType === PACKAGE_TYPE.LIFETIME) ?? null,
+    };
   } catch {
-    return null;
+    return { monthly: null, yearly: null, lifetime: null };
   }
 }
 
-export async function purchasePremium(): Promise<boolean> {
+export async function purchaseByPlan(plan: PlanType): Promise<boolean> {
   if (!isPurchasesConfigured()) throw new Error('iap_not_configured');
-  const pkg = await getLifetimePackage();
+  const pkgs = await getPremiumPackages();
+  const pkg = pkgs[plan];
   if (!pkg) throw new Error('no_offering');
   const { customerInfo } = await Purchases.purchasePackage(pkg);
   return customerInfo.entitlements.active['premium'] !== undefined;
