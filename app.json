@@ -42,7 +42,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.uoknow.app",
-      "buildNumber": "1",
+      "buildNumber": "3",
       "minimumOsVersion": "16.0",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Optionally share your location with emergency contacts when checking in.",
