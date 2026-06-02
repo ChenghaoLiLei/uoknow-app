@@ -21,6 +21,8 @@ import {
 } from '../utils/purchases';
 import { PremiumContext } from '../PremiumContext';
 import { t } from '../i18n';
+import { apiSyncSettings } from '../utils/api';
+import { getDeviceId, getSettings } from '../utils/storage';
 
 const FALLBACK_PRICES: Record<PlanType, string> = {
   monthly: '€2.99',
@@ -66,6 +68,9 @@ export default function PaywallScreen() {
       const success = await purchaseByPlan(selectedPlan);
       if (success) {
         await refreshPremium();
+        // Immediately sync premium status to server
+        const [deviceId, settings] = await Promise.all([getDeviceId(), getSettings()]);
+        apiSyncSettings(deviceId, settings, undefined, true).catch(() => {});
         Alert.alert(t('paywallSuccess'), t('paywallSuccessMsg'), [
           { text: 'OK', onPress: () => navigation.goBack() },
         ]);
@@ -87,6 +92,10 @@ export default function PaywallScreen() {
     try {
       const restored = await restorePurchasesRC();
       await refreshPremium();
+      if (restored) {
+        const [deviceId, settings] = await Promise.all([getDeviceId(), getSettings()]);
+        apiSyncSettings(deviceId, settings, undefined, true).catch(() => {});
+      }
       Alert.alert(
         restored ? t('paywallRestoreSuccess') : t('paywallRestoreNone'),
         '',

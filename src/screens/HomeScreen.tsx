@@ -29,6 +29,7 @@ import { apiCheckIn, apiSyncContacts, apiSyncSettings } from '../utils/api';
 import { LanguageContext } from '../LanguageContext';
 import { useContext } from 'react';
 import { t } from '../i18n';
+import { PremiumContext } from '../PremiumContext';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -36,6 +37,7 @@ export default function HomeScreen() {
   const navigation = useNavigation<Nav>();
   const colors = useColors();
   const { language } = useContext(LanguageContext);
+  const { isPremium } = useContext(PremiumContext);
 
   const [checkedIn, setCheckedIn] = useState(false);
   const [lastCheckInTime, setLastCheckInTime] = useState<Date | null>(null);
@@ -46,6 +48,16 @@ export default function HomeScreen() {
 
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const glowAnim = useRef(new Animated.Value(0)).current;
+
+  // Re-sync once RevenueCat confirms premium (handles async RC loading on startup)
+  useEffect(() => {
+    if (!initialized || !isPremium) return;
+    getDeviceId().then((deviceId) =>
+      getSettings().then((settings) =>
+        apiSyncSettings(deviceId, settings, language, true).catch(() => {})
+      )
+    );
+  }, [isPremium, initialized, language]);
 
   useEffect(() => {
     if (!checkedIn) {
@@ -86,7 +98,7 @@ export default function HomeScreen() {
       // Silently re-sync contacts and settings to server on first load
       const deviceId = await getDeviceId();
       apiSyncContacts(deviceId, contacts).catch(() => {});
-      apiSyncSettings(deviceId, settings, language).catch(() => {});
+      apiSyncSettings(deviceId, settings, language, isPremium).catch(() => {});
     }
   }, [initialized, language]);
 
