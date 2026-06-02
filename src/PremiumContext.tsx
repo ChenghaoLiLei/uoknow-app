@@ -1,4 +1,5 @@
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { AppState, AppStateStatus } from 'react-native';
 import { initPurchases, getIsPremium } from './utils/purchases';
 
 interface PremiumContextValue {
@@ -13,6 +14,7 @@ export const PremiumContext = createContext<PremiumContextValue>({
 
 export function PremiumProvider({ children }: { children: React.ReactNode }) {
   const [isPremium, setIsPremium] = useState(false);
+  const appState = useRef(AppState.currentState);
 
   const refreshPremium = useCallback(async () => {
     const status = await getIsPremium();
@@ -21,6 +23,17 @@ export function PremiumProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     initPurchases().then(refreshPremium);
+  }, [refreshPremium]);
+
+  // Re-validate subscription whenever app returns to foreground
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (next: AppStateStatus) => {
+      if (appState.current.match(/inactive|background/) && next === 'active') {
+        refreshPremium();
+      }
+      appState.current = next;
+    });
+    return () => sub.remove();
   }, [refreshPremium]);
 
   return (
