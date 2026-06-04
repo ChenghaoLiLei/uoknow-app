@@ -9,7 +9,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { CheckInRecord } from '../types';
-import { getCheckInHistory } from '../utils/storage';
+import { getCheckInHistory, getDeviceId } from '../utils/storage';
+import { apiFetchNotifications, NotificationRecord } from '../utils/api';
 import { spacing, fontSizes, radius } from '../theme';
 import { useColors } from '../ThemeContext';
 import { t } from '../i18n';
@@ -50,7 +51,6 @@ function timeLabel(timestamp: number): string {
   return new Date(timestamp).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
 }
 
-// Group records by calendar date
 function groupByDay(records: CheckInRecord[]): Array<{ date: string; timestamp: number; records: CheckInRecord[] }> {
   const map = new Map<string, CheckInRecord[]>();
   for (const r of records) {
@@ -65,13 +65,21 @@ function groupByDay(records: CheckInRecord[]): Array<{ date: string; timestamp: 
   }));
 }
 
+function levelLabel(level: number): string {
+  if (level === 1) return t('notifLevel1');
+  if (level === 2) return t('notifLevel2');
+  return t('notifLevel3');
+}
+
 export default function HistoryScreen() {
   const colors = useColors();
   const [history, setHistory] = useState<CheckInRecord[]>([]);
+  const [notifications, setNotifications] = useState<NotificationRecord[]>([]);
 
   useFocusEffect(
     useCallback(() => {
       getCheckInHistory().then(setHistory);
+      getDeviceId().then(id => apiFetchNotifications(id).then(setNotifications));
     }, [])
   );
 
@@ -86,55 +94,76 @@ export default function HistoryScreen() {
         <View style={[styles.summaryRow, { backgroundColor: colors.surface, borderColor: colors.border }]}>
           <View style={styles.summaryItem}>
             <Text style={[styles.summaryValue, { color: colors.primaryDark }]}>{streak}</Text>
-            <Text style={[styles.summaryLabel, { color: colors.textMuted }]}>Day streak 🔥</Text>
+            <Text style={[styles.summaryLabel, { color: colors.textMuted }]}>{t('historyStreakLabel')}</Text>
           </View>
           <View style={[styles.summaryDivider, { backgroundColor: colors.border }]} />
           <View style={styles.summaryItem}>
             <Text style={[styles.summaryValue, { color: colors.primaryDark }]}>{history.length}</Text>
-            <Text style={[styles.summaryLabel, { color: colors.textMuted }]}>Total check-ins</Text>
+            <Text style={[styles.summaryLabel, { color: colors.textMuted }]}>{t('historyTotalLabel')}</Text>
           </View>
         </View>
 
-        {/* Empty state */}
-        {groups.length === 0 && (
+        {/* Check-in history */}
+        {groups.length === 0 ? (
           <View style={styles.emptyState}>
             <Text style={styles.emptyIcon}>📅</Text>
             <Text style={[styles.emptyTitle, { color: colors.textPrimary }]}>{t('historyEmpty')}</Text>
             <Text style={[styles.emptyHint, { color: colors.textMuted }]}>{t('historyEmptyHint')}</Text>
           </View>
-        )}
-
-        {/* History list */}
-        {groups.map((group) => (
-          <View key={group.date} style={styles.dayGroup}>
-            <Text style={[styles.dayLabel, { color: colors.textSecondary }]}>
-              {dayLabel(group.timestamp)}
-            </Text>
-            {group.records.map((record, i) => (
-              <View
-                key={record.timestamp}
-                style={[styles.record, { backgroundColor: colors.surface, borderColor: colors.border }]}
-              >
-                <View style={[styles.recordDot, { backgroundColor: colors.primary }]} />
-                <Text style={[styles.recordTime, { color: colors.textPrimary }]}>
-                  {timeLabel(record.timestamp)}
+        ) : (
+          <>
+            {groups.map((group) => (
+              <View key={group.date} style={styles.dayGroup}>
+                <Text style={[styles.dayLabel, { color: colors.textSecondary }]}>
+                  {dayLabel(group.timestamp)}
                 </Text>
-                {record.location && (
-                  <Text style={[styles.recordLocation, { color: colors.textMuted }]}>
-                    📍 {record.location.latitude.toFixed(4)}, {record.location.longitude.toFixed(4)}
-                  </Text>
-                )}
-                <Text style={[styles.recordOk, { color: colors.primary }]}>✓</Text>
+                {group.records.map((record) => (
+                  <View
+                    key={record.timestamp}
+                    style={[styles.record, { backgroundColor: colors.surface, borderColor: colors.border }]}
+                  >
+                    <View style={[styles.recordDot, { backgroundColor: colors.primary }]} />
+                    <Text style={[styles.recordTime, { color: colors.textPrimary }]}>
+                      {timeLabel(record.timestamp)}
+                    </Text>
+                    {record.location && (
+                      <Text style={[styles.recordLocation, { color: colors.textMuted }]}>
+                        📍 {record.location.latitude.toFixed(4)}, {record.location.longitude.toFixed(4)}
+                      </Text>
+                    )}
+                    <Text style={[styles.recordOk, { color: colors.primary }]}>✓</Text>
+                  </View>
+                ))}
               </View>
             ))}
-          </View>
-        ))}
-
-        {history.length > 0 && (
-          <Text style={[styles.footer, { color: colors.textMuted }]}>
-            Showing last {history.length} check-in{history.length !== 1 ? 's' : ''}
-          </Text>
+            <Text style={[styles.footer, { color: colors.textMuted }]}>
+              {t('historyShowingLast', { n: history.length })}
+            </Text>
+          </>
         )}
+
+        {/* Alert history */}
+        <View style={styles.sectionHeader}>
+          <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('alertHistoryTitle')}</Text>
+        </View>
+
+        {notifications.length === 0 ? (
+          <View style={[styles.alertEmpty, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+            <Text style={[styles.alertEmptyText, { color: colors.textMuted }]}>{t('alertHistoryEmpty')}</Text>
+          </View>
+        ) : (
+          notifications.map((n) => (
+            <View
+              key={n.id}
+              style={[styles.alertRecord, { backgroundColor: colors.surface, borderColor: colors.border }]}
+            >
+              <Text style={[styles.alertLevel, { color: colors.danger }]}>🚨 {levelLabel(n.level)}</Text>
+              <Text style={[styles.alertContact, { color: colors.textPrimary }]}>{n.contact_name}</Text>
+              <Text style={[styles.alertTime, { color: colors.textMuted }]}>{dayLabel(n.sent_at)} {timeLabel(n.sent_at)}</Text>
+            </View>
+          ))
+        )}
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -159,5 +188,13 @@ const styles = StyleSheet.create({
   recordTime: { fontSize: fontSizes.md, fontWeight: '600', flex: 1 },
   recordLocation: { fontSize: fontSizes.xs, flex: 2 },
   recordOk: { fontSize: fontSizes.md, fontWeight: '700' },
-  footer: { textAlign: 'center', fontSize: fontSizes.xs, marginTop: spacing.md },
+  footer: { textAlign: 'center', fontSize: fontSizes.xs, marginTop: spacing.sm },
+  sectionHeader: { marginTop: spacing.lg },
+  sectionTitle: { fontSize: fontSizes.sm, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 1 },
+  alertRecord: { borderRadius: radius.md, padding: spacing.md, borderWidth: 1, gap: 4 },
+  alertLevel: { fontSize: fontSizes.sm, fontWeight: '700' },
+  alertContact: { fontSize: fontSizes.md, fontWeight: '600' },
+  alertTime: { fontSize: fontSizes.xs },
+  alertEmpty: { borderRadius: radius.md, padding: spacing.md, borderWidth: 1, alignItems: 'center' },
+  alertEmptyText: { fontSize: fontSizes.sm },
 });

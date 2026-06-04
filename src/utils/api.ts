@@ -54,6 +54,44 @@ export async function apiSyncSettings(
   });
 }
 
+export async function apiDeleteDevice(deviceId: string): Promise<void> {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+    await fetch(`${SERVER_URL}/api/device/${encodeURIComponent(deviceId)}`, {
+      method: 'DELETE',
+      headers: BASE_HEADERS,
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+  } catch {
+    // Best-effort
+  }
+}
+
+export async function apiFetchNotifications(deviceId: string): Promise<NotificationRecord[]> {
+  try {
+    const res = await fetch(`${SERVER_URL}/api/notifications/${encodeURIComponent(deviceId)}`, {
+      headers: BASE_HEADERS,
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    });
+    if (!res.ok) return [];
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
+export interface NotificationRecord {
+  id: number;
+  device_id: string;
+  contact_name: string;
+  contact_email: string;
+  contact_phone: string;
+  level: number;
+  sent_at: number;
+}
+
 export async function apiPing(): Promise<boolean> {
   try {
     const res = await fetch(`${SERVER_URL}/health`, {

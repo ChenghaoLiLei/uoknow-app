@@ -23,7 +23,7 @@ import { useColors } from '../ThemeContext';
 import { clearAllData, getDeviceId, getSettings, saveSettings } from '../utils/storage';
 import { requestLocationPermission } from '../utils/location';
 import { scheduleDailyReminder } from '../utils/notifications';
-import { apiSyncSettings } from '../utils/api';
+import { apiSyncSettings, apiDeleteDevice } from '../utils/api';
 import { t } from '../i18n';
 import { LanguageContext } from '../LanguageContext';
 
@@ -145,6 +145,8 @@ export default function SettingsScreen() {
         text: t('resetConfirm'),
         style: 'destructive',
         onPress: async () => {
+          const deviceId = await getDeviceId();
+          await apiDeleteDevice(deviceId);
           await clearAllData();
           await loadSettings();
           Alert.alert(t('resetDoneTitle'), t('resetDoneMsg'));
