@@ -28,6 +28,8 @@ import {
 } from '../utils/storage';
 import { apiSyncContacts } from '../utils/api';
 import { t } from '../i18n';
+import { countryName } from '../i18n/countries';
+import { LanguageContext } from '../LanguageContext';
 import { PremiumContext } from '../PremiumContext';
 
 const FREE_MAX = 3;
@@ -36,32 +38,33 @@ const PREMIUM_MAX = 5;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[\d\s\-().]{5,18}$/;
 
+// Country names are localized at render time via countryName() (see i18n/countries.ts).
 const COUNTRY_CODES = [
-  { code: '+86',  label: '中国',      flag: '🇨🇳' },
-  { code: '+49',  label: '德国',      flag: '🇩🇪' },
-  { code: '+1',   label: '美国/加拿大', flag: '🇺🇸' },
-  { code: '+44',  label: '英国',      flag: '🇬🇧' },
-  { code: '+33',  label: '法国',      flag: '🇫🇷' },
-  { code: '+39',  label: '意大利',    flag: '🇮🇹' },
-  { code: '+34',  label: '西班牙',    flag: '🇪🇸' },
-  { code: '+31',  label: '荷兰',      flag: '🇳🇱' },
-  { code: '+46',  label: '瑞典',      flag: '🇸🇪' },
-  { code: '+47',  label: '挪威',      flag: '🇳🇴' },
-  { code: '+45',  label: '丹麦',      flag: '🇩🇰' },
-  { code: '+358', label: '芬兰',      flag: '🇫🇮' },
-  { code: '+7',   label: '俄罗斯',    flag: '🇷🇺' },
-  { code: '+81',  label: '日本',      flag: '🇯🇵' },
-  { code: '+82',  label: '韩国',      flag: '🇰🇷' },
-  { code: '+852', label: '香港',      flag: '🇭🇰' },
-  { code: '+886', label: '台湾',      flag: '🇹🇼' },
-  { code: '+65',  label: '新加坡',    flag: '🇸🇬' },
-  { code: '+61',  label: '澳大利亚',  flag: '🇦🇺' },
-  { code: '+64',  label: '新西兰',    flag: '🇳🇿' },
-  { code: '+91',  label: '印度',      flag: '🇮🇳' },
-  { code: '+55',  label: '巴西',      flag: '🇧🇷' },
-  { code: '+52',  label: '墨西哥',    flag: '🇲🇽' },
-  { code: '+90',  label: '土耳其',    flag: '🇹🇷' },
-  { code: '+66',  label: '泰国',      flag: '🇹🇭' },
+  { code: '+86',  flag: '🇨🇳' },
+  { code: '+49',  flag: '🇩🇪' },
+  { code: '+1',   flag: '🇺🇸' },
+  { code: '+44',  flag: '🇬🇧' },
+  { code: '+33',  flag: '🇫🇷' },
+  { code: '+39',  flag: '🇮🇹' },
+  { code: '+34',  flag: '🇪🇸' },
+  { code: '+31',  flag: '🇳🇱' },
+  { code: '+46',  flag: '🇸🇪' },
+  { code: '+47',  flag: '🇳🇴' },
+  { code: '+45',  flag: '🇩🇰' },
+  { code: '+358', flag: '🇫🇮' },
+  { code: '+7',   flag: '🇷🇺' },
+  { code: '+81',  flag: '🇯🇵' },
+  { code: '+82',  flag: '🇰🇷' },
+  { code: '+852', flag: '🇭🇰' },
+  { code: '+886', flag: '🇹🇼' },
+  { code: '+65',  flag: '🇸🇬' },
+  { code: '+61',  flag: '🇦🇺' },
+  { code: '+64',  flag: '🇳🇿' },
+  { code: '+91',  flag: '🇮🇳' },
+  { code: '+55',  flag: '🇧🇷' },
+  { code: '+52',  flag: '🇲🇽' },
+  { code: '+90',  flag: '🇹🇷' },
+  { code: '+66',  flag: '🇹🇭' },
 ];
 
 const DEFAULT_DIAL = COUNTRY_CODES[0];
@@ -87,6 +90,7 @@ const emptyForm = { name: '', email: '', dialCode: DEFAULT_DIAL.code, localPhone
 
 export default function ContactsScreen() {
   const { isPremium } = useContext(PremiumContext);
+  const { language } = useContext(LanguageContext);
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const colors = useColors();
   const maxContacts = isPremium ? PREMIUM_MAX : FREE_MAX;
@@ -172,7 +176,7 @@ export default function ContactsScreen() {
       try {
         await syncToServer(updated);
       } catch {
-        Alert.alert(t('syncWarning') ?? 'Sync failed', t('syncWarningMsg') ?? 'Contact saved locally but failed to sync to server.');
+        Alert.alert(t('syncWarning'), t('syncWarningMsg'));
       }
       setModalVisible(false);
     } finally {
@@ -325,7 +329,7 @@ export default function ContactsScreen() {
               >
                 {COUNTRY_CODES.map((item) => (
                   <TouchableOpacity
-                    key={item.code + item.label}
+                    key={item.code}
                     style={[
                       styles.dropdownItem,
                       { borderBottomColor: colors.border },
@@ -337,7 +341,7 @@ export default function ContactsScreen() {
                     }}
                   >
                     <Text style={styles.dropdownFlag}>{item.flag}</Text>
-                    <Text style={[styles.dropdownLabel, { color: colors.textPrimary }]}>{item.label}</Text>
+                    <Text style={[styles.dropdownLabel, { color: colors.textPrimary }]}>{countryName(item.code, language)}</Text>
                     <Text style={[styles.dropdownCode, { color: colors.textSecondary }]}>{item.code}</Text>
                     {item.code === form.dialCode && (
                       <Text style={[styles.dropdownCheck, { color: colors.primary }]}>✓</Text>

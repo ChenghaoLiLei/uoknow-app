@@ -18,6 +18,7 @@ import SettingsScreen from './src/screens/SettingsScreen';
 import PrivacyPolicyScreen from './src/screens/PrivacyPolicyScreen';
 import PaywallScreen from './src/screens/PaywallScreen';
 import HistoryScreen from './src/screens/HistoryScreen';
+import * as Localization from 'expo-localization';
 import { setLocale, t } from './src/i18n';
 import { getLanguage, saveLanguage, getSettings, getDeviceId } from './src/utils/storage';
 import { scheduleDailyReminder } from './src/utils/notifications';
@@ -26,6 +27,31 @@ import { apiSyncSettings } from './src/utils/api';
 import { PremiumProvider } from './src/PremiumContext';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const SUPPORTED_LANGUAGES = [
+  'en', 'zh', 'zh-TW', 'ja', 'ko', 'de', 'fr', 'es', 'pt', 'it',
+  'ru', 'nl', 'pl', 'sv', 'da', 'no', 'fi', 'tr', 'uk', 'ar',
+  'hi', 'th', 'vi', 'id', 'ms',
+];
+
+// Pick the best-matching supported language from the device locale on first launch.
+function detectDeviceLanguage(): string {
+  try {
+    const locale = Localization.getLocales()[0];
+    if (!locale) return 'en';
+    const code = (locale.languageCode ?? 'en').toLowerCase();
+    if (code === 'zh') {
+      const tag = (locale.languageTag ?? '').toLowerCase();
+      const region = (locale.regionCode ?? '').toUpperCase();
+      const isTraditional =
+        tag.includes('hant') || ['TW', 'HK', 'MO'].includes(region);
+      return isTraditional ? 'zh-TW' : 'zh';
+    }
+    return SUPPORTED_LANGUAGES.includes(code) ? code : 'en';
+  } catch {
+    return 'en';
+  }
+}
 
 function AppNavigator() {
   const colors = useColors();
@@ -54,7 +80,7 @@ export default function App() {
 
   useEffect(() => {
     getLanguage().then((saved) => {
-      const lang = saved ?? 'en';
+      const lang = saved ?? detectDeviceLanguage();
       setLocale(lang);
       setLanguage(lang);
     });

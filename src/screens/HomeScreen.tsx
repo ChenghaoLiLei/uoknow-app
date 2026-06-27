@@ -149,7 +149,7 @@ export default function HomeScreen() {
         <Text style={[styles.appSubtitle, { color: colors.textSecondary }]}>{t('appSubtitle')}</Text>
         {isPaused && (
           <Text style={[styles.pausedBadge, { backgroundColor: '#FFF3E0', color: colors.warning }]}>
-            🏖 Vacation mode — alerts paused
+            {t('vacationBadge')}
           </Text>
         )}
       </View>
@@ -244,8 +244,11 @@ function formatTime(date: Date | null): string {
 function formatHours(hours: number): string {
   if (hours < 1) return t('timeMinutes', { n: Math.round(hours * 60) });
   if (hours < 24) return t('timeHours', { n: Math.round(hours) });
-  const days = Math.floor(hours / 24);
-  const rem = Math.round(hours % 24);
+  // Round to whole hours first, then split into days + hours so a remainder
+  // that rounds up to 24h carries over into the next day (avoids "2d 24h").
+  const totalHours = Math.round(hours);
+  const days = Math.floor(totalHours / 24);
+  const rem = totalHours % 24;
   return rem > 0
     ? t('timeDaysHours', { days, hours: rem })
     : t('timeDays', { n: days });

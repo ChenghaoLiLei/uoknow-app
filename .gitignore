@@ -14,3 +14,4 @@ android/.gradle/
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+ios/build_install/

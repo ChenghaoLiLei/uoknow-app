@@ -1,8 +1,18 @@
 import { Contact, Settings } from '../types';
+import * as Localization from 'expo-localization';
 
-const SERVER_URL =
+const CN_SERVER_URL = 'https://chongyetech.com';
+const INT_SERVER_URL =
   (process.env.EXPO_PUBLIC_SERVER_URL as string | undefined) ??
   'http://localhost:3000';
+
+const SERVER_URL = (() => {
+  try {
+    const locale = Localization.getLocales()[0];
+    if (locale?.regionCode === 'CN') return CN_SERVER_URL;
+  } catch {}
+  return INT_SERVER_URL;
+})();
 
 const TIMEOUT_MS = 8000;
 
