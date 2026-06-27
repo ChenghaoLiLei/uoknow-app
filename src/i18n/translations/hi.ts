@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}दि',
   timeMinutes: '%{n} मिनट',
   timeHours: '%{n} घंटे',
-  timeDays: '%{n} दिन',
+  timeDays: '%{count} दिन',
   timeDaysHours: '%{days} दिन %{hours} घंटे',
 
   iosLocationPermission: 'चेक-इन करते समय आप आपातकालीन संपर्कों के साथ अपना स्थान साझा कर सकते हैं।',

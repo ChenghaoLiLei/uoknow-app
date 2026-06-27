@@ -91,7 +91,7 @@ export default {
   triggerDay: '%{n}d',
   timeMinutes: '%{n} min',
   timeHours: '%{n} hr',
-  timeDays: '%{n} day',
+  timeDays: { one: '%{count} day', other: '%{count} days' },
   timeDaysHours: '%{days}d %{hours}h',
 
   iosLocationPermission: 'Optionally share your location with emergency contacts when checking in.',
@@ -153,7 +153,7 @@ export default {
   historyTotal: '%{n} total check-ins',
   historyStreakLabel: 'Day streak 🔥',
   historyTotalLabel: 'Total check-ins',
-  historyShowingLast: 'Showing last %{n} check-in(s)',
+  historyShowingLast: 'Showing last %{n} check-ins',
   historyToday: 'Today',
   historyYesterday: 'Yesterday',
   alertHistoryTitle: 'Alert History',

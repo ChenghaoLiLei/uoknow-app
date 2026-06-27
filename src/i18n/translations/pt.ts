@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}d',
   timeMinutes: '%{n} min',
   timeHours: '%{n} h',
-  timeDays: '%{n} dia',
+  timeDays: { one: '%{count} dia', other: '%{count} dias' },
   timeDaysHours: '%{days}d %{hours}h',
 
   iosLocationPermission: 'Pode partilhar a sua localização com os contactos de emergência ao registar-se.',

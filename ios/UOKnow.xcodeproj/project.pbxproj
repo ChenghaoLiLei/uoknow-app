@@ -60,7 +60,7 @@
 		633610D196AD439A8B221CCC /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		64D7F9C29EEDB6B75004C798 /* Pods-UOKnow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UOKnow.release.xcconfig"; path = "Target Support Files/Pods-UOKnow/Pods-UOKnow.release.xcconfig"; sourceTree = "<group>"; };
 		6C6A88DBD5B649A8B5F275BA /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		799A7D74DE98A27F7839552E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = UOKnow/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		799A7D74DE98A27F7839552E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = UOKnow/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		898A73A57E244BD4B8077EF6 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8BFA20C7D8571409B79D0DE7 /* Pods-UOKnow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UOKnow.debug.xcconfig"; path = "Target Support Files/Pods-UOKnow/Pods-UOKnow.debug.xcconfig"; sourceTree = "<group>"; };
 		A373FF6389B147B5A39EFBD7 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -100,7 +100,6 @@
 				A55A35D6725541CD819306C0 /* InfoPlist.strings */,
 			);
 			name = de.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		05013D21F3DD4F76BCB3D7FD /* hi.lproj */ = {
@@ -109,7 +108,6 @@
 				F6C93B2B760445A6B6D27026 /* InfoPlist.strings */,
 			);
 			name = hi.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		073F74CBF73045CC86622326 /* it.lproj */ = {
@@ -118,7 +116,6 @@
 				633610D196AD439A8B221CCC /* InfoPlist.strings */,
 			);
 			name = it.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* UOKnow */ = {
@@ -141,7 +138,6 @@
 				C4AF311F2E1F424CB5FF764F /* InfoPlist.strings */,
 			);
 			name = fi.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -159,7 +155,6 @@
 				42D02DB9835A450E8805A29C /* InfoPlist.strings */,
 			);
 			name = tr.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		33B631AC6CFD49A79A019001 /* ar.lproj */ = {
@@ -168,7 +163,6 @@
 				516F70145AFD4B3AB2DA6A50 /* InfoPlist.strings */,
 			);
 			name = ar.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		3AC774462F8F40CEAF8EF82B /* pt.lproj */ = {
@@ -177,7 +171,6 @@
 				F00E885024714459A65ED8BA /* InfoPlist.strings */,
 			);
 			name = pt.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		3BCB826694D7455DBB915FD0 /* zh-TW.lproj */ = {
@@ -186,7 +179,6 @@
 				1007C3E7A88F419C9AC034DE /* InfoPlist.strings */,
 			);
 			name = "zh-TW.lproj";
-			path = "";
 			sourceTree = "<group>";
 		};
 		4955FD62C6EB4A679116C9DE /* pl.lproj */ = {
@@ -195,7 +187,6 @@
 				4321A22603FA4B0AA2E768D9 /* InfoPlist.strings */,
 			);
 			name = pl.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		596091A5D1604A1B83AD742E /* ko.lproj */ = {
@@ -204,7 +195,6 @@
 				6C6A88DBD5B649A8B5F275BA /* InfoPlist.strings */,
 			);
 			name = ko.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		63DED315502F465CAC13ADAA /* es.lproj */ = {
@@ -213,7 +203,6 @@
 				BFA6133BCDAC48EA8AEE7D23 /* InfoPlist.strings */,
 			);
 			name = es.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		646DFA78E58641BD9AAE2140 /* nl.lproj */ = {
@@ -222,7 +211,6 @@
 				49A524F719F943B0B5653059 /* InfoPlist.strings */,
 			);
 			name = nl.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		6AF17761647A2C81A73DF725 /* UOKnow */ = {
@@ -239,7 +227,6 @@
 				3F1C577E52634207A9B48D46 /* InfoPlist.strings */,
 			);
 			name = no.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		7A43229B6B9D41E09DABB4F2 /* sv.lproj */ = {
@@ -248,7 +235,6 @@
 				1B48F6D7A5AE4FE4A03C7DB7 /* InfoPlist.strings */,
 			);
 			name = sv.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -287,7 +273,6 @@
 				D2954138D02C49808179FE93 /* InfoPlist.strings */,
 			);
 			name = uk.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		8DDFFDD00E5549F2899102EA /* id.lproj */ = {
@@ -296,7 +281,6 @@
 				A373FF6389B147B5A39EFBD7 /* InfoPlist.strings */,
 			);
 			name = id.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		9DFE50AAE2154CACA349D580 /* ms.lproj */ = {
@@ -305,7 +289,6 @@
 				442266EB1BB5472FB64563CB /* InfoPlist.strings */,
 			);
 			name = ms.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		A4AD60F016A346F8845A888C /* da.lproj */ = {
@@ -314,7 +297,6 @@
 				B8031AC62DCB4180B40C65C3 /* InfoPlist.strings */,
 			);
 			name = da.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		A693F44B7BF746FE4A036986 /* Pods */ = {
@@ -323,7 +305,6 @@
 				8BFA20C7D8571409B79D0DE7 /* Pods-UOKnow.debug.xcconfig */,
 				64D7F9C29EEDB6B75004C798 /* Pods-UOKnow.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -333,7 +314,6 @@
 				898A73A57E244BD4B8077EF6 /* InfoPlist.strings */,
 			);
 			name = ru.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		ABA809141A75422FB6C1F8BB /* th.lproj */ = {
@@ -342,7 +322,6 @@
 				E08C3241AEEF4A3F962AEF31 /* InfoPlist.strings */,
 			);
 			name = th.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		B3569387824DD1DD174D5FCB /* ExpoModulesProviders */ = {
@@ -359,7 +338,6 @@
 				B1D1EAA148D24385BAEC63D6 /* InfoPlist.strings */,
 			);
 			name = zh.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		B6B19971499C48EBBA5CE084 /* ja.lproj */ = {
@@ -368,7 +346,6 @@
 				4390CC1E9E07493F8A8BC697 /* InfoPlist.strings */,
 			);
 			name = ja.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -411,7 +388,6 @@
 				C9D766005E5A46399B823BB6 /* InfoPlist.strings */,
 			);
 			name = fr.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		D72294C3B8644F6898CD2B14 /* en.lproj */ = {
@@ -420,7 +396,6 @@
 				37938FE23ECD45A6822FD224 /* InfoPlist.strings */,
 			);
 			name = en.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 		F7651441B4584E94AA6BE58D /* vi.lproj */ = {
@@ -429,7 +404,6 @@
 				A6B254A4866E4693947A7119 /* InfoPlist.strings */,
 			);
 			name = vi.lproj;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -673,7 +647,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = UOKnow/UOKnow.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 3U43DH4339;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -709,7 +684,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = UOKnow/UOKnow.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = 3U43DH4339;
 				INFOPLIST_FILE = UOKnow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (

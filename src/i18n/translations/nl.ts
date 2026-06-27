@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}d',
   timeMinutes: '%{n} min',
   timeHours: '%{n} uur',
-  timeDays: '%{n} dag',
+  timeDays: { one: '%{count} dag', other: '%{count} dagen' },
   timeDaysHours: '%{days}d %{hours}u',
 
   iosLocationPermission: 'U kunt optioneel uw locatie delen met noodcontacten bij het inchecken.',

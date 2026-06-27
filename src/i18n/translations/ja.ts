@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}日',
   timeMinutes: '%{n} 分',
   timeHours: '%{n} 時間',
-  timeDays: '%{n} 日',
+  timeDays: '%{count} 日',
   timeDaysHours: '%{days} 日 %{hours} 時間',
 
   iosLocationPermission: 'チェックイン時に緊急連絡先と位置情報を共有できます（任意）。',

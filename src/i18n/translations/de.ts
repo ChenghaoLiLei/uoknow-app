@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}T',
   timeMinutes: '%{n} Min.',
   timeHours: '%{n} Std.',
-  timeDays: '%{n} Tag',
+  timeDays: { one: '%{count} Tag', other: '%{count} Tagen' },
   timeDaysHours: '%{days}T %{hours}h',
 
   iosLocationPermission: 'Sie können beim Check-in optional Ihren Standort mit Notfallkontakten teilen.',

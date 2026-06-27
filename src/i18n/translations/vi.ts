@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}ng',
   timeMinutes: '%{n} phút',
   timeHours: '%{n} giờ',
-  timeDays: '%{n} ngày',
+  timeDays: '%{count} ngày',
   timeDaysHours: '%{days} ngày %{hours} giờ',
 
   iosLocationPermission: 'Bạn có thể chia sẻ vị trí với liên hệ khẩn cấp khi điểm danh (tùy chọn).',

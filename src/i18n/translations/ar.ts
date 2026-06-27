@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}ي',
   timeMinutes: '%{n} د',
   timeHours: '%{n} س',
-  timeDays: '%{n} يوم',
+  timeDays: { one: '%{count} يوم', other: '%{count} أيام' },
   timeDaysHours: '%{days}ي %{hours}س',
 
   iosLocationPermission: 'يمكنك مشاركة موقعك مع جهات اتصال الطوارئ عند التسجيل.',

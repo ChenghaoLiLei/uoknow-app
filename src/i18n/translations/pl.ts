@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}d',
   timeMinutes: '%{n} min',
   timeHours: '%{n} godz.',
-  timeDays: '%{n} dzień',
+  timeDays: { one: '%{count} dzień', other: '%{count} dni' },
   timeDaysHours: '%{days}d %{hours}h',
 
   iosLocationPermission: 'Możesz opcjonalnie udostępnić swoją lokalizację kontaktom alarmowym podczas meldowania.',

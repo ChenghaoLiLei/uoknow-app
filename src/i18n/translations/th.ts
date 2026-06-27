@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}วัน',
   timeMinutes: '%{n} นาที',
   timeHours: '%{n} ชั่วโมง',
-  timeDays: '%{n} วัน',
+  timeDays: '%{count} วัน',
   timeDaysHours: '%{days} วัน %{hours} ชั่วโมง',
 
   iosLocationPermission: 'คุณสามารถแชร์ตำแหน่งของคุณกับผู้ติดต่อฉุกเฉินเมื่อเช็คอิน (ไม่บังคับ)',

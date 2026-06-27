@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}d',
   timeMinutes: '%{n} min',
   timeHours: '%{n} t',
-  timeDays: '%{n} dag',
+  timeDays: { one: '%{count} dag', other: '%{count} dager' },
   timeDaysHours: '%{days}d %{hours}t',
 
   iosLocationPermission: 'Du kan valgfritt dele posisjonen din med nødkontakter ved innsjekking.',

@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}j',
   timeMinutes: '%{n} min',
   timeHours: '%{n} h',
-  timeDays: '%{n} jour',
+  timeDays: { one: '%{count} jour', other: '%{count} jours' },
   timeDaysHours: '%{days}j %{hours}h',
 
   iosLocationPermission: 'Vous pouvez partager votre position avec vos contacts d\'urgence lors du pointage.',

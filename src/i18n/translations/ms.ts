@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}h',
   timeMinutes: '%{n} min',
   timeHours: '%{n} jam',
-  timeDays: '%{n} hari',
+  timeDays: '%{count} hari',
   timeDaysHours: '%{days} hari %{hours} jam',
 
   iosLocationPermission: 'Anda boleh berkongsi lokasi dengan kenalan kecemasan semasa daftar masuk (pilihan).',

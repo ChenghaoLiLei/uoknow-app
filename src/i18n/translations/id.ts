@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}h',
   timeMinutes: '%{n} mnt',
   timeHours: '%{n} jam',
-  timeDays: '%{n} hari',
+  timeDays: '%{count} hari',
   timeDaysHours: '%{days} hari %{hours} jam',
 
   iosLocationPermission: 'Kamu dapat berbagi lokasi dengan kontak darurat saat check-in (opsional).',

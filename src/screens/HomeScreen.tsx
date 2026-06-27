@@ -28,7 +28,7 @@ import { getCurrentLocation, requestLocationPermission } from '../utils/location
 import { apiCheckIn, apiSyncContacts, apiSyncSettings } from '../utils/api';
 import { LanguageContext } from '../LanguageContext';
 import { useContext } from 'react';
-import { t } from '../i18n';
+import i18n, { t } from '../i18n';
 import { PremiumContext } from '../PremiumContext';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'Home'>;
@@ -233,7 +233,7 @@ export default function HomeScreen() {
 
 function formatTime(date: Date | null): string {
   if (!date) return '—';
-  return date.toLocaleString(undefined, {
+  return date.toLocaleString(i18n.locale, {
     month: 'short',
     day: 'numeric',
     hour: '2-digit',
@@ -251,7 +251,7 @@ function formatHours(hours: number): string {
   const rem = totalHours % 24;
   return rem > 0
     ? t('timeDaysHours', { days, hours: rem })
-    : t('timeDays', { n: days });
+    : t('timeDays', { count: days });
 }
 
 const styles = StyleSheet.create({

@@ -24,7 +24,7 @@ import { clearAllData, getDeviceId, getSettings, saveSettings } from '../utils/s
 import { requestLocationPermission } from '../utils/location';
 import { scheduleDailyReminder } from '../utils/notifications';
 import { apiSyncSettings, apiDeleteDevice } from '../utils/api';
-import { t } from '../i18n';
+import i18n, { t } from '../i18n';
 import { LanguageContext } from '../LanguageContext';
 
 const LANGUAGE_OPTIONS = [
@@ -169,7 +169,7 @@ export default function SettingsScreen() {
   const vacationStatus = () => {
     if (!settings.isPaused) return null;
     if (settings.pauseUntil) {
-      const date = new Date(settings.pauseUntil).toLocaleDateString();
+      const date = new Date(settings.pauseUntil).toLocaleDateString(i18n.locale);
       return t('vacationResumesAt', { date });
     }
     return t('vacationIndefinite');

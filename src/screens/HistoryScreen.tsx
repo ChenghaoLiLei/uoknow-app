@@ -13,7 +13,7 @@ import { getCheckInHistory, getDeviceId } from '../utils/storage';
 import { apiFetchNotifications, NotificationRecord } from '../utils/api';
 import { spacing, fontSizes, radius } from '../theme';
 import { useColors } from '../ThemeContext';
-import { t } from '../i18n';
+import i18n, { t } from '../i18n';
 
 function calcStreak(history: CheckInRecord[]): number {
   if (history.length === 0) return 0;
@@ -44,11 +44,11 @@ function dayLabel(timestamp: number): string {
 
   if (d.toDateString() === today.toDateString()) return t('historyToday');
   if (d.toDateString() === yesterday.toDateString()) return t('historyYesterday');
-  return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+  return d.toLocaleDateString(i18n.locale, { weekday: 'short', month: 'short', day: 'numeric' });
 }
 
 function timeLabel(timestamp: number): string {
-  return new Date(timestamp).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+  return new Date(timestamp).toLocaleTimeString(i18n.locale, { hour: '2-digit', minute: '2-digit' });
 }
 
 function groupByDay(records: CheckInRecord[]): Array<{ date: string; timestamp: number; records: CheckInRecord[] }> {

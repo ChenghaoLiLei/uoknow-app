@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}д',
   timeMinutes: '%{n} мин',
   timeHours: '%{n} ч',
-  timeDays: '%{n} д',
+  timeDays: '%{count} д',
   timeDaysHours: '%{days}д %{hours}ч',
 
   iosLocationPermission: 'При отметке можно поделиться своим местоположением с экстренными контактами.',

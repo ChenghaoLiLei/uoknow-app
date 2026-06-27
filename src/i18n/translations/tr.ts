@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}g',
   timeMinutes: '%{n} dk',
   timeHours: '%{n} sa',
-  timeDays: '%{n} gün',
+  timeDays: '%{count} gün',
   timeDaysHours: '%{days}g %{hours}s',
 
   iosLocationPermission: 'Giriş yaparken acil durum kişilerinizle isteğe bağlı konum paylaşabilirsiniz.',

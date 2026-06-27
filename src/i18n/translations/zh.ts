@@ -91,7 +91,7 @@ export default {
   triggerDay: '%{n}天',
   timeMinutes: '%{n} 分钟',
   timeHours: '%{n} 小时',
-  timeDays: '%{n} 天',
+  timeDays: '%{count} 天',
   timeDaysHours: '%{days} 天 %{hours} 小时',
 
   iosLocationPermission: '签到时可选择分享位置给紧急联系人，保障你的安全。',

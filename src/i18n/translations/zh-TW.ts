@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}天',
   timeMinutes: '%{n} 分鐘',
   timeHours: '%{n} 小時',
-  timeDays: '%{n} 天',
+  timeDays: '%{count} 天',
   timeDaysHours: '%{days} 天 %{hours} 小時',
 
   iosLocationPermission: '簽到時可選擇分享位置給緊急聯絡人，保障你的安全。',

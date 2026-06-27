@@ -73,7 +73,7 @@ export default {
   triggerDay: '%{n}pv',
   timeMinutes: '%{n} min',
   timeHours: '%{n} t',
-  timeDays: '%{n} pv',
+  timeDays: '%{count} pv',
   timeDaysHours: '%{days}pv %{hours}t',
 
   iosLocationPermission: 'Voit halutessasi jakaa sijaintisi hätäyhteystiedoillesi kirjautuessasi.',
