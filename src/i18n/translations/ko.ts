@@ -13,6 +13,8 @@ export default {
   navSettings: '설정',
 
   contactsScreenTitle: '긴급 연락처',
+
+  homeScreenTitle: '홈',
   settingsScreenTitle: '설정',
   contactsHint: '긴급 연락처는 최대 %{max}명입니다. 설정 시간 내에 체크인하지 않으면 이메일과 문자로 알립니다.',
   editBtn: '편집',

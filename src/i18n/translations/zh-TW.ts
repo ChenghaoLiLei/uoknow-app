@@ -13,6 +13,8 @@ export default {
   navSettings: '設定',
 
   contactsScreenTitle: '緊急聯絡人',
+
+  homeScreenTitle: '首頁',
   settingsScreenTitle: '設定',
   contactsHint: '最多 %{max} 位緊急聯絡人。當你超過設定時間未簽到時，系統將通過郵件和簡訊通知他們。',
   editBtn: '編輯',

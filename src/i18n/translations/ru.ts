@@ -13,6 +13,8 @@ export default {
   navSettings: 'Настройки',
 
   contactsScreenTitle: 'Экстренные контакты',
+
+  homeScreenTitle: 'Главная',
   settingsScreenTitle: 'Настройки',
   contactsHint: 'До %{max} экстренных контактов. Если вы пропустите отметку, они будут уведомлены по e-mail и SMS.',
   editBtn: 'Изменить',

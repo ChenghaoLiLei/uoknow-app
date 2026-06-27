@@ -13,6 +13,8 @@ export default {
   navSettings: 'Impostazioni',
 
   contactsScreenTitle: 'Contatti di emergenza',
+
+  homeScreenTitle: 'Home',
   settingsScreenTitle: 'Impostazioni',
   contactsHint: 'Fino a %{max} contatti di emergenza. Se non ti registri in tempo, verranno notificati via e-mail e SMS.',
   editBtn: 'Modifica',

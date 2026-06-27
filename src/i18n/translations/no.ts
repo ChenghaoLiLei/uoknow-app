@@ -13,6 +13,8 @@ export default {
   navSettings: 'Innstillinger',
 
   contactsScreenTitle: 'Nødkontakter',
+
+  homeScreenTitle: 'Hjem',
   settingsScreenTitle: 'Innstillinger',
   contactsHint: 'Opptil %{max} nødkontakter. Hvis du ikke sjekker inn i tide, vil de bli varslet via e-post og SMS.',
   editBtn: 'Rediger',

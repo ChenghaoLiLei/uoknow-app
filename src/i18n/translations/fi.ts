@@ -13,6 +13,8 @@ export default {
   navSettings: 'Asetukset',
 
   contactsScreenTitle: 'Hätäyhteystiedot',
+
+  homeScreenTitle: 'Etusivu',
   settingsScreenTitle: 'Asetukset',
   contactsHint: 'Enintään %{max} hätäyhteystietoa. Jos et kirjaudu ajoissa, heille ilmoitetaan sähköpostilla ja tekstiviestillä.',
   editBtn: 'Muokkaa',

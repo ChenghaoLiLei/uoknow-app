@@ -13,6 +13,8 @@ export default {
   navSettings: 'Ayarlar',
 
   contactsScreenTitle: 'Acil Durum Kişileri',
+
+  homeScreenTitle: 'Ana Sayfa',
   settingsScreenTitle: 'Ayarlar',
   contactsHint: 'En fazla %{max} acil durum kişisi. Zamanında giriş yapmazsan e-posta ve SMS ile bilgilendirilirler.',
   editBtn: 'Düzenle',

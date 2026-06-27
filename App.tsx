@@ -64,7 +64,7 @@ function AppNavigator() {
           headerTitleStyle: { fontWeight: '700' },
         }}
       >
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false, title: t('homeScreenTitle') }} />
         <Stack.Screen name="Contacts" component={ContactsScreen} options={{ title: t('contactsScreenTitle') }} />
         <Stack.Screen name="Settings" component={SettingsScreen} options={{ title: t('settingsScreenTitle') }} />
         <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicyScreen} options={{ title: t('privacyPolicyTitle') }} />

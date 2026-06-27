@@ -14,6 +14,8 @@ export default {
   navHistory: 'History',
 
   contactsScreenTitle: 'Emergency Contacts',
+
+  homeScreenTitle: 'Home',
   settingsScreenTitle: 'Settings',
   historyScreenTitle: 'Check-in History',
   contactsHint: 'Up to %{max} emergency contacts. If you miss your check-in window, they will be notified.',

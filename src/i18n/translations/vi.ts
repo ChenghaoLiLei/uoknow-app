@@ -13,6 +13,8 @@ export default {
   navSettings: 'Cài đặt',
 
   contactsScreenTitle: 'Liên hệ khẩn cấp',
+
+  homeScreenTitle: 'Trang chủ',
   settingsScreenTitle: 'Cài đặt',
   contactsHint: 'Tối đa %{max} liên hệ khẩn cấp. Nếu bạn không điểm danh đúng hạn, họ sẽ được thông báo qua email và SMS.',
   editBtn: 'Sửa',

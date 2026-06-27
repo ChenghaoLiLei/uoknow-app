@@ -13,6 +13,8 @@ export default {
   navSettings: 'Tetapan',
 
   contactsScreenTitle: 'Kenalan Kecemasan',
+
+  homeScreenTitle: 'Utama',
   settingsScreenTitle: 'Tetapan',
   contactsHint: 'Sehingga %{max} kenalan kecemasan. Jika anda terlepas daftar masuk, mereka akan dimaklumkan melalui e-mel dan SMS.',
   editBtn: 'Edit',

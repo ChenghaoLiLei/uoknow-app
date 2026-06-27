@@ -14,6 +14,8 @@ export default {
   navHistory: '历史',
 
   contactsScreenTitle: '紧急联系人',
+
+  homeScreenTitle: '首页',
   settingsScreenTitle: '设置',
   historyScreenTitle: '签到历史',
   contactsHint: '最多 %{max} 位紧急联系人。当你超过设定时间未签到时，系统将通过邮件和短信通知他们。',

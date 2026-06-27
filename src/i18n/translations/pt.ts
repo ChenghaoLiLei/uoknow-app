@@ -13,6 +13,8 @@ export default {
   navSettings: 'Definições',
 
   contactsScreenTitle: 'Contactos de emergência',
+
+  homeScreenTitle: 'Início',
   settingsScreenTitle: 'Definições',
   contactsHint: 'Até %{max} contactos de emergência. Se não se registar a tempo, serão notificados por e-mail e SMS.',
   editBtn: 'Editar',

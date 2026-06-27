@@ -13,6 +13,8 @@ export default {
   navSettings: 'Einstellungen',
 
   contactsScreenTitle: 'Notfallkontakte',
+
+  homeScreenTitle: 'Start',
   settingsScreenTitle: 'Einstellungen',
   contactsHint: 'Bis zu %{max} Notfallkontakte. Wenn Sie das Zeitfenster verpassen, werden sie per E-Mail und SMS benachrichtigt.',
   editBtn: 'Bearbeiten',

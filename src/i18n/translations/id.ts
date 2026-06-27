@@ -13,6 +13,8 @@ export default {
   navSettings: 'Pengaturan',
 
   contactsScreenTitle: 'Kontak Darurat',
+
+  homeScreenTitle: 'Beranda',
   settingsScreenTitle: 'Pengaturan',
   contactsHint: 'Hingga %{max} kontak darurat. Jika kamu melewatkan check-in, mereka akan diberitahu melalui email dan SMS.',
   editBtn: 'Edit',

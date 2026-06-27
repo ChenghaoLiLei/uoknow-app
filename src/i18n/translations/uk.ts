@@ -13,6 +13,8 @@ export default {
   navSettings: 'Налаштування',
 
   contactsScreenTitle: 'Екстрені контакти',
+
+  homeScreenTitle: 'Головна',
   settingsScreenTitle: 'Налаштування',
   contactsHint: 'До %{max} екстрених контактів. Якщо ви пропустите відмітку, їх сповістять електронною поштою та SMS.',
   editBtn: 'Змінити',

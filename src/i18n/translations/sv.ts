@@ -13,6 +13,8 @@ export default {
   navSettings: 'Inställningar',
 
   contactsScreenTitle: 'Nödkontakter',
+
+  homeScreenTitle: 'Hem',
   settingsScreenTitle: 'Inställningar',
   contactsHint: 'Upp till %{max} nödkontakter. Om du missar incheckning kommer de att meddelas via e-post och SMS.',
   editBtn: 'Redigera',

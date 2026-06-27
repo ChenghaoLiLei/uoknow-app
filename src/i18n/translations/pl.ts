@@ -13,6 +13,8 @@ export default {
   navSettings: 'Ustawienia',
 
   contactsScreenTitle: 'Kontakty alarmowe',
+
+  homeScreenTitle: 'Start',
   settingsScreenTitle: 'Ustawienia',
   contactsHint: 'Do %{max} kontaktów alarmowych. Jeśli nie zmeldujesz się na czas, zostaną powiadomieni e-mailem i SMS-em.',
   editBtn: 'Edytuj',

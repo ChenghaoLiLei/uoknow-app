@@ -13,6 +13,8 @@ export default {
   navSettings: 'الإعدادات',
 
   contactsScreenTitle: 'جهات اتصال الطوارئ',
+
+  homeScreenTitle: 'الرئيسية',
   settingsScreenTitle: 'الإعدادات',
   contactsHint: 'حتى %{max} جهات اتصال طوارئ. إذا فاتك التسجيل، سيتم إخطارهم عبر البريد الإلكتروني والرسائل النصية.',
   editBtn: 'تعديل',

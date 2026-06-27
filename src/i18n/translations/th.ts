@@ -13,6 +13,8 @@ export default {
   navSettings: 'การตั้งค่า',
 
   contactsScreenTitle: 'ผู้ติดต่อฉุกเฉิน',
+
+  homeScreenTitle: 'หน้าหลัก',
   settingsScreenTitle: 'การตั้งค่า',
   contactsHint: 'ผู้ติดต่อฉุกเฉินได้สูงสุด %{max} คน หากคุณไม่เช็คอินตรงเวลา พวกเขาจะได้รับแจ้งทางอีเมลและ SMS',
   editBtn: 'แก้ไข',

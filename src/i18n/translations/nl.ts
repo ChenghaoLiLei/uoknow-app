@@ -13,6 +13,8 @@ export default {
   navSettings: 'Instellingen',
 
   contactsScreenTitle: 'Noodcontacten',
+
+  homeScreenTitle: 'Start',
   settingsScreenTitle: 'Instellingen',
   contactsHint: 'Maximaal %{max} noodcontacten. Als u niet op tijd incheckt, worden zij op de hoogte gesteld via e-mail en sms.',
   editBtn: 'Bewerken',

@@ -13,6 +13,8 @@ export default {
   navSettings: 'सेटिंग्स',
 
   contactsScreenTitle: 'आपातकालीन संपर्क',
+
+  homeScreenTitle: 'होम',
   settingsScreenTitle: 'सेटिंग्स',
   contactsHint: 'अधिकतम %{max} आपातकालीन संपर्क। यदि आप समय पर चेक-इन नहीं करते, तो उन्हें ईमेल और SMS से सूचित किया जाएगा।',
   editBtn: 'संपादित करें',

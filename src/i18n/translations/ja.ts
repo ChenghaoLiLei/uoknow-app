@@ -13,6 +13,8 @@ export default {
   navSettings: '設定',
 
   contactsScreenTitle: '緊急連絡先',
+
+  homeScreenTitle: 'ホーム',
   settingsScreenTitle: '設定',
   contactsHint: '緊急連絡先は最大 %{max} 人まで。設定時間内にチェックインしない場合、メールとSMSで通知されます。',
   editBtn: '編集',

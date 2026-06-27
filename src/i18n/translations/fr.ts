@@ -13,6 +13,7 @@ export default {
   navSettings: 'Paramètres',
 
   contactsScreenTitle: 'Contacts d\'urgence',
+  homeScreenTitle: 'Accueil',
   settingsScreenTitle: 'Paramètres',
   contactsHint: 'Jusqu\'à %{max} contacts d\'urgence. Si vous ne pointez pas à temps, ils seront notifiés par e-mail et SMS.',
   editBtn: 'Modifier',
