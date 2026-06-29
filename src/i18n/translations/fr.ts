@@ -110,6 +110,7 @@ export default {
   paywallSubscribeBtn: 'S\'abonner — %{price}',
   paywallRestoreBtn: 'Restaurer les achats',
   paywallLegal: 'Les abonnements se renouvellent automatiquement jusqu\'à leur résiliation. La licence à vie est un achat unique. Gérer dans les réglages de l\'App Store.',
+  paywallTermsBtn: 'Conditions d\'utilisation (CLUF)',
   paywallComingSoon: 'L\'achat intégré sera disponible prochainement.',
 
   ppUpdated: 'Dernière mise à jour : mai 2026',

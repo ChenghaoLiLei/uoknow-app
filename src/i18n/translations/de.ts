@@ -112,6 +112,7 @@ export default {
   paywallCancelAnytime: 'Jederzeit in den App-Store-Einstellungen kündbar',
   paywallRestoreBtn: 'Käufe wiederherstellen',
   paywallLegal: 'Abonnements verlängern sich automatisch bis zur Kündigung. Lebenslange Lizenz ist ein Einmalkauf. Verwalten in den App-Store-Einstellungen.',
+  paywallTermsBtn: 'Nutzungsbedingungen (EULA)',
   paywallComingSoon: 'In-App-Kauf ist in Kürze verfügbar.',
 
   ppUpdated: 'Letzte Aktualisierung: Mai 2026',

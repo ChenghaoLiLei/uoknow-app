@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Subskrybuj — %{price}',
   paywallRestoreBtn: 'Przywróć zakupy',
   paywallLegal: 'Subskrypcje odnawiane są automatycznie do momentu anulowania. Licencja dożywotnia jest jednorazowym zakupem. Zarządzaj w ustawieniach App Store.',
+  paywallTermsBtn: 'Warunki korzystania (EULA)',
   paywallComingSoon: 'Zakupy w aplikacji będą dostępne wkrótce.',
 
   ppUpdated: 'Ostatnia aktualizacja: maj 2026',

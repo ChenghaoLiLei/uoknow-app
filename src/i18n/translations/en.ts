@@ -137,6 +137,7 @@ export default {
   paywallCancelAnytime: 'Cancel anytime in App Store settings',
   paywallRestoreBtn: 'Restore Purchase',
   paywallLegal: 'Subscriptions renew automatically until cancelled. Lifetime is a one-time purchase. Manage in App Store settings.',
+  paywallTermsBtn: 'Terms of Use (EULA)',
   paywallComingSoon: 'In-app purchase coming soon. RevenueCat API key not yet configured.',
   paywallPurchasing: 'Processing...',
   paywallSuccess: 'Welcome to Premium!',

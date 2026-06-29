@@ -111,6 +111,7 @@ export default {
   paywallCancelAnytime: 'İstediğiniz zaman App Store ayarlarından iptal edin',
   paywallRestoreBtn: 'Satın almaları geri yükle',
   paywallLegal: 'Abonelikler iptal edilene kadar otomatik olarak yenilenir. Ömür boyu lisans tek seferlik bir satın alımdır. App Store ayarlarından yönetin.',
+  paywallTermsBtn: 'Kullanım Koşulları (EULA)',
   paywallComingSoon: 'Uygulama içi satın alma yakında kullanıma sunulacak.',
 
   ppUpdated: 'Son güncelleme: Mayıs 2026',

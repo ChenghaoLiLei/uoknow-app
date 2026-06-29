@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Abbonati — %{price}',
   paywallRestoreBtn: 'Ripristina acquisti',
   paywallLegal: 'Gli abbonamenti si rinnovano automaticamente fino alla cancellazione. La licenza a vita è un acquisto unico. Gestisci nelle impostazioni dell\'App Store.',
+  paywallTermsBtn: 'Termini di utilizzo (EULA)',
   paywallComingSoon: 'L\'acquisto in-app sarà disponibile a breve.',
 
   ppUpdated: 'Ultimo aggiornamento: maggio 2026',

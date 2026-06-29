@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'สมัครสมาชิก — %{price}',
   paywallRestoreBtn: 'กู้คืนการซื้อ',
   paywallLegal: 'การสมัครสมาชิกต่ออายุโดยอัตโนมัติจนกว่าจะยกเลิก สิทธิ์ใช้งานตลอดชีพเป็นการซื้อครั้งเดียว จัดการในการตั้งค่า App Store',
+  paywallTermsBtn: 'ข้อกำหนดการใช้งาน (EULA)',
   paywallComingSoon: 'ฟีเจอร์ซื้อในแอปจะพร้อมใช้งานเร็วๆ นี้',
 
   ppUpdated: 'อัปเดตล่าสุด: พฤษภาคม 2026',

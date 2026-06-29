@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Assinar — %{price}',
   paywallRestoreBtn: 'Restaurar compras',
   paywallLegal: 'As assinaturas se renovam automaticamente até o cancelamento. A licença vitalícia é uma compra única. Gerencie nas configurações da App Store.',
+  paywallTermsBtn: 'Termos de Uso (EULA)',
   paywallComingSoon: 'A compra no aplicativo estará disponível em breve.',
 
   ppUpdated: 'Última atualização: maio de 2026',

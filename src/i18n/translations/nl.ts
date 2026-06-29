@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Abonneren — %{price}',
   paywallRestoreBtn: 'Aankopen herstellen',
   paywallLegal: 'Abonnementen worden automatisch verlengd totdat ze worden opgezegd. De levenslange licentie is een eenmalige aankoop. Beheer in App Store-instellingen.',
+  paywallTermsBtn: 'Gebruiksvoorwaarden (EULA)',
   paywallComingSoon: 'In-app aankoop is binnenkort beschikbaar.',
 
   ppUpdated: 'Laatste update: mei 2026',

@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Abonner — %{price}',
   paywallRestoreBtn: 'Gjenopprett kjøp',
   paywallLegal: 'Abonnementer fornyes automatisk inntil oppsigelse. Livstidslisens er et engangskjøp. Administrer i App Store-innstillinger.',
+  paywallTermsBtn: 'Bruksvilkår (EULA)',
   paywallComingSoon: 'Kjøp i appen vil snart være tilgjengelig.',
 
   ppUpdated: 'Sist oppdatert: mai 2026',

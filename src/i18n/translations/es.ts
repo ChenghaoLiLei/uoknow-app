@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Suscribirse — %{price}',
   paywallRestoreBtn: 'Restaurar compras',
   paywallLegal: 'Las suscripciones se renuevan automáticamente hasta su cancelación. La licencia vitalicia es una compra única. Administrar en los ajustes del App Store.',
+  paywallTermsBtn: 'Términos de uso (EULA)',
   paywallComingSoon: 'La compra integrada estará disponible pronto.',
 
   ppUpdated: 'Última actualización: mayo de 2026',

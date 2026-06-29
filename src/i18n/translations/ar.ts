@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'اشترك — %{price}',
   paywallRestoreBtn: 'استعادة المشتريات',
   paywallLegal: 'تتجدد الاشتراكات تلقائيًا حتى إلغائها. الترخيص مدى الحياة هو عملية شراء لمرة واحدة. الإدارة في إعدادات App Store.',
+  paywallTermsBtn: 'شروط الاستخدام (EULA)',
   paywallComingSoon: 'ستتوفر ميزة الشراء داخل التطبيق قريبًا.',
 
   ppUpdated: 'آخر تحديث: مايو 2026',

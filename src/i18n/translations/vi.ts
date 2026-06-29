@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Đăng ký — %{price}',
   paywallRestoreBtn: 'Khôi phục giao dịch',
   paywallLegal: 'Đăng ký tự động gia hạn cho đến khi hủy. Giấy phép trọn đời là mua một lần. Quản lý trong cài đặt App Store.',
+  paywallTermsBtn: 'Điều khoản sử dụng (EULA)',
   paywallComingSoon: 'Tính năng mua trong ứng dụng sẽ sớm ra mắt.',
 
   ppUpdated: 'Cập nhật lần cuối: Tháng 5 năm 2026',

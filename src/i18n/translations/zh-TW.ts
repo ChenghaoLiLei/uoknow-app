@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: '立即訂閱 — %{price}',
   paywallRestoreBtn: '恢復購買記錄',
   paywallLegal: '訂閱在取消前自動續訂。終身授權為一次性購買。在 App Store 設定中管理。',
+  paywallTermsBtn: '使用條款 (EULA)',
   paywallComingSoon: '應用程式內購買功能即將上線。',
 
   ppUpdated: '最後更新：2026年5月',

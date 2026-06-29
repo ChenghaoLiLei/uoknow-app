@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Prenumerera — %{price}',
   paywallRestoreBtn: 'Återställ köp',
   paywallLegal: 'Prenumerationer förnyas automatiskt tills de avbryts. Livstidslicens är ett engångsköp. Hantera i App Store-inställningar.',
+  paywallTermsBtn: 'Användarvillkor (EULA)',
   paywallComingSoon: 'Köp i appen kommer snart att vara tillgängligt.',
 
   ppUpdated: 'Senast uppdaterad: maj 2026',

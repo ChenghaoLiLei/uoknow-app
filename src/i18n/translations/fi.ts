@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Tilaa — %{price}',
   paywallRestoreBtn: 'Palauta ostokset',
   paywallLegal: 'Tilaukset uusitaan automaattisesti, kunnes ne peruutetaan. Elinikäinen lisenssi on kertaostos. Hallinnoi App Storen asetuksissa.',
+  paywallTermsBtn: 'Käyttöehdot (EULA)',
   paywallComingSoon: 'Sovellusosto tulee pian saataville.',
 
   ppUpdated: 'Viimeksi päivitetty: toukokuu 2026',

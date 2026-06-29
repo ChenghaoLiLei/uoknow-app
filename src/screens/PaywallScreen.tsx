@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
+  Linking,
   ScrollView,
   StyleSheet,
   Text,
@@ -29,6 +30,10 @@ const FALLBACK_PRICES: Record<PlanType, string> = {
   yearly:  '€29.99',
   lifetime: '€39.99',
 };
+
+// Apple Standard End User License Agreement (Terms of Use) — required for
+// auto-renewable subscriptions (Guideline 3.1.2(c)).
+const APPLE_EULA_URL = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/';
 
 function CheckIcon({ checked, colors }: { checked: boolean; colors: ReturnType<typeof useColors> }) {
   return (
@@ -233,6 +238,17 @@ export default function PaywallScreen() {
         </TouchableOpacity>
 
         <Text style={[styles.legal, { color: colors.textMuted }]}>{t('paywallLegal')}</Text>
+
+        {/* Required legal links for auto-renewable subscriptions (Guideline 3.1.2(c)) */}
+        <View style={styles.linksRow}>
+          <TouchableOpacity onPress={() => navigation.navigate('PrivacyPolicy' as never)}>
+            <Text style={[styles.linkItem, { color: colors.textSecondary }]}>{t('privacyPolicyBtn')}</Text>
+          </TouchableOpacity>
+          <Text style={[styles.linkSep, { color: colors.textMuted }]}>·</Text>
+          <TouchableOpacity onPress={() => Linking.openURL(APPLE_EULA_URL)}>
+            <Text style={[styles.linkItem, { color: colors.textSecondary }]}>{t('paywallTermsBtn')}</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -287,4 +303,7 @@ const styles = StyleSheet.create({
   restoreBtn: { paddingVertical: spacing.sm, marginBottom: spacing.lg },
   restoreBtnText: { fontSize: fontSizes.sm, textDecorationLine: 'underline' },
   legal: { fontSize: fontSizes.xs, textAlign: 'center', lineHeight: 16, paddingHorizontal: spacing.md },
+  linksRow: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: spacing.sm, marginTop: spacing.md },
+  linkItem: { fontSize: fontSizes.xs, textDecorationLine: 'underline' },
+  linkSep: { fontSize: fontSizes.xs },
 });

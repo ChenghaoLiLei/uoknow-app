@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Підписатися — %{price}',
   paywallRestoreBtn: 'Відновити покупки',
   paywallLegal: 'Підписки автоматично поновлюються до скасування. Довічна ліцензія — одноразова покупка. Керуйте в налаштуваннях App Store.',
+  paywallTermsBtn: 'Умови використання (EULA)',
   paywallComingSoon: 'Функція покупки в додатку незабаром буде доступна.',
 
   ppUpdated: 'Останнє оновлення: травень 2026 р.',

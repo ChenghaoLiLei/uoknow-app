@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Berlangganan — %{price}',
   paywallRestoreBtn: 'Pulihkan pembelian',
   paywallLegal: 'Langganan diperbarui secara otomatis hingga dibatalkan. Lisensi seumur hidup adalah pembelian sekali. Kelola di pengaturan App Store.',
+  paywallTermsBtn: 'Ketentuan Penggunaan (EULA)',
   paywallComingSoon: 'Fitur pembelian dalam aplikasi akan segera tersedia.',
 
   ppUpdated: 'Terakhir diperbarui: Mei 2026',

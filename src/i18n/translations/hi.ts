@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'सदस्यता लें — %{price}',
   paywallRestoreBtn: 'खरीदारी पुनर्स्थापित करें',
   paywallLegal: 'सदस्यताएं रद्द होने तक स्वचालित रूप से नवीनीकृत होती हैं। आजीवन लाइसेंस एक बार की खरीद है। App Store सेटिंग में प्रबंधित करें।',
+  paywallTermsBtn: 'उपयोग की शर्तें (EULA)',
   paywallComingSoon: 'इन-ऐप खरीदारी सुविधा जल्द उपलब्ध होगी।',
 
   ppUpdated: 'अंतिम अपडेट: मई 2026',

@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: '購読する — %{price}',
   paywallRestoreBtn: '購入を復元',
   paywallLegal: 'サブスクリプションはキャンセルされるまで自動更新されます。生涯ライセンスは一度限りの購入です。App Storeの設定で管理してください。',
+  paywallTermsBtn: '利用規約 (EULA)',
   paywallComingSoon: 'アプリ内購入機能は近日公開予定です。',
 
   ppUpdated: '最終更新：2026年5月',

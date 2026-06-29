@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: '구독하기 — %{price}',
   paywallRestoreBtn: '구매 복원',
   paywallLegal: '구독은 취소할 때까지 자동으로 갱신됩니다. 평생 라이선스는 일회성 구매입니다. App Store 설정에서 관리하세요.',
+  paywallTermsBtn: '이용 약관 (EULA)',
   paywallComingSoon: '인앱 결제 기능이 곧 출시됩니다.',
 
   ppUpdated: '최종 업데이트: 2026년 5월',

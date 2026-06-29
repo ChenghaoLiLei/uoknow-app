@@ -111,6 +111,7 @@ export default {
   paywallSubscribeBtn: 'Подписаться — %{price}',
   paywallRestoreBtn: 'Восстановить покупки',
   paywallLegal: 'Подписки автоматически продлеваются до отмены. Пожизненная лицензия — разовая покупка. Управление в настройках App Store.',
+  paywallTermsBtn: 'Условия использования (EULA)',
   paywallComingSoon: 'Функция покупки в приложении скоро будет доступна.',
 
   ppUpdated: 'Последнее обновление: май 2026 г.',

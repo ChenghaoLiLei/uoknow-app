@@ -136,6 +136,7 @@ export default {
   paywallSubscribeBtn: '立即订阅 — %{price}',
   paywallRestoreBtn: '恢复购买',
   paywallLegal: '订阅在取消前自动续订。终身授权为一次性购买。在 App Store 设置中管理。',
+  paywallTermsBtn: '使用条款 (EULA)',
   paywallOneTime: '一次性买断',
   paywallBuyBtn: '立即购买 — %{price}',
   paywallComingSoon: '应用内购买功能即将上线（RevenueCat 尚未配置）。',
