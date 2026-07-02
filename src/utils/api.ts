@@ -6,13 +6,16 @@ const INT_SERVER_URL =
   (process.env.EXPO_PUBLIC_SERVER_URL as string | undefined) ??
   'http://localhost:3000';
 
-const SERVER_URL = (() => {
+// 设备地区是否为中国大陆（用于双服务器路由，以及仅在中国区显示 ICP 备案号）
+export function isChinaRegion(): boolean {
   try {
-    const locale = Localization.getLocales()[0];
-    if (locale?.regionCode === 'CN') return CN_SERVER_URL;
-  } catch {}
-  return INT_SERVER_URL;
-})();
+    return Localization.getLocales()[0]?.regionCode === 'CN';
+  } catch {
+    return false;
+  }
+}
+
+const SERVER_URL = isChinaRegion() ? CN_SERVER_URL : INT_SERVER_URL;
 
 const TIMEOUT_MS = 8000;
 

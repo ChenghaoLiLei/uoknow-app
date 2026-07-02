@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   View,
   FlatList,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -23,7 +24,7 @@ import { useColors } from '../ThemeContext';
 import { clearAllData, getDeviceId, getSettings, saveSettings } from '../utils/storage';
 import { requestLocationPermission } from '../utils/location';
 import { scheduleDailyReminder } from '../utils/notifications';
-import { apiSyncSettings, apiDeleteDevice } from '../utils/api';
+import { apiSyncSettings, apiDeleteDevice, isChinaRegion } from '../utils/api';
 import i18n, { t } from '../i18n';
 import { LanguageContext } from '../LanguageContext';
 
@@ -304,7 +305,12 @@ export default function SettingsScreen() {
           <Text style={[styles.linkText, { color: colors.textPrimary }]}>📅 {t('historyScreenTitle')}</Text>
           <Text style={[styles.linkArrow, { color: colors.textMuted }]}>›</Text>
         </TouchableOpacity>
-        <Text style={[styles.versionText, { color: colors.textMuted }]}>{t('appVersion', { version: '1.0.0' })}</Text>
+        <Text style={[styles.versionText, { color: colors.textMuted }]}>{t('appVersion', { version: '1.0.1' })}</Text>
+        {isChinaRegion() && (
+          <TouchableOpacity onPress={() => Linking.openURL('https://beian.miit.gov.cn/')}>
+            <Text style={[styles.versionText, { color: colors.textMuted }]}>鄂ICP备2026030287号-2A</Text>
+          </TouchableOpacity>
+        )}
 
         {/* Danger zone */}
         <SectionHeader title={t('dangerZone')} colors={colors} />
