@@ -95,12 +95,15 @@ export default function HomeScreen() {
     if (!initialized) {
       await scheduleDailyReminder(settings.reminderHour, settings.reminderMinute);
       setInitialized(true);
-      // Silently re-sync contacts and settings to server on first load
-      const deviceId = await getDeviceId();
-      apiSyncContacts(deviceId, contacts).catch(() => {});
-      apiSyncSettings(deviceId, settings, language, isPremium).catch(() => {});
     }
-  }, [initialized, language]);
+
+    // Self-heal: re-push contacts + settings on every focus so a previously
+    // failed sync (network blip, server hiccup) doesn't stay lost. Combined with
+    // the retry/backoff in api.ts this makes server state reliably converge.
+    const deviceId = await getDeviceId();
+    apiSyncContacts(deviceId, contacts).catch(() => {});
+    apiSyncSettings(deviceId, settings, language, isPremium).catch(() => {});
+  }, [initialized, language, isPremium]);
 
   useFocusEffect(useCallback(() => { loadState(); }, [loadState]));
 

@@ -24,34 +24,50 @@ const BASE_HEADERS: Record<string, string> = {
   'bypass-tunnel-reminder': 'true',
 };
 
-async function post(path: string, body: object): Promise<void> {
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-    await fetch(`${SERVER_URL}${path}`, {
-      method: 'POST',
-      headers: BASE_HEADERS,
-      body: JSON.stringify(body),
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-  } catch {
-    // Server offline — app works fully offline, server sync is best-effort
+// Retry with backoff so a transient network blip doesn't silently drop a
+// settings / contacts / check-in sync (a safety app must not lose these).
+// The app still works fully offline; this just makes best-effort sync far more
+// reliable. Returns true only if the server actually accepted the request.
+const RETRY_BACKOFF_MS = [1000, 3000, 8000];
+
+const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
+
+async function post(path: string, body: object): Promise<boolean> {
+  for (let attempt = 0; attempt <= RETRY_BACKOFF_MS.length; attempt++) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+      const res = await fetch(`${SERVER_URL}${path}`, {
+        method: 'POST',
+        headers: BASE_HEADERS,
+        body: JSON.stringify(body),
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (res.ok) return true;
+      // 4xx = client/validation error; retrying won't help.
+      if (res.status >= 400 && res.status < 500) return false;
+      // 5xx falls through to retry.
+    } catch {
+      // Network error / timeout — fall through to retry.
+    }
+    if (attempt < RETRY_BACKOFF_MS.length) await wait(RETRY_BACKOFF_MS[attempt]);
   }
+  return false;
 }
 
 export async function apiCheckIn(
   deviceId: string,
   location?: { latitude: number; longitude: number }
-): Promise<void> {
-  await post('/api/checkin', { deviceId, location, timestamp: Date.now() });
+): Promise<boolean> {
+  return post('/api/checkin', { deviceId, location, timestamp: Date.now() });
 }
 
 export async function apiSyncContacts(
   deviceId: string,
   contacts: Contact[]
-): Promise<void> {
-  await post('/api/contacts', { deviceId, contacts });
+): Promise<boolean> {
+  return post('/api/contacts', { deviceId, contacts });
 }
 
 export async function apiSyncSettings(
@@ -59,9 +75,9 @@ export async function apiSyncSettings(
   settings: Settings,
   language?: string,
   isPremium?: boolean
-): Promise<void> {
+): Promise<boolean> {
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  await post('/api/settings', {
+  return post('/api/settings', {
     deviceId,
     settings: { ...settings, language: language ?? 'en', isPremium: isPremium ?? false, timezone },
   });
