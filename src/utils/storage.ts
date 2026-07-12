@@ -14,22 +14,46 @@ function generateId(): string {
   return `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
 }
 
+// The keychain can still be locked for a moment when the app is launched
+// straight from the lock screen (e.g. tapping the daily reminder), which makes
+// reads throw. Store with AFTER_FIRST_UNLOCK so items stay readable, and retry
+// reads that hit a still-locked keychain. A read that ultimately fails throws —
+// callers must treat that as "unknown", never as "empty".
+const KEYCHAIN_OPTS: SecureStore.SecureStoreOptions = {
+  keychainAccessible: SecureStore.AFTER_FIRST_UNLOCK,
+};
+
+async function secureGetWithRetry(key: string): Promise<string | null> {
+  let lastError: unknown;
+  for (const delayMs of [0, 300, 700]) {
+    if (delayMs) await new Promise((resolve) => setTimeout(resolve, delayMs));
+    try {
+      return await SecureStore.getItemAsync(key);
+    } catch (e) {
+      lastError = e;
+    }
+  }
+  throw lastError;
+}
+
 export async function getDeviceId(): Promise<string> {
-  let id = await SecureStore.getItemAsync(DEVICE_ID_KEY);
+  // Throws if the keychain stays unreadable: generating a fresh id here would
+  // silently orphan the device's server-side contacts and settings.
+  let id = await secureGetWithRetry(DEVICE_ID_KEY);
   if (!id) {
     id = generateId();
-    await SecureStore.setItemAsync(DEVICE_ID_KEY, id);
+    await SecureStore.setItemAsync(DEVICE_ID_KEY, id, KEYCHAIN_OPTS);
   }
   return id;
 }
 
 export async function getContacts(): Promise<Contact[]> {
-  const raw = await SecureStore.getItemAsync(CONTACTS_KEY);
+  const raw = await secureGetWithRetry(CONTACTS_KEY);
   return raw ? JSON.parse(raw) : [];
 }
 
 export async function saveContacts(contacts: Contact[]): Promise<void> {
-  await SecureStore.setItemAsync(CONTACTS_KEY, JSON.stringify(contacts));
+  await SecureStore.setItemAsync(CONTACTS_KEY, JSON.stringify(contacts), KEYCHAIN_OPTS);
 }
 
 export async function addContact(contact: Omit<Contact, 'id'>): Promise<Contact> {

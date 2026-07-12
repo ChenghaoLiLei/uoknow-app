@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Animated,
+  AppState,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -12,7 +13,7 @@ import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as Haptics from 'expo-haptics';
 
-import { RootStackParamList } from '../types';
+import { Contact, RootStackParamList } from '../types';
 import { spacing, fontSizes, radius } from '../theme';
 import { useColors } from '../ThemeContext';
 import {
@@ -42,7 +43,8 @@ export default function HomeScreen() {
   const [checkedIn, setCheckedIn] = useState(false);
   const [lastCheckInTime, setLastCheckInTime] = useState<Date | null>(null);
   const [nextAlertIn, setNextAlertIn] = useState<string>('');
-  const [contactCount, setContactCount] = useState(0);
+  // null = not read yet / read failed (unknown) — never treated as "no contacts"
+  const [contactCount, setContactCount] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [initialized, setInitialized] = useState(false);
 
@@ -54,9 +56,9 @@ export default function HomeScreen() {
     if (!initialized || !isPremium) return;
     getDeviceId().then((deviceId) =>
       getSettings().then((settings) =>
-        apiSyncSettings(deviceId, settings, language, true).catch(() => {})
+        apiSyncSettings(deviceId, settings, language, true)
       )
-    );
+    ).catch(() => {});
   }, [isPremium, initialized, language]);
 
   useEffect(() => {
@@ -73,16 +75,23 @@ export default function HomeScreen() {
   }, [checkedIn, glowAnim]);
 
   const loadState = useCallback(async () => {
-    await requestPermissions();
-    const [record, contacts, settings] = await Promise.all([
-      getLastCheckIn(),
-      getContacts(),
-      getSettings(),
-    ]);
+    // No step here may abort the whole load: a cold launch from the lock
+    // screen can make single reads fail, and the UI must still come up.
+    try {
+      await requestPermissions();
+    } catch {}
+
+    const [record, settings] = await Promise.all([getLastCheckIn(), getSettings()]);
+
+    // Keychain read failed → unknown, keep previous count and skip the banner.
+    let contacts: Contact[] | null = null;
+    try {
+      contacts = await getContacts();
+    } catch {}
 
     const alreadyChecked = isCheckedInToday(record);
     setCheckedIn(alreadyChecked);
-    setContactCount(contacts.length);
+    if (contacts !== null) setContactCount(contacts.length);
     setIsPaused(settings.isPaused);
 
     if (record) {
@@ -100,12 +109,25 @@ export default function HomeScreen() {
     // Self-heal: re-push contacts + settings on every focus so a previously
     // failed sync (network blip, server hiccup) doesn't stay lost. Combined with
     // the retry/backoff in api.ts this makes server state reliably converge.
-    const deviceId = await getDeviceId();
-    apiSyncContacts(deviceId, contacts).catch(() => {});
-    apiSyncSettings(deviceId, settings, language, isPremium).catch(() => {});
+    // Never push an empty contact list from here — a bad/empty local read must
+    // not wipe server-side contacts. Explicit deletions sync in ContactsScreen.
+    try {
+      const deviceId = await getDeviceId();
+      if (contacts && contacts.length > 0) apiSyncContacts(deviceId, contacts).catch(() => {});
+      apiSyncSettings(deviceId, settings, language, isPremium).catch(() => {});
+    } catch {}
   }, [initialized, language, isPremium]);
 
   useFocusEffect(useCallback(() => { loadState(); }, [loadState]));
+
+  // iOS keeps the app suspended for days; on resume no focus event fires, so
+  // refresh explicitly or yesterday's state (checked-in, countdown) stays stale.
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') loadState();
+    });
+    return () => sub.remove();
+  }, [loadState]);
 
   const handleCheckIn = async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
@@ -130,8 +152,12 @@ export default function HomeScreen() {
     const record = { timestamp: Date.now(), location };
     await saveCheckIn(record);
 
-    const deviceId = await getDeviceId();
-    await apiCheckIn(deviceId, location);
+    // Server sync is best-effort here; a keychain hiccup must not block the
+    // local check-in from registering.
+    try {
+      const deviceId = await getDeviceId();
+      await apiCheckIn(deviceId, location);
+    } catch {}
 
     setCheckedIn(true);
     setLastCheckInTime(new Date(record.timestamp));
@@ -216,7 +242,7 @@ export default function HomeScreen() {
         <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate('Contacts')}>
           <Text style={styles.navIcon}>👥</Text>
           <Text style={[styles.navLabel, { color: colors.textSecondary }]}>
-            {t('navContacts')}{contactCount > 0 ? ` (${contactCount})` : ''}
+            {t('navContacts')}{contactCount ? ` (${contactCount})` : ''}
           </Text>
         </TouchableOpacity>
 

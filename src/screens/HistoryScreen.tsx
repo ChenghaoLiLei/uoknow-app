@@ -79,7 +79,7 @@ export default function HistoryScreen() {
   useFocusEffect(
     useCallback(() => {
       getCheckInHistory().then(setHistory);
-      getDeviceId().then(id => apiFetchNotifications(id).then(setNotifications));
+      getDeviceId().then(id => apiFetchNotifications(id).then(setNotifications)).catch(() => {});
     }, [])
   );
 

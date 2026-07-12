@@ -2,7 +2,7 @@
   "expo": {
     "name": "UOKnow",
     "slug": "uok",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -42,7 +42,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.uoknow.app",
-      "buildNumber": "9",
+      "buildNumber": "10",
       "minimumOsVersion": "16.0",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Optionally share your location with emergency contacts when checking in.",

@@ -27,6 +27,7 @@ import { scheduleDailyReminder } from '../utils/notifications';
 import { apiSyncSettings, apiDeleteDevice, isChinaRegion } from '../utils/api';
 import i18n, { t } from '../i18n';
 import { LanguageContext } from '../LanguageContext';
+import appJson from '../../app.json';
 
 const LANGUAGE_OPTIONS = [
   { code: 'en', label: 'English' },
@@ -100,8 +101,12 @@ export default function SettingsScreen() {
     const updated = { ...settings, ...partial };
     setSettings(updated);
     await saveSettings(partial);
-    const deviceId = await getDeviceId();
-    await apiSyncSettings(deviceId, updated, language, isPremium);
+    // Best-effort: the local save above must survive a sync failure; the
+    // self-heal push on the next Home focus converges the server.
+    try {
+      const deviceId = await getDeviceId();
+      await apiSyncSettings(deviceId, updated, language, isPremium);
+    } catch {}
   };
 
   const handleReminderChange = async (hour: number, minute: number) => {
@@ -305,7 +310,7 @@ export default function SettingsScreen() {
           <Text style={[styles.linkText, { color: colors.textPrimary }]}>📅 {t('historyScreenTitle')}</Text>
           <Text style={[styles.linkArrow, { color: colors.textMuted }]}>›</Text>
         </TouchableOpacity>
-        <Text style={[styles.versionText, { color: colors.textMuted }]}>{t('appVersion', { version: '1.0.1' })}</Text>
+        <Text style={[styles.versionText, { color: colors.textMuted }]}>{t('appVersion', { version: appJson.expo.version })}</Text>
         {isChinaRegion() && (
           <TouchableOpacity onPress={() => Linking.openURL('https://beian.miit.gov.cn/')}>
             <Text style={[styles.versionText, { color: colors.textMuted }]}>鄂ICP备2026030287号-2A</Text>

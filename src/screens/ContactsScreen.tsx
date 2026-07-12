@@ -104,11 +104,23 @@ export default function ContactsScreen() {
   const savingRef = useRef(false);
 
   const reload = useCallback(async () => {
-    const loaded = await getContacts();
+    // Keychain read can fail right after a cold launch — keep previous state.
+    let loaded: Contact[];
+    try {
+      loaded = await getContacts();
+    } catch {
+      return;
+    }
     setContacts(loaded);
-    // Silently re-sync to server every time this screen is opened
-    const deviceId = await getDeviceId();
-    apiSyncContacts(deviceId, loaded).catch(() => {});
+    // Silently re-sync to server every time this screen is opened. Never push
+    // an empty list from here — an empty read must not wipe server-side
+    // contacts; explicit deletions sync via syncToServer below.
+    if (loaded.length > 0) {
+      try {
+        const deviceId = await getDeviceId();
+        apiSyncContacts(deviceId, loaded).catch(() => {});
+      } catch {}
+    }
   }, []);
 
   useFocusEffect(useCallback(() => { reload(); }, [reload]));
@@ -198,7 +210,11 @@ export default function ContactsScreen() {
             await deleteContact(contact.id);
             const updated = await getContacts();
             setContacts(updated);
-            await syncToServer(updated);
+            try {
+              await syncToServer(updated);
+            } catch {
+              Alert.alert(t('syncWarning'), t('syncWarningMsg'));
+            }
           },
         },
       ]
