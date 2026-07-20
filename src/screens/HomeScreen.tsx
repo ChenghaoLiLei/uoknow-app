@@ -92,13 +92,17 @@ export default function HomeScreen() {
     const alreadyChecked = isCheckedInToday(record);
     setCheckedIn(alreadyChecked);
     if (contacts !== null) setContactCount(contacts.length);
-    setIsPaused(settings.isPaused);
+    // Mirror the server's pause rule (scheduler skips paused devices, and
+    // auto-resumes once pauseUntil has passed) — while effectively paused the
+    // server sends nothing, so never show "notifying contacts" here.
+    const pausedNow = settings.isPaused && (!settings.pauseUntil || settings.pauseUntil > Date.now());
+    setIsPaused(pausedNow);
 
     if (record) {
       setLastCheckInTime(new Date(record.timestamp));
       const elapsed = (Date.now() - record.timestamp) / (1000 * 60 * 60);
       const remaining = settings.triggerHours - elapsed;
-      setNextAlertIn(remaining > 0 ? formatHours(remaining) : 'overdue');
+      setNextAlertIn(pausedNow ? 'paused' : remaining > 0 ? formatHours(remaining) : 'overdue');
     }
 
     if (!initialized) {
@@ -161,7 +165,8 @@ export default function HomeScreen() {
 
     setCheckedIn(true);
     setLastCheckInTime(new Date(record.timestamp));
-    setNextAlertIn(formatHours(settings.triggerHours));
+    const pausedNow = settings.isPaused && (!settings.pauseUntil || settings.pauseUntil > Date.now());
+    setNextAlertIn(pausedNow ? 'paused' : formatHours(settings.triggerHours));
 
     await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     await sendLocalCheckInConfirmation();
@@ -215,11 +220,14 @@ export default function HomeScreen() {
                     styles.alertText,
                     { color: colors.textSecondary },
                     nextAlertIn === 'overdue' && { color: colors.danger, fontWeight: '600' },
+                    nextAlertIn === 'paused' && { color: colors.warning, fontWeight: '600' },
                   ]}
                 >
-                  {nextAlertIn === 'overdue'
-                    ? t('alertOverdue')
-                    : t('alertTimeLeft', { time: nextAlertIn })}
+                  {nextAlertIn === 'paused'
+                    ? t('alertPaused')
+                    : nextAlertIn === 'overdue'
+                      ? t('alertOverdue')
+                      : t('alertTimeLeft', { time: nextAlertIn })}
                 </Text>
               ) : null}
             </>

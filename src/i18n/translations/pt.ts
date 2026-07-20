@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Alertas repetidos (urgente em +4h, crítico em +24h)',
   paywallSuccess: 'Bem-vindo ao Premium! 🎉',
   paywallSuccessMsg: 'Alertas SMS e até 10 contatos estão desbloqueados. Aproveite o UOKnow!',
+  emailRequiredFreeTitle: 'Endereço de e-mail obrigatório',
+  emailRequiredFreeMsg: 'Na versão gratuita, os contactos são notificados por e-mail. Adicione um endereço de e-mail para este contacto. Os alertas por SMS são uma função Premium.',
+  contactNoEmailWarning: 'Sem e-mail — este contacto não pode receber alertas na versão gratuita',
+  alertPaused: '⏸ Modo férias — os seus contactos não serão alertados',
 };

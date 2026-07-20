@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Upprepade aviseringar (brådskande +4h, kritisk +24h)',
   paywallSuccess: 'Välkommen till Premium! 🎉',
   paywallSuccessMsg: 'SMS-aviseringar och upp till 10 kontakter är nu upplåsta. Njut av UOKnow!',
+  emailRequiredFreeTitle: 'E-postadress krävs',
+  emailRequiredFreeMsg: 'I gratisversionen meddelas kontakter via e-post. Lägg till en e-postadress för den här kontakten. SMS-varningar är en Premium-funktion.',
+  contactNoEmailWarning: 'Ingen e-postadress — den här kontakten kan inte meddelas i gratisversionen',
+  alertPaused: '⏸ Semesterläge — dina kontakter meddelas inte',
 };

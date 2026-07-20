@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Thông báo lặp lại (khẩn cấp sau +4h, nguy cấp sau +24h)',
   paywallSuccess: 'Chào mừng bạn đến với Premium! 🎉',
   paywallSuccessMsg: 'Cảnh báo SMS và tối đa 10 liên hệ đã được mở khóa. Hưởng thụ UOKnow!',
+  emailRequiredFreeTitle: 'Cần địa chỉ email',
+  emailRequiredFreeMsg: 'Ở bản miễn phí, người liên hệ được thông báo qua email. Vui lòng thêm địa chỉ email cho người liên hệ này. Cảnh báo qua SMS là tính năng Premium.',
+  contactNoEmailWarning: 'Chưa có email — người liên hệ này sẽ không nhận được thông báo ở bản miễn phí',
+  alertPaused: '⏸ Chế độ nghỉ — người liên hệ sẽ không được thông báo',
 };

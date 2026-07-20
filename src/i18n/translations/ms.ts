@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Pemberitahuan berulang (mendesak +4j, kritikal +24j)',
   paywallSuccess: 'Selamat datang ke Premium! 🎉',
   paywallSuccessMsg: 'Amaran SMS dan sehingga 10 kenalan telah dibuka. Nikmati UOKnow!',
+  emailRequiredFreeTitle: 'Alamat e-mel diperlukan',
+  emailRequiredFreeMsg: 'Dalam versi percuma, kenalan dimaklumkan melalui e-mel. Sila tambah alamat e-mel untuk kenalan ini. Amaran SMS ialah ciri Premium.',
+  contactNoEmailWarning: 'Tiada e-mel — kenalan ini tidak akan menerima makluman dalam versi percuma',
+  alertPaused: '⏸ Mod percutian — kenalan anda tidak akan dimaklumkan',
 };

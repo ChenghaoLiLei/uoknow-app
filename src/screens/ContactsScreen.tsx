@@ -160,6 +160,12 @@ export default function ContactsScreen() {
     const email = form.email.trim();
     const localPhone = form.localPhone.trim();
     const phone = localPhone ? `${form.dialCode}${localPhone}` : '';
+    // Free plan only sends email (SMS is Premium) — a contact without an
+    // email address would silently never be notified.
+    if (!isPremium && !email) {
+      Alert.alert(t('emailRequiredFreeTitle'), t('emailRequiredFreeMsg'));
+      return;
+    }
     if (!email && !phone) {
       Alert.alert(t('contactMethodRequired'));
       return;
@@ -239,6 +245,9 @@ export default function ContactsScreen() {
               <Text style={[styles.cardName, { color: colors.textPrimary }]}>{contact.name}</Text>
               {contact.email ? <Text style={[styles.cardDetail, { color: colors.textSecondary }]}>📧 {contact.email}</Text> : null}
               {contact.phone ? <Text style={[styles.cardDetail, { color: colors.textSecondary }]}>📱 {contact.phone}</Text> : null}
+              {!isPremium && !contact.email ? (
+                <Text style={[styles.cardWarning, { color: colors.danger }]}>⚠️ {t('contactNoEmailWarning')}</Text>
+              ) : null}
             </View>
             <View style={styles.cardActions}>
               <TouchableOpacity style={[styles.editBtn, { borderColor: colors.primary }]} onPress={() => openEditModal(contact)}>
@@ -367,7 +376,9 @@ export default function ContactsScreen() {
               </ScrollView>
             )}
 
-            <Text style={[styles.fieldHint, { color: colors.textMuted }]}>{t('contactMethodHint')}</Text>
+            <Text style={[styles.fieldHint, { color: colors.textMuted }]}>
+              {isPremium ? t('contactMethodHint') : t('emailRequiredFreeMsg')}
+            </Text>
           </ScrollView>
         </KeyboardAvoidingView>
       </Modal>
@@ -385,6 +396,7 @@ const styles = StyleSheet.create({
   cardInfo: { flex: 1, marginLeft: spacing.md, gap: 2 },
   cardName: { fontSize: fontSizes.md, fontWeight: '600' },
   cardDetail: { fontSize: fontSizes.sm },
+  cardWarning: { fontSize: fontSizes.xs, marginTop: 2, lineHeight: 16 },
   cardActions: { gap: spacing.xs },
   editBtn: { paddingHorizontal: spacing.sm, paddingVertical: spacing.xs, borderRadius: radius.sm, borderWidth: 1 },
   editBtnText: { fontSize: fontSizes.xs, fontWeight: '600' },

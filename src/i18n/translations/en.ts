@@ -184,4 +184,8 @@ export default {
   ppP8: 'We may update this policy from time to time. The latest version is always available within the app.',
   ppH9: 'Contact',
   ppP9: 'For any privacy-related questions or data requests, please contact us through the App Store listing.',
+  emailRequiredFreeTitle: 'Email address required',
+  emailRequiredFreeMsg: 'On the free plan, contacts are notified by email. Please add an email address for this contact. SMS alerts are a Premium feature.',
+  contactNoEmailWarning: 'No email address — this contact cannot receive alerts on the free plan',
+  alertPaused: '⏸ Vacation mode — your contacts will not be alerted',
 };

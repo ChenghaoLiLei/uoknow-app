@@ -184,4 +184,8 @@ export default {
   ppP8: '我们可能不时更新本政策。最新版本始终可在 App 内查阅。',
   ppH9: '联系我们',
   ppP9: '如有任何隐私相关问题或数据请求，请通过 App Store 页面联系我们。',
+  emailRequiredFreeTitle: '需要填写邮箱',
+  emailRequiredFreeMsg: '免费版通过电子邮件通知紧急联系人，请为该联系人填写邮箱地址。短信通知为会员专属功能。',
+  contactNoEmailWarning: '未填邮箱——免费版下此联系人将收不到任何通知',
+  alertPaused: '⏸ 假期模式中——不会向联系人发送任何通知',
 };

@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Herhaalde meldingen (dringend na +4u, kritiek na +24u)',
   paywallSuccess: 'Welkom bij Premium! 🎉',
   paywallSuccessMsg: 'SMS-meldingen en maximaal 10 contacten zijn ontgrendeld. Geniet van UOKnow!',
+  emailRequiredFreeTitle: 'E-mailadres vereist',
+  emailRequiredFreeMsg: 'In de gratis versie worden contacten per e-mail op de hoogte gebracht. Voeg een e-mailadres toe voor dit contact. Sms-meldingen zijn een Premium-functie.',
+  contactNoEmailWarning: 'Geen e-mailadres — dit contact kan in de gratis versie geen meldingen ontvangen',
+  alertPaused: '⏸ Vakantiemodus — je contacten worden niet gewaarschuwd',
 };

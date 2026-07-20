@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Gentagne beskeder (haster +4h, kritisk +24h)',
   paywallSuccess: 'Velkommen til Premium! 🎉',
   paywallSuccessMsg: 'SMS-notifikationer og op til 10 kontakter er nu låst op. Nyd UOKnow!',
+  emailRequiredFreeTitle: 'E-mailadresse påkrævet',
+  emailRequiredFreeMsg: 'I gratisversionen får kontakter besked via e-mail. Tilføj en e-mailadresse til denne kontakt. SMS-advarsler er en Premium-funktion.',
+  contactNoEmailWarning: 'Ingen e-mailadresse — denne kontakt kan ikke få besked i gratisversionen',
+  alertPaused: '⏸ Ferietilstand — dine kontakter får ikke besked',
 };

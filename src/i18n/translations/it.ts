@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Avvisi ripetuti (urgente +4h, critico +24h)',
   paywallSuccess: 'Benvenuto in Premium! 🎉',
   paywallSuccessMsg: 'Gli avvisi SMS e fino a 10 contatti sono stati sbloccati. Goditi UOKnow!',
+  emailRequiredFreeTitle: 'Indirizzo e-mail richiesto',
+  emailRequiredFreeMsg: 'Nella versione gratuita i contatti vengono avvisati via e-mail. Aggiungi un indirizzo e-mail per questo contatto. Gli avvisi SMS sono una funzione Premium.',
+  contactNoEmailWarning: 'Nessuna e-mail: nella versione gratuita questo contatto non può ricevere avvisi',
+  alertPaused: '⏸ Modalità vacanza: i tuoi contatti non verranno avvisati',
 };

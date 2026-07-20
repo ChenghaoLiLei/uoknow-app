@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: '반복 알림 (4시간 후 긴급, 24시간 후 위급)',
   paywallSuccess: '프리미엄에 오신 걸 환영합니다! 🎉',
   paywallSuccessMsg: 'SMS 알림 및 최대 10명의 연락처가 잠금 해제되었습니다. UOKnow를 즐기세요!',
+  emailRequiredFreeTitle: '이메일 주소 필요',
+  emailRequiredFreeMsg: '무료 버전에서는 연락처에 이메일로 알림을 보냅니다. 이 연락처의 이메일 주소를 입력해 주세요. SMS 알림은 프리미엄 기능입니다.',
+  contactNoEmailWarning: '이메일 없음 — 무료 버전에서는 이 연락처가 알림을 받을 수 없습니다',
+  alertPaused: '⏸ 휴가 모드 — 연락처에 알림이 전송되지 않습니다',
 };

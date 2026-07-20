@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Tekrar bildirimler (acil +4s, kritik +24s)',
   paywallSuccess: 'Premium\'a hoş geldiniz! 🎉',
   paywallSuccessMsg: 'SMS uyarıları ve 10\'a kadar kişi kilidi açıldı. UOKnow\'un tadını çıkarın!',
+  emailRequiredFreeTitle: 'E-posta adresi gerekli',
+  emailRequiredFreeMsg: 'Ücretsiz sürümde kişilere e-posta ile bildirim gönderilir. Lütfen bu kişi için bir e-posta adresi ekleyin. SMS uyarıları Premium özelliğidir.',
+  contactNoEmailWarning: 'E-posta yok — ücretsiz sürümde bu kişiye bildirim gönderilemez',
+  alertPaused: '⏸ Tatil modu — kişilerinize bildirim gönderilmez',
 };

@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Gjentatte varsler (haster +4t, kritisk +24t)',
   paywallSuccess: 'Velkommen til Premium! 🎉',
   paywallSuccessMsg: 'SMS-varsler og opptil 10 kontakter er nå låst opp. Kos deg med UOKnow!',
+  emailRequiredFreeTitle: 'E-postadresse kreves',
+  emailRequiredFreeMsg: 'I gratisversjonen varsles kontakter via e-post. Legg til en e-postadresse for denne kontakten. SMS-varsler er en Premium-funksjon.',
+  contactNoEmailWarning: 'Ingen e-postadresse — denne kontakten kan ikke varsles i gratisversjonen',
+  alertPaused: '⏸ Feriemodus — kontaktene dine varsles ikke',
 };

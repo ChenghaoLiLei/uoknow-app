@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Ponowne powiadomienia (pilne po +4h, krytyczne po +24h)',
   paywallSuccess: 'Witamy w Premium! 🎉',
   paywallSuccessMsg: 'Alerty SMS i do 10 kontaktów zostały odblokowane. Korzystaj z UOKnow!',
+  emailRequiredFreeTitle: 'Wymagany adres e-mail',
+  emailRequiredFreeMsg: 'W wersji bezpłatnej kontakty są powiadamiane e-mailem. Dodaj adres e-mail dla tego kontaktu. Powiadomienia SMS to funkcja Premium.',
+  contactNoEmailWarning: 'Brak adresu e-mail — w wersji bezpłatnej ten kontakt nie otrzyma powiadomień',
+  alertPaused: '⏸ Tryb urlopowy — Twoje kontakty nie zostaną powiadomione',
 };

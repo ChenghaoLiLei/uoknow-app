@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: '繰り返し通知（+4時間で緊急、+24時間で危険レベル）',
   paywallSuccess: 'プレミアムへようこそ！🎉',
   paywallSuccessMsg: 'SMS通知と最大10件の連絡先がアンロックされました。UOKnowをお楽しみください！',
+  emailRequiredFreeTitle: 'メールアドレスが必要です',
+  emailRequiredFreeMsg: '無料版では緊急連絡先への通知はメールで送信されます。この連絡先のメールアドレスを入力してください。SMS通知はプレミアム機能です。',
+  contactNoEmailWarning: 'メールアドレス未登録——無料版ではこの連絡先に通知が届きません',
+  alertPaused: '⏸ 休暇モード中——連絡先への通知は行われません',
 };

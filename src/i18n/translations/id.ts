@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Notifikasi berulang (mendesak +4j, kritis +24j)',
   paywallSuccess: 'Selamat datang di Premium! 🎉',
   paywallSuccessMsg: 'Peringatan SMS dan hingga 10 kontak telah dibuka. Nikmati UOKnow!',
+  emailRequiredFreeTitle: 'Alamat email diperlukan',
+  emailRequiredFreeMsg: 'Pada versi gratis, kontak diberi tahu melalui email. Tambahkan alamat email untuk kontak ini. Notifikasi SMS adalah fitur Premium.',
+  contactNoEmailWarning: 'Tidak ada email — kontak ini tidak dapat menerima notifikasi pada versi gratis',
+  alertPaused: '⏸ Mode liburan — kontak Anda tidak akan diberi tahu',
 };

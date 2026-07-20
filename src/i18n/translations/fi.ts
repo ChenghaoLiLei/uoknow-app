@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: 'Toistuvat ilmoitukset (kiireellinen +4h, kriittinen +24h)',
   paywallSuccess: 'Tervetuloa Premium-versioon! 🎉',
   paywallSuccessMsg: 'SMS-hälytykset ja enintään 10 yhteystietoa on avattu. Nauti UOKnow:sta!',
+  emailRequiredFreeTitle: 'Sähköpostiosoite vaaditaan',
+  emailRequiredFreeMsg: 'Ilmaisversiossa yhteyshenkilöille ilmoitetaan sähköpostitse. Lisää tälle yhteyshenkilölle sähköpostiosoite. Tekstiviesti-ilmoitukset ovat Premium-ominaisuus.',
+  contactNoEmailWarning: 'Ei sähköpostiosoitetta — tälle yhteyshenkilölle ei voida ilmoittaa ilmaisversiossa',
+  alertPaused: '⏸ Lomatila — yhteyshenkilöillesi ei ilmoiteta',
 };

@@ -181,4 +181,8 @@ export default {
   paywallRestoreSuccess: 'Kauf wiederhergestellt!',
   paywallSuccess: 'Willkommen bei Premium!',
   paywallSuccessMsg: 'SMS-Benachrichtigungen und bis zu 5 Kontakte sind jetzt freigeschaltet. Viel Spaß mit UOKnow!',
+  emailRequiredFreeTitle: 'E-Mail-Adresse erforderlich',
+  emailRequiredFreeMsg: 'In der kostenlosen Version werden Kontakte per E-Mail benachrichtigt. Bitte gib für diesen Kontakt eine E-Mail-Adresse an. SMS-Benachrichtigungen sind eine Premium-Funktion.',
+  contactNoEmailWarning: 'Keine E-Mail-Adresse — dieser Kontakt kann in der kostenlosen Version nicht benachrichtigt werden',
+  alertPaused: '⏸ Urlaubsmodus — deine Kontakte werden nicht benachrichtigt',
 };

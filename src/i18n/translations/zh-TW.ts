@@ -181,4 +181,8 @@ export default {
   paywallRowEscalation: '重複提醒（4小時後再次發送緊急提醒，24小時後發危急警報）',
   paywallSuccess: '歡迎加入付費版 🎉',
   paywallSuccessMsg: '短信通知和最多 10 位聯絡人已解鎖，感謝支持！',
+  emailRequiredFreeTitle: '需要填寫電郵',
+  emailRequiredFreeMsg: '免費版透過電子郵件通知緊急聯絡人，請為該聯絡人填寫電郵地址。簡訊通知為會員專屬功能。',
+  contactNoEmailWarning: '未填電郵——免費版下此聯絡人將收不到任何通知',
+  alertPaused: '⏸ 假期模式中——不會向聯絡人發送任何通知',
 };
