@@ -28,7 +28,7 @@ export function PremiumProvider({ children }: { children: React.ReactNode }) {
   // Re-validate subscription whenever app returns to foreground
   useEffect(() => {
     const sub = AppState.addEventListener('change', (next: AppStateStatus) => {
-      if (appState.current.match(/inactive|background/) && next === 'active') {
+      if (/inactive|background/.test(appState.current ?? '') && next === 'active') {
         refreshPremium();
       }
       appState.current = next;

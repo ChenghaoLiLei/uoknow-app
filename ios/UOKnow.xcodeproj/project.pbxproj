@@ -7,79 +7,81 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06750B4E549744098801168E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C6A88DBD5B649A8B5F275BA /* InfoPlist.strings */; };
-		0992405E9D8644318D486C6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F1C577E52634207A9B48D46 /* InfoPlist.strings */; };
-		0C6B4B8018CA4DFDA9BF0302 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2954138D02C49808179FE93 /* InfoPlist.strings */; };
-		0CFFA75B7565454B852D0A62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6C93B2B760445A6B6D27026 /* InfoPlist.strings */; };
+		03D38EC759FC40389C827F20 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2A42425354848BC8C6A4DAA /* InfoPlist.strings */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		1ED0A3B162CF4DD097B1C25F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42D02DB9835A450E8805A29C /* InfoPlist.strings */; };
-		24AB2ED30EB84FBEBF97EA46 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B48F6D7A5AE4FE4A03C7DB7 /* InfoPlist.strings */; };
-		2F3715F494374BCCBBE60497 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9D766005E5A46399B823BB6 /* InfoPlist.strings */; };
-		33AF66B493E04F958CEEA3CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E08C3241AEEF4A3F962AEF31 /* InfoPlist.strings */; };
+		2ABE3ED8A8EA42C7A6AC5722 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B56FF7DBC2AE428A96B1DD0B /* InfoPlist.strings */; };
+		39800BDF1A62CC90E2787C77 /* libPods-UOKnow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A0DF8E4F24943BA4D08C7D /* libPods-UOKnow.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		3EA2F375450D407DA8D3D313 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49A524F719F943B0B5653059 /* InfoPlist.strings */; };
-		4B33B98A5A0C4EEBBCC42B47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1D1EAA148D24385BAEC63D6 /* InfoPlist.strings */; };
-		50B5A8B24CFAF1EDDA3A7516 /* libPods-UOKnow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4984C693768E6C47F9C94654 /* libPods-UOKnow.a */; };
-		596997386A9A4A2C94E4936E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1007C3E7A88F419C9AC034DE /* InfoPlist.strings */; };
-		6404988576374785BAFE27ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A373FF6389B147B5A39EFBD7 /* InfoPlist.strings */; };
-		6662BC2205304623B9097C76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4321A22603FA4B0AA2E768D9 /* InfoPlist.strings */; };
-		6C5A503479CA4BE9AD6035B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8031AC62DCB4180B40C65C3 /* InfoPlist.strings */; };
-		7636DB01A0E149538F838C1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F00E885024714459A65ED8BA /* InfoPlist.strings */; };
-		AAA2688C7B834F11A744AAAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 442266EB1BB5472FB64563CB /* InfoPlist.strings */; };
-		AC035D100B284CBF93671D6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6B254A4866E4693947A7119 /* InfoPlist.strings */; };
-		B1494B937C874D86898A3DBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4390CC1E9E07493F8A8BC697 /* InfoPlist.strings */; };
-		B20FFEDFFDE4488BA26332AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFA6133BCDAC48EA8AEE7D23 /* InfoPlist.strings */; };
-		B483870E7DDE34846B06D4D6 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003277062323C02BEF30DDE7 /* ExpoModulesProvider.swift */; };
+		46062DEB738C4D52939CB420 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0E62266FACC444AA870776A /* InfoPlist.strings */; };
+		611E179436994F868520669A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9116D896E4534A84A9C80609 /* InfoPlist.strings */; };
+		653CD09BF746BD31CA19F043 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BC7A2B3E790E5591F0F9F905 /* PrivacyInfo.xcprivacy */; };
+		6571BA19D72D4D61977BCC09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC8B62BE073F40AA86CFD76B /* InfoPlist.strings */; };
+		6FE2790A49F44594B6F92BC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 360D36AFB33442FA85DF0D66 /* InfoPlist.strings */; };
+		740AAFC6FF2E4E7EBBCFEBAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 575FCAF1CE5947098C3DFE6A /* InfoPlist.strings */; };
+		752BD4ACC9F948919EFE653A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91A451BBCEE34D3F987F72D8 /* InfoPlist.strings */; };
+		78B851853672463285277000 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43D29A35AFD743D483F8B798 /* InfoPlist.strings */; };
+		796BE6C0BDDE4283B44E034A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34DAD9E5E7BB44C78B405A82 /* InfoPlist.strings */; };
+		8493E40963C84241A9506C20 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A69B581268594450B50B47A3 /* InfoPlist.strings */; };
+		8BF9B87AA6B14FA7A56750C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37371DF31D114E2BAAE5692D /* InfoPlist.strings */; };
+		987032661B3F40FA8E291A45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9857EA247FF34E0782203730 /* InfoPlist.strings */; };
+		9F0277EF2A33426F94F68EF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74BBBAA6428E437FABB5A925 /* InfoPlist.strings */; };
+		A8B67A0B2EF24D4FB2DBDF23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10C1D5BEFBAA453796E62210 /* InfoPlist.strings */; };
+		AF69404791B5472DA86D8FC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F97C2F0896447285BE80E8 /* InfoPlist.strings */; };
+		B2CA19B357D8458391D3E371 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C0371CECF9E4764920856A2 /* InfoPlist.strings */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		BD13AE59781B43ED8EA71EDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 516F70145AFD4B3AB2DA6A50 /* InfoPlist.strings */; };
-		C30A0C7FA7B842ECBDCE8D78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 633610D196AD439A8B221CCC /* InfoPlist.strings */; };
-		C7190A4F5DA84FE090A1ABE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 898A73A57E244BD4B8077EF6 /* InfoPlist.strings */; };
-		CB9CCE09CB612C5B225F6E1D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 799A7D74DE98A27F7839552E /* PrivacyInfo.xcprivacy */; };
-		D951AB16435D4F29ADFB6352 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37938FE23ECD45A6822FD224 /* InfoPlist.strings */; };
-		E387218143E2477EB9AEFDBA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A55A35D6725541CD819306C0 /* InfoPlist.strings */; };
-		F071DE2A893C4CAF8D7C35B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4AF311F2E1F424CB5FF764F /* InfoPlist.strings */; };
+		BD74B1EE93BCC89416495D3B /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BAEF95019B8E08423D1F38 /* ExpoModulesProvider.swift */; };
+		C90BD11ED68847939B59283E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B652887A2B634A9FBC0C4046 /* InfoPlist.strings */; };
+		D1B520EB1E6C447BA6692F16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A89CE69B671C4B859A7769DC /* InfoPlist.strings */; };
+		D3416B8574F743FC9CA53130 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF0E4B4B4F4D4A55AD29B4AC /* InfoPlist.strings */; };
+		D8A589B4A74D4C1C9AE9918A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05024C60DB5443C2A968E21B /* InfoPlist.strings */; };
+		DD8C770A508E4366ABE03A73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE0B95C9F6334400A7EA71FE /* InfoPlist.strings */; };
+		E447F031DF324F05A999A211 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1511646376F14B52892AB469 /* InfoPlist.strings */; };
+		E5B7E74B894E4B41827D51DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43AB57F3B95941A99C9D6D9D /* InfoPlist.strings */; };
+		EA0BF053515E432FB7B81B02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A661210A5C44F79FAE6C1D /* InfoPlist.strings */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
+		F11748442D0307B40044C1D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748432D0307B40044C1D9 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		003277062323C02BEF30DDE7 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-UOKnow/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		1007C3E7A88F419C9AC034DE /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = "zh-TW.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		04A661210A5C44F79FAE6C1D /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05024C60DB5443C2A968E21B /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		07F97C2F0896447285BE80E8 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		10C1D5BEFBAA453796E62210 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* UOKnow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UOKnow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = UOKnow/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = UOKnow/Info.plist; sourceTree = "<group>"; };
-		1B48F6D7A5AE4FE4A03C7DB7 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		37938FE23ECD45A6822FD224 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3F1C577E52634207A9B48D46 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = no.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		42D02DB9835A450E8805A29C /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4321A22603FA4B0AA2E768D9 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = pl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4390CC1E9E07493F8A8BC697 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		442266EB1BB5472FB64563CB /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ms.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4984C693768E6C47F9C94654 /* libPods-UOKnow.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UOKnow.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		49A524F719F943B0B5653059 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		516F70145AFD4B3AB2DA6A50 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		633610D196AD439A8B221CCC /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		64D7F9C29EEDB6B75004C798 /* Pods-UOKnow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UOKnow.release.xcconfig"; path = "Target Support Files/Pods-UOKnow/Pods-UOKnow.release.xcconfig"; sourceTree = "<group>"; };
-		6C6A88DBD5B649A8B5F275BA /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		799A7D74DE98A27F7839552E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = UOKnow/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		898A73A57E244BD4B8077EF6 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8BFA20C7D8571409B79D0DE7 /* Pods-UOKnow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UOKnow.debug.xcconfig"; path = "Target Support Files/Pods-UOKnow/Pods-UOKnow.debug.xcconfig"; sourceTree = "<group>"; };
-		A373FF6389B147B5A39EFBD7 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A55A35D6725541CD819306C0 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A6B254A4866E4693947A7119 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1511646376F14B52892AB469 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		34DAD9E5E7BB44C78B405A82 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = th.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		360D36AFB33442FA85DF0D66 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		37371DF31D114E2BAAE5692D /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		43AB57F3B95941A99C9D6D9D /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = hi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		43D29A35AFD743D483F8B798 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = "zh-TW.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4C0371CECF9E4764920856A2 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		55BAEF95019B8E08423D1F38 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-UOKnow/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		575FCAF1CE5947098C3DFE6A /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		74BBBAA6428E437FABB5A925 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9116D896E4534A84A9C80609 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		91A451BBCEE34D3F987F72D8 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = no.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9857EA247FF34E0782203730 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = pl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A69B581268594450B50B47A3 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A80234B7FA78D75ABB475004 /* Pods-UOKnow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UOKnow.debug.xcconfig"; path = "Target Support Files/Pods-UOKnow/Pods-UOKnow.debug.xcconfig"; sourceTree = "<group>"; };
+		A89CE69B671C4B859A7769DC /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = UOKnow/SplashScreen.storyboard; sourceTree = "<group>"; };
-		B1D1EAA148D24385BAEC63D6 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = zh.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B8031AC62DCB4180B40C65C3 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AFF87B3CEBF496E0ADA49880 /* Pods-UOKnow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UOKnow.release.xcconfig"; path = "Target Support Files/Pods-UOKnow/Pods-UOKnow.release.xcconfig"; sourceTree = "<group>"; };
+		B56FF7DBC2AE428A96B1DD0B /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = zh.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B652887A2B634A9FBC0C4046 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		BFA6133BCDAC48EA8AEE7D23 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C4AF311F2E1F424CB5FF764F /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C9D766005E5A46399B823BB6 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D2954138D02C49808179FE93 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E08C3241AEEF4A3F962AEF31 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = th.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BC7A2B3E790E5591F0F9F905 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = UOKnow/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		BE0B95C9F6334400A7EA71FE /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF0E4B4B4F4D4A55AD29B4AC /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C0E62266FACC444AA870776A /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C9A0DF8E4F24943BA4D08C7D /* libPods-UOKnow.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UOKnow.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8B62BE073F40AA86CFD76B /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ms.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E2A42425354848BC8C6A4DAA /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F00E885024714459A65ED8BA /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = UOKnow/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748432D0307B40044C1D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = UOKnow/SceneDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* UOKnow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UOKnow-Bridging-Header.h"; path = "UOKnow/UOKnow-Bridging-Header.h"; sourceTree = "<group>"; };
-		F6C93B2B760445A6B6D27026 /* InfoPlist.strings */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = hi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,154 +89,141 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50B5A8B24CFAF1EDDA3A7516 /* libPods-UOKnow.a in Frameworks */,
+				39800BDF1A62CC90E2787C77 /* libPods-UOKnow.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		007C3F863C89408FA18CD2F0 /* de.lproj */ = {
+		103076EB2EF243D4BE7EA05F /* ko.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				A55A35D6725541CD819306C0 /* InfoPlist.strings */,
+				E2A42425354848BC8C6A4DAA /* InfoPlist.strings */,
 			);
-			name = de.lproj;
-			sourceTree = "<group>";
-		};
-		05013D21F3DD4F76BCB3D7FD /* hi.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				F6C93B2B760445A6B6D27026 /* InfoPlist.strings */,
-			);
-			name = hi.lproj;
-			sourceTree = "<group>";
-		};
-		073F74CBF73045CC86622326 /* it.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				633610D196AD439A8B221CCC /* InfoPlist.strings */,
-			);
-			name = it.lproj;
+			name = ko.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* UOKnow */ = {
 			isa = PBXGroup;
 			children = (
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
+				F11748432D0307B40044C1D9 /* SceneDelegate.swift */,
 				F11748442D0722820044C1D9 /* UOKnow-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				799A7D74DE98A27F7839552E /* PrivacyInfo.xcprivacy */,
+				BC7A2B3E790E5591F0F9F905 /* PrivacyInfo.xcprivacy */,
 			);
 			name = UOKnow;
 			sourceTree = "<group>";
 		};
-		1E8E532FE33C415089F86E2F /* fi.lproj */ = {
+		2932028876AF418385D3351A /* ar.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				C4AF311F2E1F424CB5FF764F /* InfoPlist.strings */,
+				B652887A2B634A9FBC0C4046 /* InfoPlist.strings */,
 			);
-			name = fi.lproj;
+			name = ar.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		29D3E72ED8344FBCA203D7F9 /* nl.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A89CE69B671C4B859A7769DC /* InfoPlist.strings */,
+			);
+			name = nl.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				4984C693768E6C47F9C94654 /* libPods-UOKnow.a */,
+				C9A0DF8E4F24943BA4D08C7D /* libPods-UOKnow.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3306E244529A411F9661C37C /* tr.lproj */ = {
+		3CE3CA8D203D43D9A4F61ED0 /* es.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				42D02DB9835A450E8805A29C /* InfoPlist.strings */,
-			);
-			name = tr.lproj;
-			sourceTree = "<group>";
-		};
-		33B631AC6CFD49A79A019001 /* ar.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				516F70145AFD4B3AB2DA6A50 /* InfoPlist.strings */,
-			);
-			name = ar.lproj;
-			sourceTree = "<group>";
-		};
-		3AC774462F8F40CEAF8EF82B /* pt.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				F00E885024714459A65ED8BA /* InfoPlist.strings */,
-			);
-			name = pt.lproj;
-			sourceTree = "<group>";
-		};
-		3BCB826694D7455DBB915FD0 /* zh-TW.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				1007C3E7A88F419C9AC034DE /* InfoPlist.strings */,
-			);
-			name = "zh-TW.lproj";
-			sourceTree = "<group>";
-		};
-		4955FD62C6EB4A679116C9DE /* pl.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				4321A22603FA4B0AA2E768D9 /* InfoPlist.strings */,
-			);
-			name = pl.lproj;
-			sourceTree = "<group>";
-		};
-		596091A5D1604A1B83AD742E /* ko.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				6C6A88DBD5B649A8B5F275BA /* InfoPlist.strings */,
-			);
-			name = ko.lproj;
-			sourceTree = "<group>";
-		};
-		63DED315502F465CAC13ADAA /* es.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				BFA6133BCDAC48EA8AEE7D23 /* InfoPlist.strings */,
+				BF0E4B4B4F4D4A55AD29B4AC /* InfoPlist.strings */,
 			);
 			name = es.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		646DFA78E58641BD9AAE2140 /* nl.lproj */ = {
+		48653C9C6A134567B530BFFD /* th.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				49A524F719F943B0B5653059 /* InfoPlist.strings */,
+				34DAD9E5E7BB44C78B405A82 /* InfoPlist.strings */,
 			);
-			name = nl.lproj;
+			name = th.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		6AF17761647A2C81A73DF725 /* UOKnow */ = {
+		49C85F8BDC68411BB9B02490 /* no.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				003277062323C02BEF30DDE7 /* ExpoModulesProvider.swift */,
-			);
-			name = UOKnow;
-			sourceTree = "<group>";
-		};
-		6BF77BF8476F49E882A693DE /* no.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				3F1C577E52634207A9B48D46 /* InfoPlist.strings */,
+				91A451BBCEE34D3F987F72D8 /* InfoPlist.strings */,
 			);
 			name = no.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		7A43229B6B9D41E09DABB4F2 /* sv.lproj */ = {
+		6631F52D62D45D78CC87B2D5 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				1B48F6D7A5AE4FE4A03C7DB7 /* InfoPlist.strings */,
+				7D2B40064C74D50B36DE0CA6 /* UOKnow */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
+		6CC2BD76973342059EB52066 /* sv.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				360D36AFB33442FA85DF0D66 /* InfoPlist.strings */,
 			);
 			name = sv.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		6F2974AF1B9F45BA8F1A1B1C /* hi.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				43AB57F3B95941A99C9D6D9D /* InfoPlist.strings */,
+			);
+			name = hi.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		6F36CA867EAA4671B70B2C80 /* tr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				07F97C2F0896447285BE80E8 /* InfoPlist.strings */,
+			);
+			name = tr.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		7924CD0C174F43DD884E04E1 /* da.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				74BBBAA6428E437FABB5A925 /* InfoPlist.strings */,
+			);
+			name = da.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		7D2B40064C74D50B36DE0CA6 /* UOKnow */ = {
+			isa = PBXGroup;
+			children = (
+				55BAEF95019B8E08423D1F38 /* ExpoModulesProvider.swift */,
+			);
+			name = UOKnow;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -251,8 +240,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				A693F44B7BF746FE4A036986 /* Pods */,
-				B3569387824DD1DD174D5FCB /* ExpoModulesProviders */,
+				A3D4B9A1096EF3158DD017C1 /* Pods */,
+				6631F52D62D45D78CC87B2D5 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -267,143 +256,183 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		867A729ECE734B19BBD9027A /* uk.lproj */ = {
+		8A0F4D077A2D4F1D92B194A8 /* fr.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				D2954138D02C49808179FE93 /* InfoPlist.strings */,
+				1511646376F14B52892AB469 /* InfoPlist.strings */,
 			);
-			name = uk.lproj;
+			name = fr.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		8DDFFDD00E5549F2899102EA /* id.lproj */ = {
+		8AE8A2F73B974D429EB27761 /* it.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				A373FF6389B147B5A39EFBD7 /* InfoPlist.strings */,
+				04A661210A5C44F79FAE6C1D /* InfoPlist.strings */,
 			);
-			name = id.lproj;
+			name = it.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		9DFE50AAE2154CACA349D580 /* ms.lproj */ = {
+		92CF1E1C525943F29523092A /* ms.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				442266EB1BB5472FB64563CB /* InfoPlist.strings */,
+				DC8B62BE073F40AA86CFD76B /* InfoPlist.strings */,
 			);
 			name = ms.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		A4AD60F016A346F8845A888C /* da.lproj */ = {
+		93B8336FEB9443BFB935B4DB /* id.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				B8031AC62DCB4180B40C65C3 /* InfoPlist.strings */,
+				575FCAF1CE5947098C3DFE6A /* InfoPlist.strings */,
 			);
-			name = da.lproj;
+			name = id.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		A693F44B7BF746FE4A036986 /* Pods */ = {
+		977B1E06CCDD47479007AFCF /* uk.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				8BFA20C7D8571409B79D0DE7 /* Pods-UOKnow.debug.xcconfig */,
-				64D7F9C29EEDB6B75004C798 /* Pods-UOKnow.release.xcconfig */,
+				10C1D5BEFBAA453796E62210 /* InfoPlist.strings */,
 			);
+			name = uk.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		A3D4B9A1096EF3158DD017C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A80234B7FA78D75ABB475004 /* Pods-UOKnow.debug.xcconfig */,
+				AFF87B3CEBF496E0ADA49880 /* Pods-UOKnow.release.xcconfig */,
+			);
+			name = Pods;
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		A815BA35B1A44C17866DEBE8 /* ru.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				898A73A57E244BD4B8077EF6 /* InfoPlist.strings */,
-			);
-			name = ru.lproj;
-			sourceTree = "<group>";
-		};
-		ABA809141A75422FB6C1F8BB /* th.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				E08C3241AEEF4A3F962AEF31 /* InfoPlist.strings */,
-			);
-			name = th.lproj;
-			sourceTree = "<group>";
-		};
-		B3569387824DD1DD174D5FCB /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				6AF17761647A2C81A73DF725 /* UOKnow */,
-			);
-			name = ExpoModulesProviders;
-			sourceTree = "<group>";
-		};
-		B64DA2C0932A42F2A59106D8 /* zh.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				B1D1EAA148D24385BAEC63D6 /* InfoPlist.strings */,
-			);
-			name = zh.lproj;
-			sourceTree = "<group>";
-		};
-		B6B19971499C48EBBA5CE084 /* ja.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				4390CC1E9E07493F8A8BC697 /* InfoPlist.strings */,
-			);
-			name = ja.lproj;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
-				B64DA2C0932A42F2A59106D8 /* zh.lproj */,
-				3BCB826694D7455DBB915FD0 /* zh-TW.lproj */,
-				D72294C3B8644F6898CD2B14 /* en.lproj */,
-				B6B19971499C48EBBA5CE084 /* ja.lproj */,
-				596091A5D1604A1B83AD742E /* ko.lproj */,
-				63DED315502F465CAC13ADAA /* es.lproj */,
-				C74CFD927B1B414AA09D38D3 /* fr.lproj */,
-				007C3F863C89408FA18CD2F0 /* de.lproj */,
-				3AC774462F8F40CEAF8EF82B /* pt.lproj */,
-				073F74CBF73045CC86622326 /* it.lproj */,
-				A815BA35B1A44C17866DEBE8 /* ru.lproj */,
-				33B631AC6CFD49A79A019001 /* ar.lproj */,
-				05013D21F3DD4F76BCB3D7FD /* hi.lproj */,
-				ABA809141A75422FB6C1F8BB /* th.lproj */,
-				F7651441B4584E94AA6BE58D /* vi.lproj */,
-				8DDFFDD00E5549F2899102EA /* id.lproj */,
-				9DFE50AAE2154CACA349D580 /* ms.lproj */,
-				646DFA78E58641BD9AAE2140 /* nl.lproj */,
-				4955FD62C6EB4A679116C9DE /* pl.lproj */,
-				3306E244529A411F9661C37C /* tr.lproj */,
-				867A729ECE734B19BBD9027A /* uk.lproj */,
-				7A43229B6B9D41E09DABB4F2 /* sv.lproj */,
-				6BF77BF8476F49E882A693DE /* no.lproj */,
-				A4AD60F016A346F8845A888C /* da.lproj */,
-				1E8E532FE33C415089F86E2F /* fi.lproj */,
+				FB62CAEA5AC249F6A1346708 /* zh.lproj */,
+				D216D2505F964729BA6DB653 /* zh-TW.lproj */,
+				CEB698F826624C629148920A /* en.lproj */,
+				DF0FC53665534D33B5BC6FE8 /* ja.lproj */,
+				103076EB2EF243D4BE7EA05F /* ko.lproj */,
+				3CE3CA8D203D43D9A4F61ED0 /* es.lproj */,
+				8A0F4D077A2D4F1D92B194A8 /* fr.lproj */,
+				E49A0CC872534342B413D167 /* de.lproj */,
+				C0281BF9253E45E087814D21 /* pt.lproj */,
+				8AE8A2F73B974D429EB27761 /* it.lproj */,
+				FE2AB768A42C43499DB01993 /* ru.lproj */,
+				2932028876AF418385D3351A /* ar.lproj */,
+				6F2974AF1B9F45BA8F1A1B1C /* hi.lproj */,
+				48653C9C6A134567B530BFFD /* th.lproj */,
+				F1725DA71C934CE8A031D0DB /* vi.lproj */,
+				93B8336FEB9443BFB935B4DB /* id.lproj */,
+				92CF1E1C525943F29523092A /* ms.lproj */,
+				29D3E72ED8344FBCA203D7F9 /* nl.lproj */,
+				C967E2C9A9CE4400A7A3AA90 /* pl.lproj */,
+				6F36CA867EAA4671B70B2C80 /* tr.lproj */,
+				977B1E06CCDD47479007AFCF /* uk.lproj */,
+				6CC2BD76973342059EB52066 /* sv.lproj */,
+				49C85F8BDC68411BB9B02490 /* no.lproj */,
+				7924CD0C174F43DD884E04E1 /* da.lproj */,
+				CF280BD6D37449E8928B94A3 /* fi.lproj */,
 			);
 			name = Supporting;
 			path = UOKnow/Supporting;
 			sourceTree = "<group>";
 		};
-		C74CFD927B1B414AA09D38D3 /* fr.lproj */ = {
+		C0281BF9253E45E087814D21 /* pt.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				C9D766005E5A46399B823BB6 /* InfoPlist.strings */,
+				C0E62266FACC444AA870776A /* InfoPlist.strings */,
 			);
-			name = fr.lproj;
+			name = pt.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		D72294C3B8644F6898CD2B14 /* en.lproj */ = {
+		C967E2C9A9CE4400A7A3AA90 /* pl.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				37938FE23ECD45A6822FD224 /* InfoPlist.strings */,
+				9857EA247FF34E0782203730 /* InfoPlist.strings */,
+			);
+			name = pl.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		CEB698F826624C629148920A /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9116D896E4534A84A9C80609 /* InfoPlist.strings */,
 			);
 			name = en.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
-		F7651441B4584E94AA6BE58D /* vi.lproj */ = {
+		CF280BD6D37449E8928B94A3 /* fi.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				A6B254A4866E4693947A7119 /* InfoPlist.strings */,
+				BE0B95C9F6334400A7EA71FE /* InfoPlist.strings */,
+			);
+			name = fi.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		D216D2505F964729BA6DB653 /* zh-TW.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				43D29A35AFD743D483F8B798 /* InfoPlist.strings */,
+			);
+			name = "zh-TW.lproj";
+			path = "";
+			sourceTree = "<group>";
+		};
+		DF0FC53665534D33B5BC6FE8 /* ja.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A69B581268594450B50B47A3 /* InfoPlist.strings */,
+			);
+			name = ja.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		E49A0CC872534342B413D167 /* de.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				4C0371CECF9E4764920856A2 /* InfoPlist.strings */,
+			);
+			name = de.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		F1725DA71C934CE8A031D0DB /* vi.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				37371DF31D114E2BAAE5692D /* InfoPlist.strings */,
 			);
 			name = vi.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		FB62CAEA5AC249F6A1346708 /* zh.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				B56FF7DBC2AE428A96B1DD0B /* InfoPlist.strings */,
+			);
+			name = zh.lproj;
+			path = "";
+			sourceTree = "<group>";
+		};
+		FE2AB768A42C43499DB01993 /* ru.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				05024C60DB5443C2A968E21B /* InfoPlist.strings */,
+			);
+			name = ru.lproj;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,13 +443,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "UOKnow" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				75821EF5E4DFD7085DDAC5DB /* [Expo] Configure project */,
+				FCAF7FA12D1DE29EDF0F2783 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				89EF7A3DE86CA196E8993659 /* [CP] Embed Pods Frameworks */,
+				94E8FBD372C5A63F06CCAC9E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -470,32 +499,32 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				4B33B98A5A0C4EEBBCC42B47 /* InfoPlist.strings in Resources */,
-				596997386A9A4A2C94E4936E /* InfoPlist.strings in Resources */,
-				D951AB16435D4F29ADFB6352 /* InfoPlist.strings in Resources */,
-				B1494B937C874D86898A3DBB /* InfoPlist.strings in Resources */,
-				06750B4E549744098801168E /* InfoPlist.strings in Resources */,
-				B20FFEDFFDE4488BA26332AE /* InfoPlist.strings in Resources */,
-				2F3715F494374BCCBBE60497 /* InfoPlist.strings in Resources */,
-				E387218143E2477EB9AEFDBA /* InfoPlist.strings in Resources */,
-				7636DB01A0E149538F838C1D /* InfoPlist.strings in Resources */,
-				C30A0C7FA7B842ECBDCE8D78 /* InfoPlist.strings in Resources */,
-				C7190A4F5DA84FE090A1ABE3 /* InfoPlist.strings in Resources */,
-				BD13AE59781B43ED8EA71EDA /* InfoPlist.strings in Resources */,
-				0CFFA75B7565454B852D0A62 /* InfoPlist.strings in Resources */,
-				33AF66B493E04F958CEEA3CC /* InfoPlist.strings in Resources */,
-				AC035D100B284CBF93671D6C /* InfoPlist.strings in Resources */,
-				6404988576374785BAFE27ED /* InfoPlist.strings in Resources */,
-				AAA2688C7B834F11A744AAAC /* InfoPlist.strings in Resources */,
-				3EA2F375450D407DA8D3D313 /* InfoPlist.strings in Resources */,
-				6662BC2205304623B9097C76 /* InfoPlist.strings in Resources */,
-				1ED0A3B162CF4DD097B1C25F /* InfoPlist.strings in Resources */,
-				0C6B4B8018CA4DFDA9BF0302 /* InfoPlist.strings in Resources */,
-				24AB2ED30EB84FBEBF97EA46 /* InfoPlist.strings in Resources */,
-				0992405E9D8644318D486C6C /* InfoPlist.strings in Resources */,
-				6C5A503479CA4BE9AD6035B0 /* InfoPlist.strings in Resources */,
-				F071DE2A893C4CAF8D7C35B2 /* InfoPlist.strings in Resources */,
-				CB9CCE09CB612C5B225F6E1D /* PrivacyInfo.xcprivacy in Resources */,
+				2ABE3ED8A8EA42C7A6AC5722 /* InfoPlist.strings in Resources */,
+				78B851853672463285277000 /* InfoPlist.strings in Resources */,
+				611E179436994F868520669A /* InfoPlist.strings in Resources */,
+				8493E40963C84241A9506C20 /* InfoPlist.strings in Resources */,
+				03D38EC759FC40389C827F20 /* InfoPlist.strings in Resources */,
+				D3416B8574F743FC9CA53130 /* InfoPlist.strings in Resources */,
+				E447F031DF324F05A999A211 /* InfoPlist.strings in Resources */,
+				B2CA19B357D8458391D3E371 /* InfoPlist.strings in Resources */,
+				46062DEB738C4D52939CB420 /* InfoPlist.strings in Resources */,
+				EA0BF053515E432FB7B81B02 /* InfoPlist.strings in Resources */,
+				D8A589B4A74D4C1C9AE9918A /* InfoPlist.strings in Resources */,
+				C90BD11ED68847939B59283E /* InfoPlist.strings in Resources */,
+				E5B7E74B894E4B41827D51DC /* InfoPlist.strings in Resources */,
+				796BE6C0BDDE4283B44E034A /* InfoPlist.strings in Resources */,
+				8BF9B87AA6B14FA7A56750C2 /* InfoPlist.strings in Resources */,
+				740AAFC6FF2E4E7EBBCFEBAF /* InfoPlist.strings in Resources */,
+				6571BA19D72D4D61977BCC09 /* InfoPlist.strings in Resources */,
+				D1B520EB1E6C447BA6692F16 /* InfoPlist.strings in Resources */,
+				987032661B3F40FA8E291A45 /* InfoPlist.strings in Resources */,
+				AF69404791B5472DA86D8FC0 /* InfoPlist.strings in Resources */,
+				A8B67A0B2EF24D4FB2DBDF23 /* InfoPlist.strings in Resources */,
+				6FE2790A49F44594B6F92BC7 /* InfoPlist.strings in Resources */,
+				752BD4ACC9F948919EFE653A /* InfoPlist.strings in Resources */,
+				9F0277EF2A33426F94F68EF6 /* InfoPlist.strings in Resources */,
+				DD8C770A508E4366ABE03A73 /* InfoPlist.strings in Resources */,
+				653CD09BF746BD31CA19F043 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +546,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
+			shellScript = "if [[ -f \"$SRCROOT/.xcode.env\" ]]; then\n  source \"$SRCROOT/.xcode.env\"\nfi\nif [[ -f \"$SRCROOT/.xcode.env.local\" ]]; then\n  source \"$SRCROOT/.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$SRCROOT/.xcode.env.updates\" ]]; then\n  source \"$SRCROOT/.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$SRCROOT/.xcode.env.local\" ]]; then\n  source \"$SRCROOT/.xcode.env.local\"\nfi\n\n\"`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\"\n\n";
 		};
 		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -541,7 +570,77 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		75821EF5E4DFD7085DDAC5DB /* [Expo] Configure project */ = {
+		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UOKnow/Pods-UOKnow-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoApplication/ExpoApplication_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoLocalization/ExpoLocalization_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoNotifications/ExpoNotifications_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/PurchasesHybridCommon/PurchasesHybridCommon.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-timing/React-timing_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RevenueCat/RevenueCat.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXConstants.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoConstants_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoApplication_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoFileSystem_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoLocalization_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoNotifications_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PurchasesHybridCommon.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCAsyncStorage_resources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-timing_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RevenueCat.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UOKnow/Pods-UOKnow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94E8FBD372C5A63F06CCAC9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UOKnow/Pods-UOKnow-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem.framework/ExpoFileSystem",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ExpoFont/ExpoFont.framework/ExpoFont",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ExpoModulesCore/ExpoModulesCore.framework/ExpoModulesCore",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ExpoModulesJSI/ExpoModulesJSI.framework/ExpoModulesJSI",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ExpoModulesWorklets/ExpoModulesWorklets.framework/ExpoModulesWorklets",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermesvm.framework/hermesvm",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpoFileSystem.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpoFont.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpoModulesCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpoModulesJSI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpoModulesWorklets.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermesvm.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UOKnow/Pods-UOKnow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCAF7FA12D1DE29EDF0F2783 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -565,66 +664,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-UOKnow/expo-configure-project.sh\"\n";
 		};
-		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UOKnow/Pods-UOKnow-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/EXApplication/ExpoApplication_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/EXNotifications/ExpoNotifications_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoLocalization/ExpoLocalization_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/PurchasesHybridCommon/PurchasesHybridCommon.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/RevenueCat/RevenueCat.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoApplication_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXConstants.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoConstants_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoNotifications_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoFileSystem_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoLocalization_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PurchasesHybridCommon.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCAsyncStorage_resources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RevenueCat.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UOKnow/Pods-UOKnow-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89EF7A3DE86CA196E8993659 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UOKnow/Pods-UOKnow-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UOKnow/Pods-UOKnow-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -633,7 +672,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				B483870E7DDE34846B06D4D6 /* ExpoModulesProvider.swift in Sources */,
+				F11748442D0307B40044C1D9 /* SceneDelegate.swift in Sources */,
+				BD74B1EE93BCC89416495D3B /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,25 +682,25 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BFA20C7D8571409B79D0DE7 /* Pods-UOKnow.debug.xcconfig */;
+			baseConfigurationReference = A80234B7FA78D75ABB475004 /* Pods-UOKnow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = UOKnow/UOKnow.entitlements;
-				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = 3U43DH4339;
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
 				INFOPLIST_FILE = UOKnow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -679,20 +719,20 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64D7F9C29EEDB6B75004C798 /* Pods-UOKnow.release.xcconfig */;
+			baseConfigurationReference = AFF87B3CEBF496E0ADA49880 /* Pods-UOKnow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = UOKnow/UOKnow.entitlements;
-				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = 3U43DH4339;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = UOKnow/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -755,7 +795,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -763,10 +803,18 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
+				PODFILE_DIR = "$(SRCROOT)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
-				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				USE_HERMES = true;
 			};
 			name = Debug;
@@ -811,16 +859,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
+				PODFILE_DIR = "$(SRCROOT)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
-				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
