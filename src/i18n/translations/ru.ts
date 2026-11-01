@@ -34,6 +34,7 @@ export default {
   emailLabel: 'E-mail',
   phoneLabel: 'Телефон',
   contactMethodHint: 'E-mail используется для уведомлений; телефон — для SMS (требует настройки сервера).',
+  contactConsentNote: 'Добавляя контакт, вы подтверждаете, что этот человек согласился получать оповещения безопасности от UOKnow.',
   nameRequired: 'Пожалуйста, введите имя',
   contactMethodRequired: 'Укажите хотя бы один способ связи (e-mail или телефон)',
   syncWarning: "Ошибка синхронизации",

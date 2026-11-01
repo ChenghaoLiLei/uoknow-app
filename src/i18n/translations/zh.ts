@@ -36,6 +36,7 @@ export default {
   emailLabel: '邮箱',
   phoneLabel: '手机号',
   contactMethodHint: '邮箱用于发送通知邮件，手机号用于发送短信（需后端配置）。',
+  contactConsentNote: '添加联系人即表示你已征得对方同意，接收来自 UOKnow 的安全提醒。',
   nameRequired: '请输入姓名',
   contactMethodRequired: '请至少填写一种联系方式（邮箱或手机号）',
   syncWarning: "同步失败",

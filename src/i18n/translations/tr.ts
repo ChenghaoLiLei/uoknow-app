@@ -34,6 +34,7 @@ export default {
   emailLabel: 'E-posta',
   phoneLabel: 'Telefon',
   contactMethodHint: 'E-posta bildirimler için; telefon SMS için kullanılır (sunucu yapılandırması gerektirir).',
+  contactConsentNote: 'Bu kişiyi ekleyerek, UOKnow güvenlik uyarılarını almayı kabul ettiğini onaylamış olursunuz.',
   nameRequired: 'Lütfen bir ad girin',
   contactMethodRequired: 'Lütfen en az bir iletişim yöntemi girin (e-posta veya telefon)',
   syncWarning: "Senkronizasyon başarısız",

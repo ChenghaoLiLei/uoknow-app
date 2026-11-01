@@ -34,6 +34,7 @@ export default {
   emailLabel: 'Email',
   phoneLabel: 'Telepon',
   contactMethodHint: 'Email digunakan untuk notifikasi; telepon untuk SMS (memerlukan konfigurasi server).',
+  contactConsentNote: 'Dengan menambahkan kontak ini, Anda mengonfirmasi bahwa mereka telah setuju menerima peringatan keselamatan dari UOKnow.',
   nameRequired: 'Harap masukkan nama',
   contactMethodRequired: 'Harap berikan setidaknya satu metode kontak (email atau telepon)',
   syncWarning: "Sinkronisasi gagal",

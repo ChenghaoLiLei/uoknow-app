@@ -34,6 +34,7 @@ export default {
   emailLabel: 'Email',
   phoneLabel: 'Điện thoại',
   contactMethodHint: 'Email dùng để gửi thông báo; điện thoại dùng cho SMS (cần cấu hình máy chủ).',
+  contactConsentNote: 'Khi thêm liên hệ này, bạn xác nhận rằng họ đã đồng ý nhận cảnh báo an toàn từ UOKnow.',
   nameRequired: 'Vui lòng nhập tên',
   contactMethodRequired: 'Vui lòng cung cấp ít nhất một phương thức liên hệ (email hoặc điện thoại)',
   syncWarning: "Đồng bộ thất bại",

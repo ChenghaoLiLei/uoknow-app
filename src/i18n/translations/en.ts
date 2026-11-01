@@ -36,6 +36,7 @@ export default {
   emailLabel: 'Email',
   phoneLabel: 'Phone',
   contactMethodHint: 'At least one contact method is required. Email for notifications; phone for SMS alerts (Premium).',
+  contactConsentNote: 'By adding this contact you confirm they have agreed to receive safety alerts from UOKnow.',
   nameRequired: 'Please enter a name',
   contactMethodRequired: 'Please provide at least one contact method (email or phone)',
   syncWarning: "Sync failed",

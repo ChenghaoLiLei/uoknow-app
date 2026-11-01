@@ -34,6 +34,7 @@ export default {
   emailLabel: '이메일',
   phoneLabel: '전화번호',
   contactMethodHint: '이메일은 알림 메일에, 전화번호는 문자 메시지에 사용됩니다(백엔드 설정 필요).',
+  contactConsentNote: '이 연락처를 추가하면 상대방이 UOKnow의 안전 알림 수신에 동의했음을 확인하는 것입니다.',
   nameRequired: '이름을 입력해 주세요',
   contactMethodRequired: '이메일 또는 전화번호 중 하나를 입력해 주세요',
   syncWarning: "동기화 실패",

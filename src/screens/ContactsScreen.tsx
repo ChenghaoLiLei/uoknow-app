@@ -379,6 +379,9 @@ export default function ContactsScreen() {
             <Text style={[styles.fieldHint, { color: colors.textMuted }]}>
               {isPremium ? t('contactMethodHint') : t('emailRequiredFreeMsg')}
             </Text>
+            <Text style={[styles.fieldHint, { color: colors.textMuted }]}>
+              {t('contactConsentNote')}
+            </Text>
           </ScrollView>
         </KeyboardAvoidingView>
       </Modal>

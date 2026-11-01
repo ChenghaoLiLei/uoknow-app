@@ -34,6 +34,7 @@ export default {
   emailLabel: 'E-mail',
   phoneLabel: 'Telefoon',
   contactMethodHint: 'E-mail wordt gebruikt voor meldingen; telefoon voor sms (serverkonfiguratie vereist).',
+  contactConsentNote: 'Door dit contact toe te voegen bevestig je dat deze persoon ermee heeft ingestemd veiligheidsmeldingen van UOKnow te ontvangen.',
   nameRequired: 'Voer een naam in',
   contactMethodRequired: 'Geef ten minste één contactmethode op (e-mail of telefoon)',
   syncWarning: "Synchronisatie mislukt",

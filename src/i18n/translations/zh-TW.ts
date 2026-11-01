@@ -34,6 +34,7 @@ export default {
   emailLabel: '電子郵件',
   phoneLabel: '手機號碼',
   contactMethodHint: '電子郵件用於發送通知信件，手機號碼用於發送簡訊（需後端配置）。',
+  contactConsentNote: '新增聯絡人即表示你已徵得對方同意，接收來自 UOKnow 的安全提醒。',
   nameRequired: '請輸入姓名',
   contactMethodRequired: '請至少填寫一種聯絡方式（電子郵件或手機號碼）',
   syncWarning: "同步失敗",

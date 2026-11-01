@@ -34,6 +34,7 @@ export default {
   emailLabel: 'البريد الإلكتروني',
   phoneLabel: 'رقم الهاتف',
   contactMethodHint: 'يُستخدم البريد للإشعارات؛ الهاتف للرسائل النصية (يتطلب إعداد الخادم).',
+  contactConsentNote: 'بإضافة جهة الاتصال هذه، تؤكد أنها وافقت على تلقي تنبيهات الأمان من UOKnow.',
   nameRequired: 'يرجى إدخال الاسم',
   contactMethodRequired: 'يرجى توفير وسيلة تواصل واحدة على الأقل (بريد إلكتروني أو هاتف)',
   syncWarning: "فشلت المزامنة",

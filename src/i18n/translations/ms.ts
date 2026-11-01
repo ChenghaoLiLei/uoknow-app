@@ -34,6 +34,7 @@ export default {
   emailLabel: 'E-mel',
   phoneLabel: 'Telefon',
   contactMethodHint: 'E-mel digunakan untuk pemberitahuan; telefon untuk SMS (memerlukan konfigurasi pelayan).',
+  contactConsentNote: 'Dengan menambah kenalan ini, anda mengesahkan bahawa mereka telah bersetuju menerima amaran keselamatan daripada UOKnow.',
   nameRequired: 'Sila masukkan nama',
   contactMethodRequired: 'Sila berikan sekurang-kurangnya satu kaedah hubungan (e-mel atau telefon)',
   syncWarning: "Penyegerakan gagal",

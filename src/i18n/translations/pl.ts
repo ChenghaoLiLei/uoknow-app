@@ -34,6 +34,7 @@ export default {
   emailLabel: 'E-mail',
   phoneLabel: 'Telefon',
   contactMethodHint: 'E-mail służy do powiadomień; telefon do SMS-ów (wymaga konfiguracji serwera).',
+  contactConsentNote: 'Dodając ten kontakt, potwierdzasz, że ta osoba zgodziła się otrzymywać powiadomienia bezpieczeństwa z UOKnow.',
   nameRequired: 'Proszę wpisać imię',
   contactMethodRequired: 'Podaj przynajmniej jedną metodę kontaktu (e-mail lub telefon)',
   syncWarning: "Synchronizacja nie powiodła się",

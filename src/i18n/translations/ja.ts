@@ -34,6 +34,7 @@ export default {
   emailLabel: 'メールアドレス',
   phoneLabel: '電話番号',
   contactMethodHint: 'メールは通知メールに、電話番号はSMSに使用されます（バックエンド設定が必要）。',
+  contactConsentNote: 'この連絡先を追加することで、相手が UOKnow からの安全アラートの受信に同意していることを確認したものとみなされます。',
   nameRequired: '名前を入力してください',
   contactMethodRequired: 'メールアドレスまたは電話番号を少なくとも1つ入力してください',
   syncWarning: "同期に失敗しました",

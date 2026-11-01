@@ -34,6 +34,7 @@ export default {
   emailLabel: 'ईमेल',
   phoneLabel: 'फ़ोन',
   contactMethodHint: 'ईमेल सूचनाओं के लिए उपयोग होता है; फ़ोन SMS के लिए (सर्वर सेटअप आवश्यक)।',
+  contactConsentNote: 'इस संपर्क को जोड़कर आप पुष्टि करते हैं कि उन्होंने UOKnow से सुरक्षा अलर्ट प्राप्त करने की सहमति दी है।',
   nameRequired: 'कृपया नाम दर्ज करें',
   contactMethodRequired: 'कृपया कम से कम एक संपर्क विधि दें (ईमेल या फ़ोन)',
   syncWarning: "सिंक विफल",

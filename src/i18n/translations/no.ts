@@ -34,6 +34,7 @@ export default {
   emailLabel: 'E-post',
   phoneLabel: 'Telefon',
   contactMethodHint: 'E-post brukes til varsler; telefon til SMS (krever serverkonfigurasjon).',
+  contactConsentNote: 'Ved å legge til denne kontakten bekrefter du at personen har samtykket til å motta sikkerhetsvarsler fra UOKnow.',
   nameRequired: 'Skriv inn et navn',
   contactMethodRequired: 'Oppgi minst én kontaktmetode (e-post eller telefon)',
   syncWarning: "Synkronisering mislyktes",

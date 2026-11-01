@@ -34,6 +34,7 @@ export default {
   emailLabel: 'Correo electrónico',
   phoneLabel: 'Teléfono',
   contactMethodHint: 'El correo se usa para notificaciones; el teléfono para SMS (requiere configuración del servidor).',
+  contactConsentNote: 'Al añadir este contacto confirmas que ha aceptado recibir alertas de seguridad de UOKnow.',
   nameRequired: 'Por favor ingresa un nombre',
   contactMethodRequired: 'Ingresa al menos un método de contacto (correo o teléfono)',
   syncWarning: "Error de sincronización",

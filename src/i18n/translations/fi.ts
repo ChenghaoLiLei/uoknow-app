@@ -34,6 +34,7 @@ export default {
   emailLabel: 'Sähköposti',
   phoneLabel: 'Puhelin',
   contactMethodHint: 'Sähköpostia käytetään ilmoituksiin; puhelinta tekstiviesteille (vaatii palvelinmäärityksen).',
+  contactConsentNote: 'Lisäämällä yhteyshenkilön vahvistat, että hän on suostunut vastaanottamaan UOKnow-sovelluksen turvallisuusilmoituksia.',
   nameRequired: 'Anna nimi',
   contactMethodRequired: 'Anna vähintään yksi yhteydenottotapa (sähköposti tai puhelin)',
   syncWarning: "Synkronointi epäonnistui",

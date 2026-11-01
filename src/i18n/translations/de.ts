@@ -34,6 +34,7 @@ export default {
   emailLabel: 'E-Mail',
   phoneLabel: 'Telefon',
   contactMethodHint: 'E-Mail wird für Benachrichtigungen verwendet; Telefon für SMS (Server-Konfiguration erforderlich).',
+  contactConsentNote: 'Mit dem Hinzufügen bestätigst du, dass diese Person zugestimmt hat, Sicherheitsbenachrichtigungen von UOKnow zu erhalten.',
   nameRequired: 'Bitte einen Namen eingeben',
   contactMethodRequired: 'Bitte mindestens eine Kontaktmethode angeben (E-Mail oder Telefon)',
   syncWarning: "Synchronisierung fehlgeschlagen",
