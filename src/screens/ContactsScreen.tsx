@@ -28,6 +28,7 @@ import {
 } from '../utils/storage';
 import { apiSyncContacts } from '../utils/api';
 import { t } from '../i18n';
+import * as Localization from 'expo-localization';
 import { countryName } from '../i18n/countries';
 import { LanguageContext } from '../LanguageContext';
 import { PremiumContext } from '../PremiumContext';
@@ -40,34 +41,40 @@ const PHONE_RE = /^[\d\s\-().]{5,18}$/;
 
 // Country names are localized at render time via countryName() (see i18n/countries.ts).
 const COUNTRY_CODES = [
-  { code: '+86',  flag: '🇨🇳' },
-  { code: '+49',  flag: '🇩🇪' },
-  { code: '+1',   flag: '🇺🇸' },
-  { code: '+44',  flag: '🇬🇧' },
-  { code: '+33',  flag: '🇫🇷' },
-  { code: '+39',  flag: '🇮🇹' },
-  { code: '+34',  flag: '🇪🇸' },
-  { code: '+31',  flag: '🇳🇱' },
-  { code: '+46',  flag: '🇸🇪' },
-  { code: '+47',  flag: '🇳🇴' },
-  { code: '+45',  flag: '🇩🇰' },
-  { code: '+358', flag: '🇫🇮' },
-  { code: '+7',   flag: '🇷🇺' },
-  { code: '+81',  flag: '🇯🇵' },
-  { code: '+82',  flag: '🇰🇷' },
-  { code: '+852', flag: '🇭🇰' },
-  { code: '+886', flag: '🇹🇼' },
-  { code: '+65',  flag: '🇸🇬' },
-  { code: '+61',  flag: '🇦🇺' },
-  { code: '+64',  flag: '🇳🇿' },
-  { code: '+91',  flag: '🇮🇳' },
-  { code: '+55',  flag: '🇧🇷' },
-  { code: '+52',  flag: '🇲🇽' },
-  { code: '+90',  flag: '🇹🇷' },
-  { code: '+66',  flag: '🇹🇭' },
+  { code: '+86',  flag: '🇨🇳', region: 'CN' },
+  { code: '+49',  flag: '🇩🇪', region: 'DE' },
+  { code: '+1',   flag: '🇺🇸', region: 'US' },
+  { code: '+44',  flag: '🇬🇧', region: 'GB' },
+  { code: '+33',  flag: '🇫🇷', region: 'FR' },
+  { code: '+39',  flag: '🇮🇹', region: 'IT' },
+  { code: '+34',  flag: '🇪🇸', region: 'ES' },
+  { code: '+31',  flag: '🇳🇱', region: 'NL' },
+  { code: '+46',  flag: '🇸🇪', region: 'SE' },
+  { code: '+47',  flag: '🇳🇴', region: 'NO' },
+  { code: '+45',  flag: '🇩🇰', region: 'DK' },
+  { code: '+358', flag: '🇫🇮', region: 'FI' },
+  { code: '+7',   flag: '🇷🇺', region: 'RU' },
+  { code: '+81',  flag: '🇯🇵', region: 'JP' },
+  { code: '+82',  flag: '🇰🇷', region: 'KR' },
+  { code: '+852', flag: '🇭🇰', region: 'HK' },
+  { code: '+886', flag: '🇹🇼', region: 'TW' },
+  { code: '+65',  flag: '🇸🇬', region: 'SG' },
+  { code: '+61',  flag: '🇦🇺', region: 'AU' },
+  { code: '+64',  flag: '🇳🇿', region: 'NZ' },
+  { code: '+91',  flag: '🇮🇳', region: 'IN' },
+  { code: '+55',  flag: '🇧🇷', region: 'BR' },
+  { code: '+52',  flag: '🇲🇽', region: 'MX' },
+  { code: '+90',  flag: '🇹🇷', region: 'TR' },
+  { code: '+66',  flag: '🇹🇭', region: 'TH' },
 ];
 
-const DEFAULT_DIAL = COUNTRY_CODES[0];
+// Default to the dial code of the device's region (e.g. +49 in Germany, +1 in the US);
+// Canada shares +1 with the US. Falls back to the first entry for regions not in the list.
+const DEVICE_REGION = Localization.getLocales()[0]?.regionCode ?? '';
+const DEFAULT_DIAL =
+  COUNTRY_CODES.find((c) => c.region === DEVICE_REGION) ??
+  (DEVICE_REGION === 'CA' ? COUNTRY_CODES.find((c) => c.code === '+1') : undefined) ??
+  COUNTRY_CODES[0];
 
 function parsePhone(fullPhone: string): { dialCode: string; local: string } {
   if (!fullPhone) return { dialCode: DEFAULT_DIAL.code, local: '' };
