@@ -93,6 +93,10 @@ function parsePhone(fullPhone: string): { dialCode: string; local: string } {
   return { dialCode: DEFAULT_DIAL.code, local: fullPhone };
 }
 
+// Only +86 numbers go through the mainland-China SMS gateway (Aliyun); every
+// other destination depends on Twilio, which is not guaranteed.
+const isMainlandChina = (fullPhone: string) => fullPhone.startsWith('+86');
+
 const emptyForm = { name: '', email: '', dialCode: DEFAULT_DIAL.code, localPhone: '' };
 
 export default function ContactsScreen() {
@@ -177,6 +181,13 @@ export default function ContactsScreen() {
       Alert.alert(t('contactMethodRequired'));
       return;
     }
+    // SMS is only reliably delivered to mainland China (+86) numbers; a
+    // Premium contact with a non-+86 phone and no email could silently never
+    // be reached, so require an email address for them.
+    if (phone && !email && !isMainlandChina(phone)) {
+      Alert.alert(t('emailRequiredFreeTitle'), t('emailRequiredIntlMsg'));
+      return;
+    }
     if (email && !EMAIL_RE.test(email)) {
       Alert.alert(t('invalidEmail'));
       return;
@@ -254,6 +265,8 @@ export default function ContactsScreen() {
               {contact.phone ? <Text style={[styles.cardDetail, { color: colors.textSecondary }]}>📱 {contact.phone}</Text> : null}
               {!isPremium && !contact.email ? (
                 <Text style={[styles.cardWarning, { color: colors.danger }]}>⚠️ {t('contactNoEmailWarning')}</Text>
+              ) : isPremium && !contact.email && contact.phone && !isMainlandChina(contact.phone) ? (
+                <Text style={[styles.cardWarning, { color: colors.danger }]}>⚠️ {t('contactIntlNoEmailWarning')}</Text>
               ) : null}
             </View>
             <View style={styles.cardActions}>
