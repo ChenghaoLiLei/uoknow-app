@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Bạn chưa điểm danh hôm nay. Nhấn để xác nhận bạn ổn.',
   checkInSuccessTitle: '✅ Điểm danh đã lưu',
   checkInSuccessBody: 'Tuyệt! Điểm danh hôm nay đã được lưu. Hẹn gặp ngày mai!',
+  preAlertTitle: "⏰ Vui lòng điểm danh sớm",
+  preAlertBody2h: "Nếu bạn không điểm danh, các liên hệ khẩn cấp của bạn sẽ được thông báo sau khoảng 2 giờ nữa.",
+  preAlertBody30m: "Nếu bạn không điểm danh, các liên hệ khẩn cấp của bạn sẽ được thông báo sau khoảng 30 phút nữa.",
+  notifActionOk: "Tôi ổn",
 
   defaultPersonalMessage: 'Xin chào, tôi chưa điểm danh trong thời gian quy định. Vui lòng kiểm tra xem tôi có ổn không.',
 

@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Bugün henüz giriş yapmadın. İyi olduğunu onaylamak için dokun.',
   checkInSuccessTitle: '✅ Giriş kaydedildi',
   checkInSuccessBody: 'Harika! Bugünkü girişin kaydedildi. Yarın görüşürüz!',
+  preAlertTitle: "⏰ Lütfen yakında iyi olduğunuzu bildirin",
+  preAlertBody2h: "Bildirmezseniz acil durum kişilerinize yaklaşık 2 saat sonra haber verilecek.",
+  preAlertBody30m: "Bildirmezseniz acil durum kişilerinize yaklaşık 30 dakika sonra haber verilecek.",
+  notifActionOk: "İyiyim",
 
   defaultPersonalMessage: 'Merhaba, belirlenen süre içinde giriş yapamadım. Lütfen iyi olup olmadığımı kontrol et.',
 

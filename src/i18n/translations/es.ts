@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Aún no te has registrado hoy. Toca para confirmar que estás bien.',
   checkInSuccessTitle: '✅ Registro guardado',
   checkInSuccessBody: '¡Genial! Tu registro de hoy ha sido guardado. ¡Hasta mañana!',
+  preAlertTitle: "⏰ Confirma pronto que estás bien",
+  preAlertBody2h: "Si no confirmas, avisaremos a tus contactos de emergencia en unas 2 horas.",
+  preAlertBody30m: "Si no confirmas, avisaremos a tus contactos de emergencia en unos 30 minutos.",
+  notifActionOk: "Estoy bien",
 
   defaultPersonalMessage: 'Hola, no me he registrado en mi tiempo establecido. Por favor comprueba que estoy bien.',
 

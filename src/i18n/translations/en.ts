@@ -89,6 +89,10 @@ export default {
   reminderNotifBody: "You haven't checked in today. Tap to confirm you're OK.",
   checkInSuccessTitle: '✅ Check-in recorded',
   checkInSuccessBody: "Great! Today's check-in is saved. See you tomorrow.",
+  preAlertTitle: "⏰ Please check in soon",
+  preAlertBody2h: "Your emergency contacts will be notified in about 2 hours unless you check in.",
+  preAlertBody30m: "Your emergency contacts will be notified in about 30 minutes unless you check in.",
+  notifActionOk: "I’m OK",
 
   defaultPersonalMessage: "Hi, I haven't checked in for longer than my set window. Please make sure I'm safe.",
 

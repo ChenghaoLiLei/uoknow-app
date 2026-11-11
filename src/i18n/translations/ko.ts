@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: '오늘 아직 체크인하지 않았습니다. 탭하여 안전을 확인하세요.',
   checkInSuccessTitle: '✅ 체크인 완료',
   checkInSuccessBody: '오늘 체크인이 기록되었습니다. 내일 또 만나요!',
+  preAlertTitle: "⏰ 곧 체크인해 주세요",
+  preAlertBody2h: "체크인하지 않으면 약 2시간 후 비상 연락처에 알림이 전송됩니다.",
+  preAlertBody30m: "체크인하지 않으면 약 30분 후 비상 연락처에 알림이 전송됩니다.",
+  notifActionOk: "괜찮아요",
 
   defaultPersonalMessage: '안녕하세요, 설정한 시간 내에 체크인하지 못했습니다. 제 안전을 확인해 주세요.',
 

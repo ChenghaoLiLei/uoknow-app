@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Nie zameldowałeś się jeszcze dziś. Dotknij, aby potwierdzić, że wszystko gra.',
   checkInSuccessTitle: '✅ Meldunek zapisany',
   checkInSuccessBody: 'Świetnie! Dzisiejszy meldunek został zapisany. Do jutra!',
+  preAlertTitle: "⏰ Potwierdź wkrótce, że wszystko w porządku",
+  preAlertBody2h: "Jeśli tego nie potwierdzisz, za około 2 godziny powiadomimy Twoje kontakty alarmowe.",
+  preAlertBody30m: "Jeśli tego nie potwierdzisz, za około 30 minut powiadomimy Twoje kontakty alarmowe.",
+  notifActionOk: "Wszystko OK",
 
   defaultPersonalMessage: 'Cześć, nie zameldowałem się w wyznaczonym czasie. Upewnij się, że wszystko ze mną w porządku.',
 

@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Ainda não se registou hoje. Toque para confirmar que está bem.',
   checkInSuccessTitle: '✅ Registo guardado',
   checkInSuccessBody: 'Ótimo! O seu registo de hoje foi guardado. Até amanhã!',
+  preAlertTitle: "⏰ Confirme em breve que está bem",
+  preAlertBody2h: "Se não confirmar, os seus contactos de emergência serão avisados dentro de cerca de 2 horas.",
+  preAlertBody30m: "Se não confirmar, os seus contactos de emergência serão avisados dentro de cerca de 30 minutos.",
+  notifActionOk: "Estou bem",
 
   defaultPersonalMessage: 'Olá, não me registei dentro do meu período definido. Por favor verifique se estou bem.',
 

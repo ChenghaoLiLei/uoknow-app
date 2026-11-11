@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Du har ikke tjekket ind i dag. Tryk for at bekræfte, at du har det godt.',
   checkInSuccessTitle: '✅ Check-in gemt',
   checkInSuccessBody: 'Godt gået! Dit check-in for i dag er gemt. Vi ses i morgen!',
+  preAlertTitle: "⏰ Tjek snart ind",
+  preAlertBody2h: "Hvis du ikke tjekker ind, får dine nødkontakter besked om cirka 2 timer.",
+  preAlertBody30m: "Hvis du ikke tjekker ind, får dine nødkontakter besked om cirka 30 minutter.",
+  notifActionOk: "Jeg har det fint",
 
   defaultPersonalMessage: 'Hej, jeg har ikke tjekket ind inden for mit angivne tidsvindue. Tjek venligst at jeg har det godt.',
 

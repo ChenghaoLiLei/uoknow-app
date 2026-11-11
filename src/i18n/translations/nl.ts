@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'U heeft vandaag nog niet ingecheckt. Tik om te bevestigen dat alles goed gaat.',
   checkInSuccessTitle: '✅ Check-in opgeslagen',
   checkInSuccessBody: 'Goed gedaan! Uw check-in van vandaag is opgeslagen. Tot morgen!',
+  preAlertTitle: "⏰ Check binnenkort even in",
+  preAlertBody2h: "Als je niet incheckt, krijgen je noodcontacten over ongeveer 2 uur een melding.",
+  preAlertBody30m: "Als je niet incheckt, krijgen je noodcontacten over ongeveer 30 minuten een melding.",
+  notifActionOk: "Alles goed",
 
   defaultPersonalMessage: 'Hallo, ik heb niet ingecheckt binnen mijn ingestelde tijdvenster. Controleer alstublieft of alles goed met mij gaat.',
 

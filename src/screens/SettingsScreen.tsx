@@ -23,7 +23,7 @@ import { spacing, fontSizes, radius } from '../theme';
 import { useColors } from '../ThemeContext';
 import { clearAllData, getDeviceId, getSettings, saveSettings } from '../utils/storage';
 import { requestLocationPermission } from '../utils/location';
-import { scheduleDailyReminder } from '../utils/notifications';
+import { syncReminders } from '../utils/notifications';
 import { apiSyncSettings, apiDeleteDevice, isChinaRegion } from '../utils/api';
 import i18n, { t } from '../i18n';
 import { LanguageContext } from '../LanguageContext';
@@ -101,6 +101,7 @@ export default function SettingsScreen() {
     const updated = { ...settings, ...partial };
     setSettings(updated);
     await saveSettings(partial);
+    await syncReminders();
     // Best-effort: the local save above must survive a sync failure; the
     // self-heal push on the next Home focus converges the server.
     try {
@@ -111,7 +112,6 @@ export default function SettingsScreen() {
 
   const handleReminderChange = async (hour: number, minute: number) => {
     await save({ reminderHour: hour, reminderMinute: minute });
-    await scheduleDailyReminder(hour, minute);
   };
 
   const handleLocationToggle = async (value: boolean) => {

@@ -21,7 +21,7 @@ import HistoryScreen from './src/screens/HistoryScreen';
 import * as Localization from 'expo-localization';
 import { setLocale, t } from './src/i18n';
 import { getLanguage, saveLanguage, getSettings, getDeviceId } from './src/utils/storage';
-import { scheduleDailyReminder } from './src/utils/notifications';
+import { syncReminders } from './src/utils/notifications';
 import { LanguageContext } from './src/LanguageContext';
 import { apiSyncSettings } from './src/utils/api';
 import { PremiumProvider } from './src/PremiumContext';
@@ -91,10 +91,9 @@ export default function App() {
     setLocale(code);
     setLanguage(code);
     const [settings, deviceId] = await Promise.all([getSettings(), getDeviceId()]);
-    await Promise.all([
-      apiSyncSettings(deviceId, settings, code),
-      scheduleDailyReminder(settings.reminderHour, settings.reminderMinute),
-    ]);
+    // Re-create the reminders and the "I'm OK" button in the new language.
+    await syncReminders();
+    await apiSyncSettings(deviceId, settings, code);
   }, []);
 
   if (language === null) return null;

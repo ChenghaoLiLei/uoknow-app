@@ -12,6 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as Haptics from 'expo-haptics';
+import * as Notifications from 'expo-notifications';
 
 import { Contact, RootStackParamList } from '../types';
 import { spacing, fontSizes, radius } from '../theme';
@@ -24,7 +25,12 @@ import {
   getSettings,
   getDeviceId,
 } from '../utils/storage';
-import { requestPermissions, scheduleDailyReminder, sendLocalCheckInConfirmation } from '../utils/notifications';
+import {
+  CHECKIN_ACTION,
+  requestPermissions,
+  sendLocalCheckInConfirmation,
+  syncReminders,
+} from '../utils/notifications';
 import { getCurrentLocation, requestLocationPermission } from '../utils/location';
 import { apiCheckIn, apiSyncContacts, apiSyncSettings } from '../utils/api';
 import { LanguageContext } from '../LanguageContext';
@@ -33,6 +39,11 @@ import i18n, { t } from '../i18n';
 import { PremiumContext } from '../PremiumContext';
 
 type Nav = NativeStackNavigationProp<RootStackParamList, 'Home'>;
+
+// Notification responses already acted on. Module-level so a remount (language
+// change re-keys the navigator) or a re-delivered "last response" on launch
+// doesn't check in twice for the same tap.
+const handledResponses = new Set<string>();
 
 export default function HomeScreen() {
   const navigation = useNavigation<Nav>();
@@ -105,10 +116,12 @@ export default function HomeScreen() {
       setNextAlertIn(pausedNow ? 'paused' : remaining > 0 ? formatHours(remaining) : 'overdue');
     }
 
-    if (!initialized) {
-      await scheduleDailyReminder(settings.reminderHour, settings.reminderMinute);
-      setInitialized(true);
-    }
+    if (!initialized) setInitialized(true);
+
+    // Re-plan the daily reminder and the "contacts will be alerted soon"
+    // warnings against whatever changed while we were away (a new day,
+    // settings, contacts, vacation mode).
+    await syncReminders();
 
     // Self-heal: re-push contacts + settings on every focus so a previously
     // failed sync (network blip, server hiccup) doesn't stay lost. Combined with
@@ -170,7 +183,25 @@ export default function HomeScreen() {
 
     await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     await sendLocalCheckInConfirmation();
+    await syncReminders();
   };
+
+  // "I'm OK" button on a reminder / warning notification → check in right away.
+  // Covers both a running app (listener) and a cold launch (last response).
+  const checkInRef = useRef(handleCheckIn);
+  checkInRef.current = handleCheckIn;
+  useEffect(() => {
+    const onResponse = (response: Notifications.NotificationResponse | null) => {
+      if (!response || response.actionIdentifier !== CHECKIN_ACTION) return;
+      const key = `${response.notification.request.identifier}:${response.notification.date}`;
+      if (handledResponses.has(key)) return;
+      handledResponses.add(key);
+      checkInRef.current().catch(() => {});
+    };
+    try { onResponse(Notifications.getLastNotificationResponse()); } catch {}
+    const sub = Notifications.addNotificationResponseReceivedListener(onResponse);
+    return () => sub.remove();
+  }, []);
 
   const buttonScale = glowAnim.interpolate({ inputRange: [0, 1], outputRange: [1, 1.03] });
   const buttonColor = checkedIn ? colors.success : colors.primary;

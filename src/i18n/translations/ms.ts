@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Anda belum daftar masuk hari ini. Ketuk untuk mengesahkan anda baik-baik saja.',
   checkInSuccessTitle: '✅ Daftar masuk disimpan',
   checkInSuccessBody: 'Bagus! Daftar masuk hari ini telah disimpan. Jumpa esok!',
+  preAlertTitle: "⏰ Sila daftar masuk segera",
+  preAlertBody2h: "Jika anda tidak mendaftar masuk, kenalan kecemasan anda akan dimaklumkan dalam kira-kira 2 jam.",
+  preAlertBody30m: "Jika anda tidak mendaftar masuk, kenalan kecemasan anda akan dimaklumkan dalam kira-kira 30 minit.",
+  notifActionOk: "Saya okey",
 
   defaultPersonalMessage: 'Helo, saya tidak daftar masuk dalam tempoh yang ditetapkan. Sila pastikan saya selamat.',
 

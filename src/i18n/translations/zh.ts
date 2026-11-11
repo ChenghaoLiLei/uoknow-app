@@ -89,6 +89,10 @@ export default {
   reminderNotifBody: '你今天还没有签到，点击确认你还好。',
   checkInSuccessTitle: '✅ 签到成功',
   checkInSuccessBody: '很好！你今天的签到已记录。明天记得再来。',
+  preAlertTitle: "⏰ 请尽快签到",
+  preAlertBody2h: "如果不签到，大约 2 小时后会通知你的紧急联系人。",
+  preAlertBody30m: "如果不签到，大约 30 分钟后会通知你的紧急联系人。",
+  notifActionOk: "我没事",
 
   defaultPersonalMessage: '你好，我已经超过设定时间没有签到了，请确认我是否平安。',
 

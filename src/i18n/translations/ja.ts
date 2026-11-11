@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: '今日まだチェックインしていません。タップして安全を確認してください。',
   checkInSuccessTitle: '✅ チェックイン完了',
   checkInSuccessBody: '今日のチェックインが記録されました。また明日！',
+  preAlertTitle: "⏰ そろそろチェックインしてください",
+  preAlertBody2h: "チェックインしないと、約2時間後に緊急連絡先へ通知されます。",
+  preAlertBody30m: "チェックインしないと、約30分後に緊急連絡先へ通知されます。",
+  notifActionOk: "大丈夫です",
 
   defaultPersonalMessage: 'こんにちは。設定した時間内にチェックインできませんでした。私の安否を確認してください。',
 

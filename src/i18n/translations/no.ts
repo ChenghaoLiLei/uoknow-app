@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Du har ikke sjekket inn i dag. Trykk for å bekrefte at du har det bra.',
   checkInSuccessTitle: '✅ Innsjekking lagret',
   checkInSuccessBody: 'Flott! Innsjekkingen din for i dag er lagret. Vi sees i morgen!',
+  preAlertTitle: "⏰ Sjekk inn snart",
+  preAlertBody2h: "Hvis du ikke sjekker inn, blir nødkontaktene dine varslet om omtrent 2 timer.",
+  preAlertBody30m: "Hvis du ikke sjekker inn, blir nødkontaktene dine varslet om omtrent 30 minutter.",
+  notifActionOk: "Jeg har det bra",
 
   defaultPersonalMessage: 'Hei, jeg har ikke sjekket inn innen mitt angitte tidsvindu. Vennligst sjekk at alt er greit med meg.',
 

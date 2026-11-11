@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Du har inte checkats in idag. Tryck för att bekräfta att du mår bra.',
   checkInSuccessTitle: '✅ Incheckning sparad',
   checkInSuccessBody: 'Toppen! Din incheckning för idag är sparad. Vi ses imorgon!',
+  preAlertTitle: "⏰ Checka in snart",
+  preAlertBody2h: "Om du inte checkar in meddelas dina nödkontakter om ungefär 2 timmar.",
+  preAlertBody30m: "Om du inte checkar in meddelas dina nödkontakter om ungefär 30 minuter.",
+  notifActionOk: "Jag mår bra",
 
   defaultPersonalMessage: 'Hej, jag har inte checkats in inom mitt angivna tidsfönster. Kontrollera gärna att allt är bra med mig.',
 

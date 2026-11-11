@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Et ole vielä kirjautunut tänään. Napauta vahvistaaksesi, että kaikki on hyvin.',
   checkInSuccessTitle: '✅ Kirjautuminen tallennettu',
   checkInSuccessBody: 'Hienoa! Tämän päivän kirjautuminen on tallennettu. Nähdään huomenna!',
+  preAlertTitle: "⏰ Kuittaa pian, että kaikki on hyvin",
+  preAlertBody2h: "Jos et kuittaa, hätäyhteyshenkilöillesi ilmoitetaan noin 2 tunnin kuluttua.",
+  preAlertBody30m: "Jos et kuittaa, hätäyhteyshenkilöillesi ilmoitetaan noin 30 minuutin kuluttua.",
+  notifActionOk: "Voin hyvin",
 
   defaultPersonalMessage: 'Hei, en kirjautunut asettamassani aikarajassa. Tarkista, että minulla on kaikki hyvin.',
 

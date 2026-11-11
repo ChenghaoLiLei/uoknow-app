@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Kamu belum check-in hari ini. Ketuk untuk mengonfirmasi kamu baik-baik saja.',
   checkInSuccessTitle: '✅ Check-in tersimpan',
   checkInSuccessBody: 'Bagus! Check-in hari ini telah disimpan. Sampai jumpa besok!',
+  preAlertTitle: "⏰ Mohon segera check-in",
+  preAlertBody2h: "Jika Anda tidak check-in, kontak darurat Anda akan diberi tahu sekitar 2 jam lagi.",
+  preAlertBody30m: "Jika Anda tidak check-in, kontak darurat Anda akan diberi tahu sekitar 30 menit lagi.",
+  notifActionOk: "Saya baik-baik saja",
 
   defaultPersonalMessage: 'Halo, saya belum check-in dalam waktu yang ditentukan. Tolong pastikan saya baik-baik saja.',
 

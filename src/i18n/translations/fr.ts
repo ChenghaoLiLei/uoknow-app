@@ -70,6 +70,10 @@ export default {
   reminderNotifBody: 'Vous n\'avez pas encore pointé aujourd\'hui. Appuyez pour confirmer que vous allez bien.',
   checkInSuccessTitle: '✅ Pointage enregistré',
   checkInSuccessBody: 'Super ! Votre pointage du jour est sauvegardé. À demain !',
+  preAlertTitle: "⏰ Pensez à confirmer bientôt",
+  preAlertBody2h: "Sans confirmation de votre part, vos contacts d’urgence seront prévenus dans environ 2 heures.",
+  preAlertBody30m: "Sans confirmation de votre part, vos contacts d’urgence seront prévenus dans environ 30 minutes.",
+  notifActionOk: "Je vais bien",
 
   defaultPersonalMessage: 'Bonjour, je n\'ai pas pointé dans le délai imparti. Merci de vérifier que je vais bien.',
 

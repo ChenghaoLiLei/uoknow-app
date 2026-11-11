@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Non ti sei ancora registrato oggi. Tocca per confermare che stai bene.',
   checkInSuccessTitle: '✅ Registrazione salvata',
   checkInSuccessBody: 'Ottimo! La tua registrazione di oggi è stata salvata. A domani!',
+  preAlertTitle: "⏰ Conferma presto che stai bene",
+  preAlertBody2h: "Se non confermi, i tuoi contatti di emergenza verranno avvisati tra circa 2 ore.",
+  preAlertBody30m: "Se non confermi, i tuoi contatti di emergenza verranno avvisati tra circa 30 minuti.",
+  notifActionOk: "Sto bene",
 
   defaultPersonalMessage: 'Ciao, non mi sono registrato entro il mio periodo impostato. Per favore verifica che io stia bene.',
 

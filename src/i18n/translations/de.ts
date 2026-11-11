@@ -71,6 +71,10 @@ export default {
   reminderNotifBody: 'Sie haben sich heute noch nicht eingecheckt. Tippen Sie, um zu bestätigen, dass alles gut ist.',
   checkInSuccessTitle: '✅ Check-in gespeichert',
   checkInSuccessBody: 'Super! Ihr heutiger Check-in wurde gespeichert. Bis morgen!',
+  preAlertTitle: "⏰ Bitte bald einchecken",
+  preAlertBody2h: "Ohne Check-in werden Ihre Notfallkontakte in etwa 2 Stunden benachrichtigt.",
+  preAlertBody30m: "Ohne Check-in werden Ihre Notfallkontakte in etwa 30 Minuten benachrichtigt.",
+  notifActionOk: "Mir geht es gut",
 
   defaultPersonalMessage: 'Hallo, ich habe mich nicht innerhalb meines festgelegten Zeitfensters eingecheckt. Bitte überprüfen Sie, ob alles in Ordnung ist.',
 
